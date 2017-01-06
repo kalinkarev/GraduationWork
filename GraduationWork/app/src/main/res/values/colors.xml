@@ -3,4 +3,19 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorRedForEvents">#D24647</color>
+    <color name="colorOrangeForEvents">#E18823</color>
+    <color name="colorPinkForEvents">#E15555</color>
+    <color name="colorGreenForEvents">#94BA22</color>
+    <color name="colorGreyForEvents">#CBCACA</color>
+    <color name="colorPurpleForEvents">#9E6BB8</color>
+    <color name="colorAlmostWhiteForEvents">#DDDDDE</color>
+    <color name="colorAlmostWhite2ForEvents">#D9D9DA</color>
+
+    <color name="colorSomePinkForEvents">#D54A4B</color>
+    <color name="colorSomeOrangeForEvents">#E18823</color>
+    <color name="colorWithPinkForEvents">#DE5253</color>
+    <color name="colorBlueForEvents">#2699C0</color>
+    <color name="colorSomePurpleForEvents">#A673C0</color>
+
 </resources>
