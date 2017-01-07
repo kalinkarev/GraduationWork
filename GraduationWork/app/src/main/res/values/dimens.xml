@@ -6,5 +6,5 @@
 
     <dimen name="small_height">10dp</dimen>
     <dimen name="medium_height">15dp</dimen>
-    <dimen name="high_height">15dp</dimen>
+    <dimen name="high_height">20dp</dimen>
 </resources>

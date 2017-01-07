@@ -1,5 +1,6 @@
 package com.example.kalin.graduationwork;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -32,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(MainActivity.this, NewEvent.class);
+                startActivity(i);
             }
         });
     }
