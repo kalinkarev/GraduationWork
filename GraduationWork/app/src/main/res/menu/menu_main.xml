@@ -8,4 +8,11 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
 
+    <item
+        android:orderInCategory="200"
+        android:title="right arrow"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/arrow_right"
+        ></item>
+
 </menu>
