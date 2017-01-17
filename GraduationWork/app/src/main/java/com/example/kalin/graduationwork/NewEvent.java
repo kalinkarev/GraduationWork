@@ -16,6 +16,8 @@ public class NewEvent extends AppCompatActivity {
 
         Toolbar toolbar_newEvent = (Toolbar) findViewById(R.id.toolbar_newEvent);
         setSupportActionBar(toolbar_newEvent);
+
+        toolbar_newEvent.setNavigationIcon(R.drawable.button);
     }
 
     @Override
