@@ -15,6 +15,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.kalin.graduationwork.fragments.BaseFragment;
+import com.example.kalin.graduationwork.fragments.HomeFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -29,39 +32,63 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.arrow_left);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_SHORT).show();
 
-                Intent i = new Intent(MainActivity.this, NewEvent.class);
+                Intent i = new Intent(MainActivity.this, NewEventActivity.class);
                 startActivity(i);
             }
         });
 
-        String[] activities = {"Tennis", "Fitness", "Free"};
-        ListAdapter kalinsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, activities);
-        ListView kalinsListView = (ListView) findViewById(R.id.kalinsListView);
-        kalinsListView.setAdapter(kalinsAdapter);
-
-        kalinsListView.setOnItemClickListener(
-                new AdapterView.OnItemClickListener(){
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        String activity = String.valueOf(parent.getItemAtPosition(position));
-                        Toast.makeText(MainActivity.this, activity, Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
+        showFragment(new HomeFragment());
     }
+
+    public void showFragment(BaseFragment fragment) {
+        removeAllFragments();
+        getFragmentManager().beginTransaction()
+                .replace(R.id.fragment, fragment)
+                .commitAllowingStateLoss();
+    }
+
+    public void showFragmentWithAdd(BaseFragment fragment) {
+        getFragmentManager().beginTransaction()
+                .add(R.id.fragment, fragment)
+                .commitAllowingStateLoss();
+    }
+
+    public boolean isSameFragmentShowing(BaseFragment fragment) {
+        return getFragmentManager().findFragmentById(R.id.fragment) != null &&
+                getFragmentManager().findFragmentById(R.id.fragment).getClass().equals(fragment.getClass());
+    }
+
+    public void showFragmentAndAddToBackstack(BaseFragment fragment) {
+        if (isSameFragmentShowing(fragment)) {
+            return;
+        }
+        getFragmentManager().beginTransaction()
+                .replace(R.id.fragment, fragment)
+                .addToBackStack(fragment.getClass().getName())
+                .commitAllowingStateLoss();
+    }
+
+       public void removeAllFragments() {
+        for (int i = 0; i < getFragmentManager()
+                .getBackStackEntryCount(); ++i) {
+            getFragmentManager().popBackStack();
+        }
+    }
+
+    public void removeLastFragment() {
+        getFragmentManager().popBackStack();
+    }
+
+    public void removeLastFragmentImmediate() {
+        getFragmentManager().popBackStackImmediate();
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

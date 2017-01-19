@@ -1,27 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_new_event"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context="com.example.kalin.graduationwork.NewEvent">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/imageView"
+            android:layout_marginTop="105dp"
+            android:src="@drawable/menu" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@+id/user_location"
+            android:id="@+id/imageView2"
+            android:layout_marginTop="210dp"
+            android:src="@drawable/arrow_right"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/imageView3"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/compleated_task"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/imageView4"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/button" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40dp"
+        >
+
+    <EditText
+        android:id="@+id/user_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:hint="Enter titles, people and places"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_newEvent"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="80dp"
+        android:background="#c0c0c0"/>
 
-    </android.support.design.widget.AppBarLayout>
+    <EditText
+        android:id="@+id/user_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Add location"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="330dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-    <include layout="@layout/content_new_event" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="380dp"
+        android:background="#c0c0c0"/>
 
-</android.support.design.widget.CoordinatorLayout>
+    <EditText
+        android:id="@+id/user_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Add a notification"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="390dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="440dp"
+        android:background="#c0c0c0"/>
+
+    <EditText
+        android:id="@+id/user_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Add price"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="450dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="500dp"
+        android:background="#c0c0c0" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="All-day"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="105dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:ems="5"
+        android:id="@+id/editText"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/switch2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:ems="5"
+        android:layout_below="@+id/editText"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_marginTop="19dp"
+        android:id="@+id/editText2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="8"
+        android:id="@+id/editText3"
+        android:layout_alignBaseline="@+id/editText"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_alignLeft="@+id/switch2"
+        android:layout_alignStart="@+id/switch2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="8"
+        android:layout_alignTop="@+id/editText2"
+        android:layout_alignRight="@+id/editText3"
+        android:layout_alignEnd="@+id/editText3"
+        android:id="@+id/editText4" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="more options"
+        android:layout_below="@+id/editText2"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentEnd="true" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="320dp"
+        android:background="#c0c0c0" />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
+</ScrollView>
