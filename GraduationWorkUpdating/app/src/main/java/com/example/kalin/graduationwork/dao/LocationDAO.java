@@ -1,0 +1,136 @@
+package com.example.kalin.graduationwork.dao;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.location.Location;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.R.attr.name;
+
+/**
+ * Created by Kalin on 27.1.2017 г..
+ */
+
+public class LocationDAO {
+
+    public static final String TAG = "LocationDAO";
+
+    private Context mContext;
+
+    // Database fields
+    private SQLiteDatabase mDatabase;
+    private DBHelper mDbHelper;
+    private String[] mAllColumns = { DBHelper.COLUMN_LOCATION_ID,
+            DBHelper.COLUMN_LOCATION_NAME,
+            DBHelper.COLUMN_LOCATION_LONGITUTE,
+            DBHelper.COLUMN_LOCATION_LATITUDE,
+            DBHelper.COLUMN_EVENT_LOCATION_ID };
+
+    public LocationDAO(Context context) {
+        mDbHelper = new DBHelper(context);
+        this.mContext = context;
+        // open the database
+        try {
+            open();
+        } catch (SQLException e) {
+            Log.e(TAG, "SQLException on openning database " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void open() throws SQLException {
+        mDatabase = mDbHelper.getWritableDatabase();
+    }
+
+    public void close() {
+        mDbHelper.close();
+    }
+
+    public Location createLocation(String firstName, String lastName,
+                                  String address, String email, String phoneNumber, double salary,
+                                  long eventId) {
+        ContentValues values = new ContentValues();
+        values.put(DBHelper.COLUMN_LOCATION_NAME, name);
+        values.put(DBHelper.COLUMN_LOCATION_LATITUDE, latitude);
+        values.put(DBHelper.COLUMN_LOCATION_LONGITUTE, longitute);
+        values.put(DBHelper.COLUMN_EVENT_LOCATION_ID, eventId);
+        long insertId = mDatabase
+                .insert(DBHelper.TABLE_LOCATIONS, null, values);
+        Cursor cursor = mDatabase.query(DBHelper.TABLE_LOCATIONS, mAllColumns,
+                DBHelper.COLUMN_LOCATION_ID + " = " + insertId, null, null,
+                null, null);
+        cursor.moveToFirst();
+        Location newLocation = cursorToEmploye(cursor);
+        cursor.close();
+        return newLocation;
+    }
+
+    public void deleteLocation(Location location) {
+        long id = location.getId();
+        System.out.println("the deleted employee has the id: " + id);
+        mDatabase.delete(DBHelper.TABLE_LOCATIONS, DBHelper.COLUMN_LOCATION_ID
+                + " = " + id, null);
+    }
+
+    public List<Location> getAllLocations() {
+        List<Location> listEmployees = new ArrayList<Location>();
+
+        Cursor cursor = mDatabase.query(DBHelper.TABLE_LOCATIONS, mAllColumns,
+                null, null, null, null, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            Location location = cursorToEmploye(cursor);
+            listLocations.add(location);
+            cursor.moveToNext();
+        }
+        // make sure to close the cursor
+        cursor.close();
+        return listLocatins;
+    }
+
+    public List<Location> getEmployeesOfCompany(long locationId) {
+        List<Location> listEmployees = new ArrayList<Location>();
+
+        Cursor cursor = mDatabase.query(DBHelper.TABLE_LOCATIONS, mAllColumns,
+                DBHelper.COLUMN_LOCATION_ID + " = ?",
+                new String[] { String.valueOf(locationId) }, null, null, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            Location location = cursorToLocation(cursor);
+            listEmployees.add(location);
+            cursor.moveToNext();
+        }
+        // make sure to close the cursor
+        cursor.close();
+        return listEmployees;
+    }
+
+    private Location cursorToLocation(Cursor cursor) {
+        Location location = new Location();
+        location.setId(cursor.getLong(0));
+        location.setFirstName(cursor.getString(1));
+        employee.setLastName(cursor.getString(2));
+        employee.setAddress(cursor.getString(3));
+        employee.setEmail(cursor.getString(4));
+        employee.setPhoneNumber(cursor.getString(5));
+        employee.setSalary(cursor.getDouble(6));
+
+        // get The company by id
+        long companyId = cursor.getLong(7);
+        CompanyDAO dao = new CompanyDAO(mContext);
+        Company company = dao.getCompanyById(companyId);
+        if (company != null)
+            employee.setCompany(company);
+
+        return employee;
+    }
+
+}
