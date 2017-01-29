@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
+import android.support.design.widget.BaseTransientBottomBar;
 import android.util.EventLog;
 import android.util.Log;
 
@@ -74,11 +75,20 @@ public class EventDAO {
 
     public void deleteEvent(Event event) {
         long id = event.getId();
+        // delete everything for this event
         LocationDAO locationDao = new LocationDAO(mContext);
         List<Location> listLocations = locationDao.getLocationsOfEvent(id);
         if (listLocations != null && !listLocations.isEmpty()) {
             for (Location l : listLocations) {
                 locationDao.deleteLocation(l);
+            }
+        }
+
+        DurationDAO durationDao = new DurationDAO(mContext);
+        List<Duration> listDurations = durationDao.getDurationsOfEvent(id);
+        if (listDurations != null && !listDurations.isEmpty()) {
+            for (Duration d : listDurations) {
+                durationDao.deleteDuration(d);
             }
         }
 
@@ -105,9 +115,9 @@ public class EventDAO {
     }
 
     public Event getEventById(long id) {
-        Cursor cursor = mDatabase(DBHelper.TABLE_EVENTS, mAllColumns,
-                DBHelper.COLUMN_EVENT_ID + " = ?",
+        Cursor cursor = mDatabase.query(DBHelper.TABLE_EVENTS, mAllColumns, DBHelper.COLUMN_EVENT_ID + " = ?",
                 new String[] { String.valueOf(id) }, null, null, null);
+
         if (cursor != null) {
             cursor.moveToFirst();
         }
@@ -119,11 +129,17 @@ public class EventDAO {
     protected Event cursorToEvent(Cursor cursor) {
         Event event = new Event();
         event.setId(cursor.getLong(0));
-        event.setName(cursor.getLong(1));
-        event.setColor(cursor.getLong(2));
-        event.setNote(cursor.getLong(3));
-        event.setNotification(cursor.getLong(4));
+        event.setName(cursor.getString(1));
+        event.setColor(cursor.getString(2));
+        event.setNote(cursor.getString(3));
+        event.setNotification(cursor.getString(4));
         event.setPrice(cursor.getLong(5));
+
+//        event.setName(cursor.getString(1));
+//        event.setColor(cursor.getLong(2));
+//        event.setNote(cursor.getLong(3));
+//        event.setNotification(cursor.getLong(4));
+//        event.setPrice(cursor.getLong(5));
         return event;
     }
 }
