@@ -1,7 +1,0 @@
-#Mon Jan 23 22:33:33 EET 2017
-base.0=E\:\\AndroidSutdioProjects\\GraduationWorkUpdating\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_bdf4a2cae524fb7dbfb469d1035b41395f4cfc3d
-renamed.1=classes2.dex
-renamed.0=classes.dex
-file.1=E\:\\AndroidSutdioProjects\\GraduationWorkUpdating\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_7659e4f5bb177e46221cc09b46251bf9bb498673\\classes.dex
-base.1=E\:\\AndroidSutdioProjects\\GraduationWorkUpdating\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_7659e4f5bb177e46221cc09b46251bf9bb498673
-file.0=E\:\\AndroidSutdioProjects\\GraduationWorkUpdating\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_bdf4a2cae524fb7dbfb469d1035b41395f4cfc3d\\classes.dex
