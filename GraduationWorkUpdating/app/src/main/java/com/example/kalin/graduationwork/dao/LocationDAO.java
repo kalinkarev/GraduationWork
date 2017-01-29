@@ -5,15 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.location.Location;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.attr.name;
-import static android.R.attr.value;
-import static android.R.id.list;
 
 /**
  * Created by Kalin on 27.1.2017 г..
@@ -57,8 +52,8 @@ public class LocationDAO {
     public Location createLocation(String name, long longitute, long latitude, long eventId) {
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_LOCATION_NAME, name);
-        values.put(DBHelper.COLUMN_LOCATION_LATITUDE, latitude);
         values.put(DBHelper.COLUMN_LOCATION_LONGITUTE, longitute);
+        values.put(DBHelper.COLUMN_LOCATION_LATITUDE, latitude);
         values.put(DBHelper.COLUMN_LOCATION_EVENT_ID, eventId);
 
         long insertId = mDatabase.insert(DBHelper.TABLE_LOCATIONS, null, values);
@@ -72,7 +67,7 @@ public class LocationDAO {
 
     public void deleteLocation(Location location) {
         long id = location.getId();
-        System.out.println("the deleted employee has the id: " + id);
+        System.out.println("the deleted location has the id: " + id);
         mDatabase.delete(DBHelper.TABLE_LOCATIONS, DBHelper.COLUMN_LOCATION_ID + " = " + id, null);
     }
 
@@ -111,9 +106,10 @@ public class LocationDAO {
 
     private Location cursorToLocation(Cursor cursor) {
         Location location = new Location();
+
         location.setId(cursor.getLong(0));
         location.setName(cursor.getString(1));
-        location.setLongitude(cursor.getLong(2));
+        location.setLongitute(cursor.getString(2));
         location.setLatitude(cursor.getLong(3));
 
         // get The event by id
