@@ -5,15 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.location.Location;
 import android.util.Log;
+
+import com.example.kalin.graduationwork.model.Duration;
+import com.example.kalin.graduationwork.model.Event;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.attr.name;
-import static android.R.id.list;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 
 /**
  * Created by Kalin on 29.1.2017 г..
@@ -121,11 +119,11 @@ public class DurationDAO {
         duration.setAllday(cursor.getString(4));
 
         // get The event by id
-        long eventId = cursor.getLong(5);
+//        long eventId = cursor.getLong(5);
         EventDAO dao = new EventDAO(mContext);
         Event event = dao.getEventById(eventId);
         if (event != null)
-            location.setEvent(event);
+            duration.setEvent(event);
 
         return duration;
     }

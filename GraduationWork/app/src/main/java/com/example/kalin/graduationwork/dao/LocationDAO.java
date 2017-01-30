@@ -7,6 +7,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.kalin.graduationwork.model.Location;
+
 import java.util.ArrayList;
 import java.util.List;
 

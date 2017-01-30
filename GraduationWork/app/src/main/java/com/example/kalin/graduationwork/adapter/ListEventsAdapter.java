@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import com.example.kalin.graduationwork.R;
 
+import com.example.kalin.graduationwork.model.Event;
+
+import java.util.List;
+
 /**
  * Created by Kalin on 29.1.2017 г..
  */
@@ -36,7 +40,7 @@ public class ListEventsAdapter extends BaseAdapter {
 
     @Override
     public Event getItem(int position) {
-        return (getItems() != null && !getItems().isEmpty()) ? getItems().get(position).getId() : position;
+        return (getItems() != null && !getItems().isEmpty()) ? getItems().get(position) : null;
     }
 
     @Override

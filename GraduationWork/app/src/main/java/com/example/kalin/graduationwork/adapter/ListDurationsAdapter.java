@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import com.example.kalin.graduationwork.R;
 
+import com.example.kalin.graduationwork.model.Duration;
+
+import java.util.List;
+
 /**
  * Created by Kalin on 30.1.2017 г..
  */
@@ -63,7 +67,7 @@ public class ListDurationsAdapter extends BaseAdapter {
         if (currentItem != null) {
             holder.txtStart.setText(String.valueOf(currentItem.getStart()));
             holder.txtFinish.setText(String.valueOf(currentItem.getFinish()));
-            holder.txtRepeat.setText(currentItem.getRepat());
+            holder.txtRepeat.setText(currentItem.getRepeat());
             holder.txtAllday.setText(currentItem.getAllday());
             holder.txtEventName.setText(currentItem.getEvent().getName());
         }

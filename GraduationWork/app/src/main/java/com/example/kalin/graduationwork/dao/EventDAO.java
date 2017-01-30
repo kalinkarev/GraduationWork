@@ -5,16 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.location.Location;
-import android.support.design.widget.BaseTransientBottomBar;
-import android.util.EventLog;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.R.id.list;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
+import com.example.kalin.graduationwork.model.Event;
+import com.example.kalin.graduationwork.model.Location;
+import com.example.kalin.graduationwork.model.Duration;
 
 /**
  * Created by Kalin on 23.1.2017 г..

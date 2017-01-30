@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import com.example.kalin.graduationwork.R;
 
+import com.example.kalin.graduationwork.model.Location;
+
+import java.util.List;
+
 /**
  * Created by Kalin on 29.1.2017 г..
  */
