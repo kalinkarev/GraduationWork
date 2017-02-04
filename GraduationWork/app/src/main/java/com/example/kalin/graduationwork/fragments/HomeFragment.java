@@ -42,10 +42,19 @@ public class HomeFragment extends BaseFragment {
         event2.setName("Lunch");
         Event event3 = new Event();
         event3.setName("Dinner");
+        Event event4 = new Event();
+        event4.setName("Free");
+        Event event5 = new Event();
+        event5.setName("Working");
+        Event event6 = new Event();
+        event6.setName("Sleeping");
         ArrayList<Event> events = new ArrayList<>();
         events.add(event1);
         events.add(event2);
         events.add(event3);
+        events.add(event4);
+        events.add(event5);
+        events.add(event6);
         adapter.addItems(events);
     }
 
