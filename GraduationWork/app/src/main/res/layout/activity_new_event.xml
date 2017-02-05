@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,35 +16,36 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/imageView"
+            android:id="@+id/imageViewClock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="105dp"
-            android:src="@drawable/menu" />
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/clock" />
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignTop="@+id/user_location"
-            android:id="@+id/imageView2"
-            android:layout_marginTop="210dp"
-            android:src="@drawable/arrow_right"
-            />
+            android:id="@+id/imageViewLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="215dp"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/location" />
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imageView3"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/compleated_task"
-            />
+            android:id="@+id/imageViewNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/bell" />
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imageView4"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/button" />
+            android:id="@+id/imageViewPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/price" />
 
     </LinearLayout>
 
@@ -116,63 +120,63 @@
         android:background="#c0c0c0" />
 
     <Switch
-        android:id="@+id/switch2"
+        android:id="@+id/switch_for_allday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:text="All-day"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="105dp"/>
 
     <EditText
+        android:id="@+id/editText_startTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="time"
         android:ems="5"
-        android:id="@+id/editText"
         android:layout_marginTop="27dp"
-        android:layout_below="@+id/switch2"
+        android:layout_below="@+id/switch_for_allday"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <EditText
+        android:id="@+id/editText_finishTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="time"
         android:ems="5"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:layout_marginTop="19dp"
-        android:id="@+id/editText2" />
+        android:layout_below="@+id/editText_startTime"
+        android:layout_alignLeft="@+id/editText_startTime"
+        android:layout_alignStart="@+id/editText_startTime"
+        android:layout_marginTop="19dp" />
 
     <EditText
+        android:id="@+id/editText_day_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="8"
-        android:id="@+id/editText3"
-        android:layout_alignBaseline="@+id/editText"
-        android:layout_alignBottom="@+id/editText"
-        android:layout_alignLeft="@+id/switch2"
-        android:layout_alignStart="@+id/switch2" />
+        android:layout_alignBaseline="@+id/editText_startTime"
+        android:layout_alignBottom="@+id/editText_startTime"
+        android:layout_alignLeft="@+id/switch_for_allday"
+        android:layout_alignStart="@+id/switch_for_allday" />
 
     <EditText
+        android:id="@+id/editText_day_finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="8"
-        android:layout_alignTop="@+id/editText2"
-        android:layout_alignRight="@+id/editText3"
-        android:layout_alignEnd="@+id/editText3"
-        android:id="@+id/editText4" />
+        android:layout_alignTop="@+id/editText_finishTime"
+        android:layout_alignRight="@+id/editText_day_start"
+        android:layout_alignEnd="@+id/editText_day_start" />
 
     <EditText
+        android:id="@+id/more_options"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="more options"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/editText_finishTime"
         android:layout_alignParentRight="true"
         android:layout_marginTop="15dp"
         android:layout_alignParentEnd="true" />
@@ -186,3 +190,4 @@
     </RelativeLayout>
 
 </RelativeLayout>
+</ScrollView>
