@@ -22,5 +22,26 @@
         android:paddingRight="70dp"
         />
 
+    <LinearLayout
+        android:id="@+id/layout_for_no_events"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:text="@string/no_tasks_in_the_database_create_new_one_by_clicking_the_add_button"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="350dp"
+            android:background="@drawable/no_event_arrow"
+            />
+
+    </LinearLayout>
+
 </RelativeLayout>
 <!-- </ScrollView> -->

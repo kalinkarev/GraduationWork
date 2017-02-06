@@ -2,6 +2,8 @@ package com.example.kalin.graduationwork.fragments;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.adapter.EventsAdapter;
@@ -17,6 +19,7 @@ public class HomeFragment extends BaseFragment {
 
     private EventsAdapter adapter;
     private RecyclerView list;
+    private LinearLayout layout;
 
     @Override
     protected int getLayoutId() {
@@ -29,6 +32,9 @@ public class HomeFragment extends BaseFragment {
         adapter = new EventsAdapter();
         list.setAdapter(adapter);
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
+        layout = (LinearLayout) mainView.findViewById(R.id.layout_for_no_events);
+
+        // fill the recyclerView
 
 //        Event event1 = new Event();
 //        event1.setName("Tenis");
@@ -36,6 +42,7 @@ public class HomeFragment extends BaseFragment {
 //        events.add(event1);
 //        adapter.addItems(events);
 
+        ArrayList<Event> events = new ArrayList<>();
         Event event1 = new Event();
         event1.setName("Free");
         Event event2 = new Event();
@@ -48,7 +55,6 @@ public class HomeFragment extends BaseFragment {
         event5.setName("Working");
         Event event6 = new Event();
         event6.setName("Sleeping");
-        ArrayList<Event> events = new ArrayList<>();
         events.add(event1);
         events.add(event2);
         events.add(event3);
@@ -56,6 +62,15 @@ public class HomeFragment extends BaseFragment {
         events.add(event5);
         events.add(event6);
         adapter.addItems(events);
+
+        if (events.size() == 0) {
+            list.setVisibility(View.GONE);
+            layout.setVisibility(View.VISIBLE);
+        } else {
+            list.setVisibility(View.VISIBLE);
+            layout.setVisibility(View.GONE);
+        }
+
     }
 
     @Override
