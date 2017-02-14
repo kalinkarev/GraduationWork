@@ -7,37 +7,42 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.kalin.graduationwork.fragments.AddFragment;
 import com.example.kalin.graduationwork.fragments.BaseFragment;
 import com.example.kalin.graduationwork.fragments.HomeFragment;
 
-import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
+    //    private Toolbar toolbar_for_mainscreen;
+    private Toolbar toolbarMainscreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar_for_mainscreen); // Attaching the layout to the toolbar object
-        setSupportActionBar(toolbar);
-
+        toolbarMainscreen = (Toolbar) findViewById(R.id.toolbarMainscreen);
+        setSupportActionBar(toolbarMainscreen);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        toolbarMainscreen.setTitle("");
+        toolbarMainscreen.setSubtitle("");
+
+//        toolbar_for_mainscreen = (Toolbar) findViewById(R.id.toolbar_for_mainscreen); // Attaching the layout to the toolbar object
+//        setSupportActionBar(toolbar_for_mainscreen);
+
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
         //toolbar.setNavigationIcon(R.drawable.ic_toolbar);
-        toolbar.setTitle("");
-        toolbar.setSubtitle("");
+//        toolbar_for_mainscreen.setTitle("");
+//        toolbar_for_mainscreen.setSubtitle("");
 
         //toolbar.setNavigationIcon(R.drawable.common_google_signin_btn_text_light_pressed);
         //toolbar.setNavigationIcon(R.drawable.arrow_left);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
-        fab.setOnClickListener(new View.OnClickListener(){
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_SHORT).show();
@@ -76,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 .commitAllowingStateLoss();
     }
 
-       public void removeAllFragments() {
+    public void removeAllFragments() {
         for (int i = 0; i < getFragmentManager()
                 .getBackStackEntryCount(); ++i) {
             getFragmentManager().popBackStack();
@@ -95,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        //       getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -105,28 +110,28 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.get(Calendar.DATE);
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.get(Calendar.DATE);
 
         int id = item.getItemId();
 
-        switch (item.getItemId()) {
-            case R.id.action_see_nextdata:
-                Toast.makeText(getApplicationContext(), "You have clicked action_see_nextdata", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.action_see_previousdata:
-                Toast.makeText(getApplicationContext(), "You have clicked action_see_previousdata", Toast.LENGTH_SHORT).show();
-
-                return true;
-
-            case R.id.action_see_the_data:
-                Toast.makeText(getApplicationContext(), "You have clicked action_see_the_data", Toast.LENGTH_SHORT).show();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+//        switch (item.getItemId()) {
+//            case R.id.action_see_nextdata:
+//                Toast.makeText(getApplicationContext(), "You have clicked action_see_nextdata", Toast.LENGTH_SHORT).show();
+//                return true;
+//
+//            case R.id.action_see_previousdata:
+//                Toast.makeText(getApplicationContext(), "You have clicked action_see_previousdata", Toast.LENGTH_SHORT).show();
+//
+//                return true;
+//
+//            case R.id.action_see_the_data:
+//                Toast.makeText(getApplicationContext(), "You have clicked action_see_the_data", Toast.LENGTH_SHORT).show();
+//                return true;
+//
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
 
         //noinspection SimplifiableIfStatement
 //        if (id == R.id.action_settings) {
@@ -134,5 +139,8 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
 //        return super.onOptionsItemSelected(item);
+//    }
+
+        return true;
     }
 }

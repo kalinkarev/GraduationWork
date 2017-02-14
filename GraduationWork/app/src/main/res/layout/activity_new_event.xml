@@ -11,8 +11,9 @@
     tools:context="com.example.kalin.graduationwork.fragments.AddFragment">
 
     <include
-        android:id="@+id/toolbar_for_add_event"
-        layout="@layout/toolbar_for_add_event"
+        layout="@layout/toolbar_addfragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         ></include>
 
     <LinearLayout
