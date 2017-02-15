@@ -1,41 +1,47 @@
 package com.example.kalin.graduationwork.fragments;
 
-import android.app.Fragment;
-import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.kalin.graduationwork.R;
 
 /**
  * Created by Kalin on 19.1.2017 г..
  */
 
-public abstract class AddFragment extends Fragment {
+public class AddFragment extends BaseFragment {
 
     protected View addView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        addView = inflater.inflate(getLayoutId(), null);
-
-        onCreateView();
-        setupToolbar();
-
-        return addView;
+    protected int getLayoutId() {
+        return R.layout.activity_new_event;
     }
 
-    protected abstract int getLayoutId();
+    @Override
+    protected void onCreateView() {
 
-    protected abstract void onCreateView();
+    }
 
-    protected abstract void setupToolbar();
+    @Override
+    protected void setupToolbar() {
 
-//    protected MainActivity getMainActivity() {
-//        return (MainActivity) getActivity();
-//    }
+//        Toolbar toolbar_for_add_event = (Toolbar) getMainActivity().getLayoutInflater().inflate(R.layout.toolbar_for_add_event, null);
+//
+//        getMainActivity().setSupportActionBar(toolbar_for_add_event);
 
-//    protected NewEventActivity getNewActivity() {
-//        return (NewEventActivity) getActivity();
-//    }
+
+        Toolbar toolbarAddfragment = (Toolbar) getMainActivity().getLayoutInflater().inflate(R.layout.toolbar_addfragment, null);
+
+        getMainActivity().setSupportActionBar(toolbarAddfragment);
+
+        TextView mTitle = (TextView) toolbarAddfragment.findViewById(R.id.title_toolbar);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
+    }
 
 }
