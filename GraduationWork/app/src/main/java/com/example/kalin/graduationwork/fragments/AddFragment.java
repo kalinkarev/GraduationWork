@@ -14,6 +14,10 @@ import com.example.kalin.graduationwork.R;
 public class AddFragment extends BaseFragment {
 
     protected View addView;
+    Toolbar toolbarAddfragment;
+
+    TextView tvForStartDate;
+    TextView tvForFinishDate;
 
     @Override
     protected int getLayoutId() {
@@ -23,6 +27,22 @@ public class AddFragment extends BaseFragment {
     @Override
     protected void onCreateView() {
 
+//        tvForStartDate = (TextView) getMainActivity().getLayoutInflater().inflate(R.layout.activity_new_event, null);
+//        getMainActivity().findViewById(R.id.activity_new_event);
+
+
+//        final Calendar cal = Calendar.getInstance();
+//        cal.get(Calendar.HOUR_OF_DAY);
+//
+//        TimePickerDialog dialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener(){
+//            @Override
+//            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+//                cal.set(Calendar.HOUR_OF_DAY, hourOfDay);
+//            }
+//        }, cal.get(Calendar.HOUR_OF_DAY), 0, true);
+//
+//        getActivity().getActionBar().setDisplayHomeAsUpEnabled(false);
+//        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
     @Override
@@ -33,11 +53,11 @@ public class AddFragment extends BaseFragment {
 //        getMainActivity().setSupportActionBar(toolbar_for_add_event);
 
 
-        Toolbar toolbarAddfragment = (Toolbar) getMainActivity().getLayoutInflater().inflate(R.layout.toolbar_addfragment, null);
+        toolbarAddfragment = (Toolbar) getMainActivity().getLayoutInflater().inflate(R.layout.toolbar_addfragment, null);
 
         getMainActivity().setSupportActionBar(toolbarAddfragment);
 
-        TextView mTitle = (TextView) toolbarAddfragment.findViewById(R.id.title_toolbar);
+//        TextView mTitle = (TextView) toolbarAddfragment.findViewById(R.id.title_toolbar);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
