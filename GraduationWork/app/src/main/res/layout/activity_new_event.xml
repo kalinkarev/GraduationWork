@@ -43,27 +43,27 @@
             android:text="All-day"
             />
 
-        <EditText
-            android:id="@+id/editTextForStartDate"
+        <TextView
+            android:id="@+id/textViewForStartDate"
             android:layout_below="@+id/switchForDuration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/editTextForFinishDate"
-            android:layout_below="@+id/editTextForStartDate"
+        <TextView
+            android:id="@+id/textViewForFinishDate"
+            android:layout_below="@+id/textViewForStartDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dip"
-            android:layout_below="@+id/editTextForFinishDate"
+            android:layout_below="@+id/textViewForFinishDate"
             android:background="@color/colorAlmostWhite2ForEvents" />
 
         <EditText
             android:id="@+id/editTextLocation"
-            android:layout_below="@+id/editTextForFinishDate"
+            android:layout_below="@+id/textViewForFinishDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Add location"

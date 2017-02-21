@@ -3,9 +3,14 @@ package com.example.kalin.graduationwork.fragments;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.kalin.graduationwork.R;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 /**
  * Created by Kalin on 19.1.2017 г..
@@ -16,9 +21,6 @@ public class AddFragment extends BaseFragment {
     protected View addView;
     Toolbar toolbarAddfragment;
 
-    TextView tvForStartDate;
-    TextView tvForFinishDate;
-
     @Override
     protected int getLayoutId() {
         return R.layout.activity_new_event;
@@ -27,8 +29,50 @@ public class AddFragment extends BaseFragment {
     @Override
     protected void onCreateView() {
 
-//        tvForStartDate = (TextView) getMainActivity().getLayoutInflater().inflate(R.layout.activity_new_event, null);
-//        getMainActivity().findViewById(R.id.activity_new_event);
+        final TextView tvForStartDate = (TextView) mainView.findViewById(R.id.textViewForStartDate);
+        final TextView tvForFinishDate = (TextView) mainView.findViewById(R.id.textViewForFinishDate);
+
+        String formatCurrentDate = DateFormat.getDateInstance(DateFormat.FULL).format(new Date());
+
+        tvForStartDate.setText(formatCurrentDate);
+        tvForFinishDate.setText(formatCurrentDate);
+
+        Switch switchForDateDuration = (Switch) mainView.findViewById(R.id.switchForDuration);
+
+        // set the switch to ON
+        switchForDateDuration.setChecked(false);
+        //attach a listener to check for changes in state
+        switchForDateDuration.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+
+                if (isChecked) {
+                    //switchStatus.setText("Switch is currently ON");
+                    tvForStartDate.setVisibility(View.GONE);
+                    tvForFinishDate.setVisibility(View.GONE);
+                } else {
+                    //switchStatus.setText("Switch is currently OFF");
+                    tvForStartDate.setVisibility(View.VISIBLE);
+                    tvForFinishDate.setVisibility(View.VISIBLE);
+                }
+
+            }
+        });
+
+        //check the current state before we display the screen
+        if (switchForDateDuration.isChecked()) {
+            //switchStatus.setText("Switch is currently ON");
+            //tvForData.setVisibility(View.GONE);
+            tvForStartDate.setVisibility(View.GONE);
+            tvForFinishDate.setVisibility(View.GONE);
+        } else {
+            //switchStatus.setText("Switch is currently OFF");
+            //tvForData.setVisibility(View.VISIBLE);
+            tvForStartDate.setVisibility(View.VISIBLE);
+            tvForFinishDate.setVisibility(View.VISIBLE);
+        }
 
 
 //        final Calendar cal = Calendar.getInstance();
