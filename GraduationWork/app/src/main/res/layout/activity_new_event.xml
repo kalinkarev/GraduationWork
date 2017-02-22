@@ -47,13 +47,28 @@
             android:id="@+id/textViewForStartDate"
             android:layout_below="@+id/switchForDuration"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:id="@+id/textViewForStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/switchForDuration"
+            android:layout_alignParentRight="true" />
 
         <TextView
             android:id="@+id/textViewForFinishDate"
             android:layout_below="@+id/textViewForStartDate"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewForStartTime"
+            android:layout_alignParentRight="true" />
 
         <View
             android:layout_width="fill_parent"
@@ -130,7 +145,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/location"
-            android:layout_marginTop="100dp"/>
+            android:layout_marginTop="50dp"/>
 
         <ImageView
             android:layout_below="@+id/imageViewLocation"
@@ -138,7 +153,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bell"
-            android:layout_marginTop="25dp"/>
+            android:layout_marginTop="20dp"/>
 
         <ImageView
             android:layout_below="@+id/imageViewNotification"
