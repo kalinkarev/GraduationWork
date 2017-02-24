@@ -91,17 +91,6 @@ public class AddFragment extends BaseFragment {
 
     @Override
     protected void setupToolbar() {
-
-//        Toolbar toolbar_for_add_event = (Toolbar) getMainActivity().getLayoutInflater().inflate(R.layout.toolbar_for_add_event, null);
-//
-//        getMainActivity().setSupportActionBar(toolbar_for_add_event);
-
-
-        toolbarAddfragment = (Toolbar) getMainActivity().getLayoutInflater().inflate(R.layout.toolbar_addfragment, null);
-
-        getMainActivity().setSupportActionBar(toolbarAddfragment);
-
-//        TextView mTitle = (TextView) toolbarAddfragment.findViewById(R.id.title_toolbar);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

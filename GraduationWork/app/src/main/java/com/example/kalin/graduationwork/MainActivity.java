@@ -3,11 +3,9 @@ package com.example.kalin.graduationwork;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.kalin.graduationwork.fragments.AddFragment;
 import com.example.kalin.graduationwork.fragments.BaseFragment;
@@ -15,21 +13,10 @@ import com.example.kalin.graduationwork.fragments.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbarMainscreen;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        toolbarMainscreen = (Toolbar) findViewById(R.id.toolbarMainscreen);
-        setSupportActionBar(toolbarMainscreen);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        toolbarMainscreen.setTitle("");
-        toolbarMainscreen.setSubtitle("");
-
-        TextView mTitle = (TextView) toolbarMainscreen.findViewById(R.id.day);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 

@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/toolbarAddfragment"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
-    app:titleTextColor="@android:color/white">
+    android:layout_height="48dp"
+    android:background="@color/colorPrimary">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/title_toolbar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:text="Hello from Add Fragment!"
+        android:textColor="@android:color/white"/>
 
-        <TextView
-            android:id="@+id/title_toolbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello from Add Fragment!"
-            android:textColor="@android:color/white" />
-
-    </RelativeLayout>
-
-</android.support.v7.widget.Toolbar>
+</RelativeLayout>

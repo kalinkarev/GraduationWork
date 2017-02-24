@@ -3,23 +3,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"> -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_main"
-    android:background="@drawable/backgr"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_vertical"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.kalin.graduationwork.MainActivity"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/content_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/backgr"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="com.example.kalin.graduationwork.MainActivity"
     >
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_mainscreen"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"></include>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/kalinsRecyclerView"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
         android:paddingLeft="20dp"
-        android:paddingRight="70dp"
+        android:paddingRight="20dp"
         />
 
     <LinearLayout
@@ -44,4 +51,4 @@
     </LinearLayout>
 
 </RelativeLayout>
-<!-- </ScrollView> -->
+    <!-- </ScrollView> -->

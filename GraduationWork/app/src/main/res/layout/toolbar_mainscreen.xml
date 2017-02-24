@@ -1,51 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:layout_height="48dp"
+    android:background="@color/colorPrimary">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarMainscreen"
-        android:layout_width="match_parent"
+    <ImageButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:titleTextColor="@android:color/white">
+        android:layout_toLeftOf="@+id/day"
+        android:layout_marginRight="20dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/arrow_left"/>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+    <TextView
+        android:id="@+id/day"
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:text="Hello!"
+        android:textColor="@android:color/white"
+        />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/arrow_left"
-                android:layout_marginRight="-40dp"
-                android:layout_toLeftOf="@+id/day" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/day"
+        android:layout_centerVertical="true"
+        android:background="@drawable/arrow_right"
+        android:layout_marginLeft="20dp"/>
 
-            <TextView
-                android:id="@+id/day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hello!"
-                android:textColor="@android:color/white"
-                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-                android:gravity="center"
-                android:layout_marginRight="100dp"
-                android:layout_gravity="center_vertical"
-                android:layout_centerInParent="true"
-                />
+</RelativeLayout>
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/arrow_right"
-                android:layout_toRightOf="@+id/day" />
-
-        </RelativeLayout>
-
-    </android.support.v7.widget.Toolbar>
-
-</LinearLayout>

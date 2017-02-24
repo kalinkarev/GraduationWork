@@ -4,6 +4,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.adapter.EventsAdapter;
@@ -75,6 +76,6 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void setupToolbar() {
-
+        TextView title = (TextView) mainView.findViewById(R.id.day);
     }
 }
