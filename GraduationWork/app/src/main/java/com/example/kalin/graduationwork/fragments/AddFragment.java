@@ -1,15 +1,16 @@
 package com.example.kalin.graduationwork.fragments;
 
+import android.app.DatePickerDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.Switch;
+import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.example.kalin.graduationwork.R;
 
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -21,6 +22,11 @@ public class AddFragment extends BaseFragment {
     protected View addView;
     Toolbar toolbarAddfragment;
 
+    int mYear, mMonth, mDay, mDayWeek, mHour, mMinute;
+
+    TextView tvForDate;
+//    TextView tvForFinishDate;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_new_event;
@@ -29,50 +35,123 @@ public class AddFragment extends BaseFragment {
     @Override
     protected void onCreateView() {
 
-        final TextView tvForStartDate = (TextView) mainView.findViewById(R.id.textViewForStartDate);
-        final TextView tvForFinishDate = (TextView) mainView.findViewById(R.id.textViewForFinishDate);
-
         String formatCurrentDate = DateFormat.getDateInstance(DateFormat.FULL).format(new Date());
 
-        tvForStartDate.setText(formatCurrentDate);
-        tvForFinishDate.setText(formatCurrentDate);
+        tvForDate = (TextView) mainView.findViewById(R.id.textViewForStartDate);
 
-        Switch switchForDateDuration = (Switch) mainView.findViewById(R.id.switchForDuration);
+        tvForDate.setText(formatCurrentDate);
 
-        // set the switch to ON
-        switchForDateDuration.setChecked(false);
-        //attach a listener to check for changes in state
-        switchForDateDuration.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
+        tvForDate.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onCheckedChanged(CompoundButton buttonView,
-                                         boolean isChecked) {
+            public void onClick(View view) {
+                final Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(System.currentTimeMillis());
 
-                if (isChecked) {
-                    //switchStatus.setText("Switch is currently ON");
-                    tvForStartDate.setVisibility(View.GONE);
-                    tvForFinishDate.setVisibility(View.GONE);
-                } else {
-                    //switchStatus.setText("Switch is currently OFF");
-                    tvForStartDate.setVisibility(View.VISIBLE);
-                    tvForFinishDate.setVisibility(View.VISIBLE);
-                }
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener(){
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        calendar.set(Calendar.YEAR, year);
+                        calendar.set(Calendar.MONTH, monthOfYear);
+                        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
+                        monthOfYear = monthOfYear + 1;
+
+                        String format = "yyyy-MM-dd";
+
+                        tvForDate.setText(dayOfMonth+"-"+monthOfYear+"-"+year);
+                    }
+                }, mYear, mMonth, mDay);
+
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
+                datePickerDialog.show();
             }
         });
 
-        //check the current state before we display the screen
-        if (switchForDateDuration.isChecked()) {
-            //switchStatus.setText("Switch is currently ON");
-            //tvForData.setVisibility(View.GONE);
-            tvForStartDate.setVisibility(View.GONE);
-            tvForFinishDate.setVisibility(View.GONE);
-        } else {
-            //switchStatus.setText("Switch is currently OFF");
-            //tvForData.setVisibility(View.VISIBLE);
-            tvForStartDate.setVisibility(View.VISIBLE);
-            tvForFinishDate.setVisibility(View.VISIBLE);
-        }
+//        tvForStartDate = (TextView) mainView.findViewById(R.id.textViewForStartDate);
+//        tvForFinishDate = (TextView) mainView.findViewById(R.id.textViewForFinishDate);
+//
+//        final TextView tvForStartTime = (TextView) mainView.findViewById(R.id.textViewForStartTime);
+//        final TextView tvForFinishTime = (TextView) mainView.findViewById(R.id.textViewForFinishTime);
+//
+//        String formatCurrentDate = DateFormat.getDateInstance(DateFormat.FULL).format(new Date());
+//
+//        tvForStartDate.setText(formatCurrentDate);
+//        tvForFinishDate.setText(formatCurrentDate);
+//
+//        tvForStartDate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
+//
+//        Switch switchForDateDuration = (Switch) mainView.findViewById(R.id.switchForDuration);
+//
+//        // set the switch to ON
+//        switchForDateDuration.setChecked(false);
+//        //attach a listener to check for changes in state
+//        switchForDateDuration.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView,
+//                                         boolean isChecked) {
+//
+//                if (isChecked) {
+//                    //switchStatus.setText("Switch is currently ON");
+//                    tvForStartDate.setVisibility(View.GONE);
+//                    tvForFinishDate.setVisibility(View.GONE);
+//                } else {
+//                    //switchStatus.setText("Switch is currently OFF");
+//                    tvForStartDate.setVisibility(View.VISIBLE);
+//                    tvForFinishDate.setVisibility(View.VISIBLE);
+//                }
+//
+//            }
+//        });
+//
+//        //check the current state before we display the screen
+//        if (switchForDateDuration.isChecked()) {
+//            //switchStatus.setText("Switch is currently ON");
+//            //tvForData.setVisibility(View.GONE);
+//            tvForStartDate.setVisibility(View.GONE);
+//            tvForFinishDate.setVisibility(View.GONE);
+//        } else {
+//            //switchStatus.setText("Switch is currently OFF");
+//            //tvForData.setVisibility(View.VISIBLE);
+//            tvForStartDate.setVisibility(View.VISIBLE);
+//            tvForFinishDate.setVisibility(View.VISIBLE);
+//        }
+    }
+
+
+//        public void datePicker() {
+//            final Calendar c = Calendar.getInstance();
+//            c.setTimeInMillis(System.currentTimeMillis());
+//
+////        mYear = c.get(Calendar.YEAR);
+////        mMonth = c.get(Calendar.MONTH);
+////        mDay = c.get(Calendar.DAY_OF_MONTH);
+//
+//            DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener(){
+//                @Override
+//                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth){ //, int dayOfWeek) {
+//
+//                    c.set(Calendar.YEAR, year);
+//                    c.set(Calendar.MONTH, monthOfYear);
+//                    c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+////                c.set(Calendar.DAY_OF_WEEK, dayOfWeek);
+//
+//                    monthOfYear = monthOfYear + 1;
+//
+//                    String format = "yyyy-MM-dd";
+//
+//                    tvForStartDate.setText(dayOfMonth+","+monthOfYear+","+year);
+//
+//                }
+//            }, mYear, mMonth, mDay);
+//            datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
+//            datePickerDialog.show();
+//        }
 
 
 //        final Calendar cal = Calendar.getInstance();
@@ -87,7 +166,7 @@ public class AddFragment extends BaseFragment {
 //
 //        getActivity().getActionBar().setDisplayHomeAsUpEnabled(false);
 //        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-    }
+//    }
 
     @Override
     protected void setupToolbar() {
@@ -96,5 +175,25 @@ public class AddFragment extends BaseFragment {
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }
-
 }
+
+//    public void datePicker() {
+//        final Calendar c = Calendar.getInstance();
+//        c.setTimeInMillis(System.currentTimeMillis());
+//
+//        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener(){
+//            @Override
+//            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//                c.set(Calendar.YEAR, year);
+//                c.set(Calendar.MONTH, monthOfYear);
+//                c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+//
+//                String format = "yyyy-MM-dd";
+//
+//                tvForDate.setText(dayOfMonth+","+monthOfYear+","+year);
+//            }
+//        }, mYear, mMonth, mDay);
+//
+//        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
+//        datePickerDialog.show();
+//    }
