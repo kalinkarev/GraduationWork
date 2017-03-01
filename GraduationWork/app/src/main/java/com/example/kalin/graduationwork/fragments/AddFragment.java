@@ -5,11 +5,13 @@ import android.app.TimePickerDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.kalin.graduationwork.R;
 
@@ -136,6 +138,32 @@ public class AddFragment extends BaseFragment {
 
     @Override
     protected void setupToolbar() {
+
+//        Toolbar toolbarAddfragment = (Toolbar) getMainActivity().getLayoutInflater().inflate(R.layout.toolbar_addfragment, null);
+//
+//        getMainActivity().setSupportActionBar(toolbarAddfragment);
+
+
+        Toolbar toolbarAdd = (Toolbar) mainView.findViewById(R.id.toolbar_newEvent);
+        Button buttonCancel = (Button) mainView.findViewById(R.id.buttonCancel);
+
+        buttonCancel.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getMainActivity(), "You have clicked the cancel button", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Button buttonSave = (Button) mainView.findViewById(R.id.buttonSave);
+
+        buttonSave.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getMainActivity(), "You have clicked the save button", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -15,7 +15,7 @@
     >
 
     <include
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_mainScreen"
         layout="@layout/toolbar_mainscreen"
         android:layout_width="match_parent"
         android:layout_height="48dp"></include>
@@ -24,7 +24,7 @@
         android:id="@+id/kalinsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/toolbar_mainScreen"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         />
