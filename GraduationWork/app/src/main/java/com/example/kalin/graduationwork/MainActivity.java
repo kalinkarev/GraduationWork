@@ -3,7 +3,6 @@ package com.example.kalin.graduationwork;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,15 +14,12 @@ import com.example.kalin.graduationwork.fragments.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    ImageView imageViewPreviousDay;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbarMain = (Toolbar) findViewById(R.id.toolbar_mainScreen);
-        ImageView imageViewSeePrevious = (ImageView) findViewById(R.id.iv_seePrevious);
-
-        ImageView imageViewSeeNext = (ImageView) findViewById(R.id.iv_seeNext);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 

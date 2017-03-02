@@ -2,9 +2,12 @@ package com.example.kalin.graduationwork.fragments;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.adapter.EventsAdapter;
@@ -76,6 +79,27 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void setupToolbar() {
+
+        Toolbar toolbarAdd = (Toolbar) mainView.findViewById(R.id.toolbar_mainScreen);
+        ImageView imageViewPreviousDay = (ImageView) mainView.findViewById(R.id.imageViewPreviousDay);
+
+        imageViewPreviousDay.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getMainActivity(), "You have clicked the left arrow", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         TextView title = (TextView) mainView.findViewById(R.id.day);
+
+        ImageView imageViewNextDay = (ImageView) mainView.findViewById(R.id.imageViewNextDay);
+
+        imageViewNextDay.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getMainActivity(), "You have clicked the right arrow", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -12,7 +14,8 @@
         android:layout_toLeftOf="@+id/day"
         android:layout_marginRight="20dp"
         android:layout_centerVertical="true"
-        android:background="@drawable/arrow_left"/>
+        android:background="@drawable/arrow_left"
+        android:clickable="true" />
 
     <TextView
         android:id="@+id/day"
@@ -36,4 +39,37 @@
         android:background="@drawable/arrow_right"/>
 
 </RelativeLayout>
+-->
 
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/colorPrimary" >
+
+    <ImageView
+        android:id="@+id/imageViewPreviousDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:background="@drawable/arrow_left"/>
+
+    <TextView
+        android:id="@+id/day"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:text="Today"
+        android:textColor="@android:color/white" />
+
+    <ImageView
+        android:id="@+id/imageViewNextDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/arrow_right"/>
+
+</android.support.v7.widget.Toolbar>
