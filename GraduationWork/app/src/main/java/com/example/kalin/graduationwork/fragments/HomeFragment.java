@@ -101,5 +101,16 @@ public class HomeFragment extends BaseFragment {
             }
         });
 
+        ImageView imageViewSeeStatistics = (ImageView) mainView.findViewById(R.id.imageViewSeeStatistics);
+
+        imageViewSeeStatistics.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(getMainActivity(), "You have clicked the statistics button", Toast.LENGTH_SHORT).show();
+
+                getMainActivity().showFragmentAndAddToBackstack(new StatisticFragment());
+
+            }
+        });
     }
 }
