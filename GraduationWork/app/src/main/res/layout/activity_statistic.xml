@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/backgr" >
 
     <include
         android:id="@+id/toolbar_statistics"
@@ -10,10 +11,76 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"></include>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello from statistics!"
-        android:textSize="20dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" >
 
+        <TextView
+            android:id="@+id/tvForActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Activity"
+            android:textColor="@color/colorAlmostWhiteForEvents"
+            android:textSize="20dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/tvForActivity"
+            android:background="@color/colorAlmostWhite2ForEvents" />
+
+        <TextView
+            android:id="@+id/tvForNameActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvForActivity"
+            android:text="Tennis"
+            android:textColor="@color/colorAlmostWhiteForEvents"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/tvForPeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:text="Period"
+            android:textColor="@color/colorAlmostWhiteForEvents"
+            android:textSize="20dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/tvForPeriod"
+            android:background="@color/colorAlmostWhite2ForEvents" />
+
+        <TextView
+            android:id="@+id/tvForChoosingPeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvForPeriod"
+            android:text="01.01-01.02"
+            android:textColor="@color/colorAlmostWhiteForEvents"
+            android:textSize="30dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/tvForChoosingPeriod"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorAlmostWhiteForEvents" />
+
+        <Button
+            android:id="@+id/btnShowStatistics"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvForChoosingPeriod"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="190dp"
+            android:background="@color/colorSomeOrangeForEvents"
+            android:text="Show Statistics" />
+
+    </RelativeLayout>
 </LinearLayout>

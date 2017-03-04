@@ -1,6 +1,8 @@
 package com.example.kalin.graduationwork.fragments;
 
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.kalin.graduationwork.R;
 
@@ -17,6 +19,15 @@ public class StatisticFragment extends BaseFragment {
 
     @Override
     protected void onCreateView() {
+
+        Button btnShowStatistics = (Button) mainView.findViewById(R.id.btnShowStatistics);
+
+        btnShowStatistics.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                getMainActivity().showFragmentAndAddToBackstack(new FullStatisticFragment());
+            }
+        });
 
     }
 
