@@ -23,25 +23,29 @@
     android:layout_height="48dp"
     android:background="@color/colorPrimary" >
 
-    <Button
+    <ImageView
         android:id="@+id/buttonCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="X"
+        android:background="@drawable/close"
+        android:layout_marginLeft="10dp"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
         android:text="New event"
         android:textSize="20dp"
         android:textColor="@color/colorAlmostWhite2ForEvents" />
 
-    <Button
+    <TextView
         android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SAVE"
-        android:layout_marginLeft="100dp" />
+        android:textColor="@color/colorAlmostWhite2ForEvents"
+        android:textSize="20dp"
+        android:layout_marginLeft="130dp" />
 
 </android.support.v7.widget.Toolbar>

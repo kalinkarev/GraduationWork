@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,16 +35,24 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
     }
 
     @Override
-    public void onBindViewHolder(EventsViewHolder holder, final int position) {
+    public void onBindViewHolder(final EventsViewHolder holder, final int position) {
         Event event = items.get(position);
 
         holder.title.setText(event.getName());
+        holder.ivForReadyTask.setVisibility(View.GONE);
 
         if (selectedPosition == position) {
             holder.buttonsLayout.setVisibility(View.VISIBLE);
+            holder.ibReadyTask.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    holder.ivForReadyTask.setVisibility(View.VISIBLE);
+                }
+            });
         } else {
             holder.buttonsLayout.setVisibility(View.GONE);
         }
+
 
         if (position % 2 == 0) {
             holder.title.setBackgroundColor(Color.WHITE);
@@ -69,12 +79,16 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
 
         TextView title;
         LinearLayout buttonsLayout;
+        ImageButton ibReadyTask;
+        ImageView ivForReadyTask;
 
         public EventsViewHolder(View itemView) {
             super(itemView);
 
             title = (TextView) itemView.findViewById(R.id.events_row_title);
             buttonsLayout = (LinearLayout) itemView.findViewById(R.id.buttonsLayout);
+            ibReadyTask = (ImageButton) itemView.findViewById(R.id.buttonForReadyTask);
+            ivForReadyTask = (ImageView) itemView.findViewById(R.id.ready_task);
         }
     }
 

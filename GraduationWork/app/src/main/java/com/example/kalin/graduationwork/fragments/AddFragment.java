@@ -5,9 +5,9 @@ import android.app.TimePickerDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -145,7 +145,7 @@ public class AddFragment extends BaseFragment {
 
 
         Toolbar toolbarAdd = (Toolbar) mainView.findViewById(R.id.toolbar_newEvent);
-        Button buttonCancel = (Button) mainView.findViewById(R.id.buttonCancel);
+        ImageView buttonCancel = (ImageView) mainView.findViewById(R.id.buttonCancel);
 
         buttonCancel.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -154,7 +154,7 @@ public class AddFragment extends BaseFragment {
             }
         });
 
-        Button buttonSave = (Button) mainView.findViewById(R.id.buttonSave);
+        TextView buttonSave = (TextView) mainView.findViewById(R.id.buttonSave);
 
         buttonSave.setOnClickListener(new View.OnClickListener(){
             @Override
