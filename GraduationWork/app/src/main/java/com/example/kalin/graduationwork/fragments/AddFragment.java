@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.kalin.graduationwork.R;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,12 +29,14 @@ public class AddFragment extends BaseFragment {
     protected View addView;
     Toolbar toolbarAddfragment;
 
-    int mYear, mMonth, mDay, mDayWeek, mHour, mMinute;
+    int mYear, mMonth, mDay, mDayWeek, mHour, mHourFinish, mMinute;
 
     TextView tvForStartDate;
     TextView tvForFinishDate;
     TextView tvForStartTime;
     TextView tvForFinishTime;
+
+    Calendar startDate;
 
     @Override
     protected int getLayoutId() {
@@ -65,13 +68,26 @@ public class AddFragment extends BaseFragment {
             }
         });
 
-        String formatCurrentTime = DateFormat.getTimeInstance().format(new Date());
-
         tvForStartTime = (TextView) mainView.findViewById(R.id.textViewForStartTime);
         tvForFinishTime = (TextView) mainView.findViewById(R.id.textViewForFinishTime);
 
-        tvForStartTime.setText(formatCurrentTime);
-        tvForFinishTime.setText(formatCurrentTime);
+        final Calendar calendar = Calendar.getInstance();
+        mMinute = calendar.get(Calendar.MINUTE);
+        mHour = calendar.get(Calendar.HOUR_OF_DAY);
+        if (mMinute >= 30) {
+            mMinute = 0;
+            mHour  = mHour + 1;
+            if (mHour >= 24) {
+                mHour = 0;
+            }
+            tvForStartTime.setText(mHour+":"+mMinute);
+        } else {
+            mMinute = 30;
+            tvForStartTime.setText(mHour+":"+mMinute);
+        }
+
+        mHourFinish = mHour + 1;
+        tvForFinishTime.setText(mHourFinish +":"+ mMinute);
 
         tvForStartTime.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -122,20 +138,6 @@ public class AddFragment extends BaseFragment {
         }
     }
 
-//        final Calendar cal = Calendar.getInstance();
-//        cal.get(Calendar.HOUR_OF_DAY);
-//
-//        TimePickerDialog dialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener(){
-//            @Override
-//            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-//                cal.set(Calendar.HOUR_OF_DAY, hourOfDay);
-//            }
-//        }, cal.get(Calendar.HOUR_OF_DAY), 0, true);
-//
-//        getActivity().getActionBar().setDisplayHomeAsUpEnabled(false);
-//        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-//    }
-
     @Override
     protected void setupToolbar() {
 
@@ -171,58 +173,52 @@ public class AddFragment extends BaseFragment {
     }
 
     public void datePickerStartDate() {
-        final Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-
         DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener(){
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                calendar.set(Calendar.YEAR, year);
-                calendar.set(Calendar.MONTH, monthOfYear);
-                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
-                monthOfYear = monthOfYear + 1;
-
-                String format = "yyyy-MM-dd";
-
-                tvForStartDate.setText(dayOfMonth+"-"+monthOfYear+"-"+year);
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year, monthOfYear, dayOfMonth);
+                SimpleDateFormat format = new SimpleDateFormat("EEEE, MMMM dd yyyy");
+                String dateString = format.format(calendar.getTime());
+                    tvForStartDate.setText(dateString);
             }
         }, mYear, mMonth, mDay);
 
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
         datePickerDialog.show();
-
     }
 
     public void datePickerFinishDate() {
-        final Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
+        if (startDate == null ) {
+            startDate = Calendar.getInstance();
+        }
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener(){
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                calendar.set(Calendar.YEAR, year);
-                calendar.set(Calendar.MONTH, monthOfYear);
-                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                monthOfYear = monthOfYear + 1;
-
-                String format = "yyyy-MM-dd";
-
-                tvForFinishDate.setText(dayOfMonth+"-"+monthOfYear+"-"+year);
+                Calendar calendarfinish = Calendar.getInstance();
+                calendarfinish.set(year, monthOfYear, dayOfMonth);
+                SimpleDateFormat format = new SimpleDateFormat("EEEE, MMMM dd yyyy");
+                String dateString = format.format(calendarfinish.getTime());
+                    tvForFinishDate.setText(dateString);
             }
-        }, mYear, mMonth, mDay);
+        }, startDate.get(Calendar.YEAR), mMonth, mDay);
 
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
         datePickerDialog.show();
+    }
 
+    private void updateCalendar(Calendar cal) {
+        if (cal.get(Calendar.MINUTE) > 30) {
+            cal.set(Calendar.MINUTE, 0);
+            cal.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY) + 1);
+        } else {
+            cal.set(Calendar.MINUTE, 30);
+        }
     }
 
     public void timePickerStartTime() {
-        final Calendar c = Calendar.getInstance();
-        mHour = c.get(Calendar.HOUR_OF_DAY);
-        mMinute = c.get(Calendar.MINUTE);
-
         TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener(){
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -235,10 +231,6 @@ public class AddFragment extends BaseFragment {
     }
 
     public void timePickerFinishTime() {
-        final Calendar c = Calendar.getInstance();
-        mHour = c.get(Calendar.HOUR_OF_DAY);
-        mMinute = c.get(Calendar.MINUTE);
-
         TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener(){
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -246,7 +238,7 @@ public class AddFragment extends BaseFragment {
                 tvForFinishTime.setText(hourOfDay+":"+minute);
 
             }
-        }, mHour, mMinute, false);
+        }, mHourFinish, mMinute, false);
         timePickerDialog.show();
     }
 

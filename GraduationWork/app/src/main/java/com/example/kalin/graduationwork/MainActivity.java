@@ -15,13 +15,14 @@ import com.example.kalin.graduationwork.fragments.HomeFragment;
 public class MainActivity extends AppCompatActivity {
 
     ImageView imageViewPreviousDay;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,5 +124,9 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
         return true;
+    }
+
+    public FloatingActionButton getFab() {
+        return fab;
     }
 }

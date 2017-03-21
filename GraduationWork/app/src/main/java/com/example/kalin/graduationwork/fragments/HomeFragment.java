@@ -75,6 +75,13 @@ public class HomeFragment extends BaseFragment {
             layout.setVisibility(View.GONE);
         }
 
+        getMainActivity().getFab().show();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        getMainActivity().getFab().hide();
     }
 
     @Override
