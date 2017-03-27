@@ -1,188 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_new_event"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.kalin.graduationwork.fragments.AddFragment">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/imageView"
-            android:layout_marginTop="105dp"
-            android:src="@drawable/menu" />
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignTop="@+id/user_location"
-            android:id="@+id/imageView2"
-            android:layout_marginTop="210dp"
-            android:src="@drawable/arrow_right"
-            />
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imageView3"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/compleated_task"
-            />
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imageView4"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/button" />
-
-    </LinearLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
     <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_new_event"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="40dp"
-        >
+        tools:context="com.example.kalin.graduationwork.fragments.AddFragment">
 
-    <EditText
-        android:id="@+id/user_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter titles, people and places"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="40dp" />
+        <include
+            android:id="@+id/toolbar_newEvent"
+            layout="@layout/toolbar_addfragment"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"></include>
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="80dp"
-        android:background="#c0c0c0"/>
+        <EditText
+            android:id="@+id/editTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar_newEvent"
+            android:hint="Enter titles, people and places"
+            />
 
-    <EditText
-        android:id="@+id/user_location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Add location"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="330dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/editTextTitle"
+            android:background="@color/colorAlmostWhite2ForEvents"/>
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="380dp"
-        android:background="#c0c0c0"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/editTextTitle"
+            android:layout_marginLeft="40dp">
 
-    <EditText
-        android:id="@+id/user_notification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Add a notification"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="390dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <Switch
+                android:id="@+id/switchForDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="All-day"
+                />
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="440dp"
-        android:background="#c0c0c0"/>
+            <TextView
+                android:id="@+id/textViewForStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/switchForDuration"/>
 
-    <EditText
-        android:id="@+id/user_price"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Add price"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="450dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <TextView
+                android:id="@+id/textViewForStartTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/switchForDuration"/>
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="500dp"
-        android:background="#c0c0c0" />
+            <TextView
+                android:id="@+id/textViewForFinishDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textViewForStartDate"/>
 
-    <Switch
-        android:id="@+id/switch2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/textViewForFinishTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textViewForStartTime"/>
 
-        android:text="All-day"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="105dp"/>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_below="@+id/textViewForFinishDate"
+                android:background="@color/colorAlmostWhite2ForEvents"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="time"
-        android:ems="5"
-        android:id="@+id/editText"
-        android:layout_marginTop="27dp"
-        android:layout_below="@+id/switch2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <EditText
+                android:id="@+id/editTextLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewForFinishDate"
+                android:hint="Add location"
+                />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="time"
-        android:ems="5"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:layout_marginTop="19dp"
-        android:id="@+id/editText2" />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_below="@+id/editTextLocation"
+                android:background="@color/colorAlmostWhite2ForEvents"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="8"
-        android:id="@+id/editText3"
-        android:layout_alignBaseline="@+id/editText"
-        android:layout_alignBottom="@+id/editText"
-        android:layout_alignLeft="@+id/switch2"
-        android:layout_alignStart="@+id/switch2" />
+            <EditText
+                android:id="@+id/editTextNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextLocation"
+                android:hint="Add a notification"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="8"
-        android:layout_alignTop="@+id/editText2"
-        android:layout_alignRight="@+id/editText3"
-        android:layout_alignEnd="@+id/editText3"
-        android:id="@+id/editText4" />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_below="@+id/editTextNotification"
+                android:background="@color/colorAlmostWhite2ForEvents"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="more options"
-        android:layout_below="@+id/editText2"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
-        android:layout_alignParentEnd="true" />
+            <EditText
+                android:id="@+id/editTextPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextNotification"
+                android:hint="Add price"/>
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="320dp"
-        android:background="#c0c0c0" />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_below="@+id/editTextPrice"
+                android:background="@color/colorAlmostWhite2ForEvents"/>
+
+            <EditText
+                android:id="@+id/editTextColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextPrice"
+                android:hint="Default color"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/editTextTitle"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/imageViewClock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/clock"/>
+
+            <ImageView
+                android:id="@+id/imageViewLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewClock"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/location"/>
+
+            <ImageView
+                android:id="@+id/imageViewNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewLocation"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bell"/>
+
+            <ImageView
+                android:id="@+id/imageViewPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewNotification"
+                android:layout_marginTop="23dp"
+                android:background="@drawable/price"/>
+
+            <ImageView
+                android:id="@+id/imageViewColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewPrice"/>
+
+        </RelativeLayout>
+
 
     </RelativeLayout>
-
-</RelativeLayout>
+</ScrollView>

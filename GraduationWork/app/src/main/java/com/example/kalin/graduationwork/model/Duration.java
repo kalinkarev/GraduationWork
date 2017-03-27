@@ -6,10 +6,6 @@ import com.example.kalin.graduationwork.dao.DBHelper;
 
 import java.io.Serializable;
 
-/**
- * Created by Kalin on 30.1.2017 г..
- */
-
 public class Duration implements Serializable {
 
     public static final String TAG = "Duration";
