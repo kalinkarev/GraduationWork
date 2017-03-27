@@ -40,8 +40,17 @@ public class HomeFragment extends BaseFragment {
         dbmanager = new DBManager(getActivity());
         dbmanager.open();
 
-        Event event = new Event();
 
+
+        Event event = new Event();
+        event.getId();
+        event.getName();
+        event.getColor();
+        event.getNote();
+        event.getNotification();
+        event.getPrice();
+        event.getDuration();
+        event.getLocation();
 
 //        ArrayList<Event> values = new ArrayList<>();
 //
