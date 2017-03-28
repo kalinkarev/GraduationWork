@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_new_event"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.kalin.graduationwork.fragments.AddFragment">
+
+        <include
+            android:id="@+id/toolbar_newEvent"
+            layout="@layout/toolbar_addfragment"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"></include>
+
+        <EditText
+            android:id="@+id/editTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar_newEvent"
+            android:hint="Enter titles, people and places"
+            />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/editTextTitle"
+            android:background="@color/colorAlmostWhite2ForEvents"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/editTextTitle"
+            android:layout_marginLeft="40dp">
+
+            <Switch
+                android:id="@+id/switchForDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="All-day"
+                />
+
+            <TextView
+                android:id="@+id/textViewForStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/switchForDuration"/>
+
+            <TextView
+                android:id="@+id/textViewForStartTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/switchForDuration"/>
+
+            <TextView
+                android:id="@+id/textViewForFinishDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textViewForStartDate"/>
+
+            <TextView
+                android:id="@+id/textViewForFinishTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textViewForStartTime"/>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_below="@+id/textViewForFinishDate"
+                android:background="@color/colorAlmostWhite2ForEvents"/>
+
+            <EditText
+                android:id="@+id/editTextLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewForFinishDate"
+                android:hint="Add location"
+                />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_below="@+id/editTextLocation"
+                android:background="@color/colorAlmostWhite2ForEvents"/>
+
+            <EditText
+                android:id="@+id/editTextNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextLocation"
+                android:hint="Add a notification"/>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_below="@+id/editTextNotification"
+                android:background="@color/colorAlmostWhite2ForEvents"/>
+
+            <EditText
+                android:id="@+id/editTextPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextNotification"
+                android:hint="Add price"/>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_below="@+id/editTextPrice"
+                android:background="@color/colorAlmostWhite2ForEvents"/>
+
+            <TextView
+                android:id="@+id/TextViewColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextPrice"
+                android:hint="Default color"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/editTextTitle"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/imageViewClock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/clock"/>
+
+            <ImageView
+                android:id="@+id/imageViewLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewClock"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/location"/>
+
+            <ImageView
+                android:id="@+id/imageViewNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewLocation"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bell"/>
+
+            <ImageView
+                android:id="@+id/imageViewPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewNotification"
+                android:layout_marginTop="23dp"
+                android:background="@drawable/price"/>
+
+            <ImageView
+                android:id="@+id/imageViewColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewPrice"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</ScrollView>
