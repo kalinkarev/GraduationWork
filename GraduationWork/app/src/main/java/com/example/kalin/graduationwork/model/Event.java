@@ -6,10 +6,6 @@ import com.example.kalin.graduationwork.dao.DBHelper;
 
 import java.io.Serializable;
 
-/**
- * Created by Kalin on 30.1.2017 г..
- */
-
 public class Event implements Serializable {
 
     public static final String TAG = "Event";
@@ -19,7 +15,7 @@ public class Event implements Serializable {
     private String mName;
     private String mColor;
     private String mNote;
-    private String mNotiication;
+    private String mNotication;
     private String mPrice;
     private Duration mDuration;
     private Location mLocation;
@@ -33,7 +29,7 @@ public class Event implements Serializable {
         this.mName = name;
         this.mColor = color;
         this.mNote = note;
-        this.mNotiication = notification;
+        this.mNotication = notification;
         this.mPrice = price;
         this.mDuration = duration;
         this.mLocation = location;
@@ -81,11 +77,11 @@ public class Event implements Serializable {
     }
 
     public String getNotification() {
-        return mNotiication;
+        return mNotication;
     }
 
     public void setNotification(String mNotiication) {
-        this.mNotiication = mNotiication;
+        this.mNotication = mNotiication;
     }
 
     public String getPrice() {

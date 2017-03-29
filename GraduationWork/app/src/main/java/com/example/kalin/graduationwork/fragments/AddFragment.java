@@ -20,10 +20,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * Created by Kalin on 19.1.2017 г..
- */
-
 public class AddFragment extends BaseFragment {
 
     protected View addView;
@@ -37,6 +33,8 @@ public class AddFragment extends BaseFragment {
     TextView tvForFinishTime;
 
     Calendar startDate;
+
+    TextView editColor;
 
     @Override
     protected int getLayoutId() {
@@ -74,12 +72,13 @@ public class AddFragment extends BaseFragment {
         final Calendar calendar = Calendar.getInstance();
         mMinute = calendar.get(Calendar.MINUTE);
         mHour = calendar.get(Calendar.HOUR_OF_DAY);
+
         if (mMinute >= 30) {
-            mMinute = 0;
-            mHour  = mHour + 1;
-            if (mHour >= 24) {
-                mHour = 0;
-            }
+                mMinute = 0;
+                if (mHour >= 24)
+                    calendar.set(Calendar.HOUR_OF_DAY, 0);
+                mHour  = mHour + 1;
+
             tvForStartTime.setText(mHour+":"+mMinute);
         } else {
             mMinute = 30;
@@ -136,6 +135,16 @@ public class AddFragment extends BaseFragment {
             tvForStartTime.setVisibility(View.VISIBLE);
             tvForFinishTime.setVisibility(View.VISIBLE);
         }
+
+        editColor = (TextView) mainView.findViewById(R.id.TextViewColor);
+
+        editColor.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getMainActivity(), "You have chosen to see the list of colors", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override
@@ -152,7 +161,8 @@ public class AddFragment extends BaseFragment {
         buttonCancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(getMainActivity(), "You have clicked the cancel button", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getMainActivity(), "You have clicked the cancel button", Toast.LENGTH_SHORT).show();
+                getMainActivity().showFragmentAndAddToBackstack(new HomeFragment());
             }
         });
 

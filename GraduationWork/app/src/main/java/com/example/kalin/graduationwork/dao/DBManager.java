@@ -15,10 +15,6 @@ import java.util.List;
 
 import static android.R.attr.id;
 
-/**
- * Created by Kalin on 1.2.2017 г..
- */
-
 public class DBManager {
 
     private static DBManager instance;
@@ -34,7 +30,7 @@ public class DBManager {
     private SQLiteDatabase mDatabase;
     private DBHelper mDBHelper;
 
-    private DBManager(Context context) {
+    public DBManager(Context context) {
         this.context = context;
         mDBHelper = new DBHelper(context);
     }
@@ -64,7 +60,6 @@ public class DBManager {
         valuesDuration.put(DBHelper.COLUMN_DURATION_FINISH, event.getDuration().getFinish());
         valuesDuration.put(DBHelper.COLUMN_DURATION_REPEAT, event.getDuration().getRepeat());
         valuesDuration.put(DBHelper.COLUMN_DURATION_ALLDAY, event.getDuration().getAllday());
-        //TODO add all -> yes
         valuesDuration.put(DBHelper.COLUMN_DURATION_EVENT_ID, insertId);
 
         mDatabase.insert(DBHelper.TABLE_DURATIONS, null, valuesDuration);
@@ -99,7 +94,6 @@ public class DBManager {
                 Cursor cursorDuration = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_DURATIONS + " WHERE "
                         + DBHelper.COLUMN_DURATION_EVENT_ID + "=" + event.getId(), null);
                 if (cursorDuration.moveToNext()) {
-                    //TODO pass cursor to duration -> yes
                     Duration duration = new Duration(cursorDuration);
                     event.setDuration(duration);
                 }
@@ -108,7 +102,6 @@ public class DBManager {
                 Cursor cursorLocation = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_LOCATIONS + " WHERE "
                         + DBHelper.COLUMN_LOCATION_EVENT_ID + "=" + event.getId(), null);
                 if (cursorLocation.moveToNext()) {
-                    //TODO pass cursor to duration
                     Location location = new Location(cursorLocation);
                     event.setLocation(location);
                 }
@@ -123,3 +116,77 @@ public class DBManager {
         return events;
     }
 }
+
+    //    // Database fields
+//    private SQLiteDatabase database;
+//    private DBHelper dbHelper;
+//    private String[] allColumns = { DBHelper.COLUMN_EVENT_ID, DBHelper.COLUMN_EVENT_NAME, DBHelper.COLUMN_EVENT_COLOR,
+//            DBHelper.COLUMN_EVENT_NOTE, DBHelper.COLUMN_EVENT_NOTIFICATION, DBHelper.COLUMN_EVENT_PRICE };
+//
+//    public DBManager(Context context) {
+//        dbHelper = new DBHelper(context);
+//    }
+//
+//    public void open() throws SQLException {
+//        database = dbHelper.getWritableDatabase();
+//    }
+//
+//    public void close() {
+//        dbHelper.close();
+//    }
+//
+//    public Event createEvent(String name) {
+//        ContentValues values = new ContentValues();
+//        values.put(DBHelper.COLUMN_EVENT_NAME, name);
+//        long insertId = database.insert(DBHelper.TABLE_EVENTS, null, values);
+//        Cursor cursor = database.query(DBHelper.TABLE_EVENTS, allColumns, DBHelper.COLUMN_EVENT_ID + " = " +
+//        insertId, null, null, null, null);
+//        cursor.moveToFirst();
+//        Event newEvent = cursorToEvent(cursor);
+//        cursor.close();
+//        return newEvent;
+//    }
+//
+//    public void deleteEvent(Event event) {
+//        long id = event.getId();
+//        System.out.println("Event deleted with id: " + id);
+//        database.delete(DBHelper.TABLE_EVENTS, DBHelper.COLUMN_EVENT_ID + " = " + id, null);
+//    }
+//
+//    public void updateEvent(Event event) {
+//        long id = event.getId();
+//        System.out.println("Event updated with id: " + id);
+//        database.update(DBHelper.TABLE_EVENTS, null, null, null);
+//    }
+//
+//    public List<Event> getAllEvents() {
+//        List<Event> events = new ArrayList<Event>();
+//
+//        Cursor cursor = database.query(DBHelper.TABLE_EVENTS, allColumns, null, null, null, null, null);
+//
+//        cursor.moveToFirst();
+//
+//        while (!cursor.isAfterLast()) {
+//            Event event = cursorToEvent(cursor);
+//            events.add(event);
+//            cursor.moveToNext();
+//        }
+//
+//        // make sure to close the cursor
+//        cursor.close();
+//        return events;
+//    }
+//
+//    private Event cursorToEvent(Cursor cursor) {
+//        Event event = new Event();
+//        event.setId(cursor.getLong(0));
+//        event.setName(cursor.getString(1));
+//        event.setColor(cursor.getString(2));
+//        event.setNote(cursor.getString(3));
+//        event.setNotification(cursor.getString(4));
+//        event.setPrice(cursor.getString(5));
+//
+//        return event;
+//    }
+//
+//}

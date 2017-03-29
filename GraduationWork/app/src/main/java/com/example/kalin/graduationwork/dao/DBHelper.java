@@ -11,8 +11,6 @@ import android.util.Log;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    public static final String TAG = "DBHelper";
-
     // columns of the events table
     public static final String TABLE_EVENTS = "events";
     public static final String COLUMN_EVENT_ID = "_id";
@@ -42,62 +40,56 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "events.db";
     private static final int DATABASE_VERSION = 1;
 
+    // Database creation sql statement
+    private static final String DATABASE_CREATE_EVENTS = "create table "
+            + TABLE_EVENTS + "( "
+            + COLUMN_EVENT_ID + " integer primary key autoincrement, "
+            + COLUMN_EVENT_NAME + " text not null, "
+            + COLUMN_EVENT_COLOR + " text not null, "
+            + COLUMN_EVENT_NOTE + " text not null, "
+            + COLUMN_EVENT_NOTIFICATION + " boolean, "
+            + COLUMN_EVENT_PRICE + " integer not null);";
 
-    // SQL statement of the duration table creation
-    private static final String SQL_CREATE_TABLE_DURATIONS = "CREATE TABLE " + TABLE_DURATIONS + "(" +
-            COLUMN_DURATION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COLUMN_DURATION_START + " INTEGER, " +
-            COLUMN_DURATION_FINISH + " INTEGER, " +
-            COLUMN_DURATION_REPEAT + " BOOLEAN, " +
-            COLUMN_DURATION_ALLDAY + " BOOLEAN, " +
-            COLUMN_DURATION_EVENT_ID + " INTEGER NOT NULL "
-            + ");";
+    // Database creation sql statement
+    private static final String DATABASE_CREATE_DURATIONS = "create table "
+            + TABLE_DURATIONS + "( "
+            + COLUMN_DURATION_ID + " integer primary key autoincrement, "
+            + COLUMN_DURATION_START + " integer, "
+            + COLUMN_DURATION_FINISH + " integer, "
+            + COLUMN_DURATION_REPEAT + " boolean, "
+            + COLUMN_DURATION_ALLDAY + " boolean, "
+            + COLUMN_DURATION_EVENT_ID + " integer not null);";
 
-    // SQL statement of the location table creation
-    private static final String SQL_CREATE_TABLE_LOCATIONS = "CREATE TABLE "+ TABLE_LOCATIONS + "(" +
-            COLUMN_LOCATION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COLUMN_LOCATION_NAME + " TEXT NOT NULL, " +
-            COLUMN_LOCATION_LATITUDE + " INTEGER, " +
-            COLUMN_LOCATION_LONGITUTE + " INTEGER, " +
-            COLUMN_LOCATION_EVENT_ID + " INTEGER NOT NULL "
-            +");";
+    // Database creation sql statement
+    private static final String DATABASE_CREATE_LOCATIONS = "create table "
+            + TABLE_LOCATIONS + "( "
+            + COLUMN_LOCATION_ID + " integer primary key autoincrement, "
+            + COLUMN_LOCATION_NAME + " text not null, "
+            + COLUMN_LOCATION_LATITUDE + " integer, "
+            + COLUMN_LOCATION_LONGITUTE + " boolean, "
+            + COLUMN_LOCATION_EVENT_ID + " integer not null);";
 
-    // SQL statement of the event table creation
-    private static final String SQL_CREATE_TABLE_EVENTS = "CREATE TABLE " + TABLE_EVENTS + "(" +
-            COLUMN_EVENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COLUMN_EVENT_NAME + " TEXT NOT NULL, " +
-            COLUMN_EVENT_COLOR + " TEXT NOT NULL, " +
-            COLUMN_EVENT_NOTE + " TEXT NOT NULL, " +
-            COLUMN_EVENT_NOTIFICATION + " BOOLEAN, " +
-            COLUMN_EVENT_PRICE + " BOOLEAN " + ");";
-
-    public DBHelper(Context context) { //, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(SQL_CREATE_TABLE_EVENTS);
-        db.execSQL(SQL_CREATE_TABLE_DURATIONS);
-        db.execSQL(SQL_CREATE_TABLE_LOCATIONS);
+        db.execSQL(DATABASE_CREATE_EVENTS);
+        db.execSQL(DATABASE_CREATE_DURATIONS);
+        db.execSQL(DATABASE_CREATE_LOCATIONS);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Log.w(TAG, "Upgrading the database from version " + oldVersion + " to " + newVersion);
+        Log.w(DBHelper.class.getName(), "Upgrading database from version " + oldVersion + " to "
+                + newVersion + ", which will destroy all old data");
 
-        // clear all data
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EVENTS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DURATIONS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOCATIONS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EVENTS);
 
-        // recreate the tables
         onCreate(db);
     }
-
-    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
-    }
-
 
 }

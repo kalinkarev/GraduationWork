@@ -117,8 +117,8 @@
                 android:layout_below="@+id/editTextPrice"
                 android:background="@color/colorAlmostWhite2ForEvents"/>
 
-            <EditText
-                android:id="@+id/editTextColor"
+            <TextView
+                android:id="@+id/TextViewColor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/editTextPrice"
