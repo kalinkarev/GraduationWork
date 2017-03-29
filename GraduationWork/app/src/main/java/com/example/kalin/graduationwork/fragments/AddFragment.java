@@ -1,6 +1,7 @@
 package com.example.kalin.graduationwork.fragments;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -19,10 +20,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
-/**
- * Created by Kalin on 19.1.2017 г..
- */
 
 public class AddFragment extends BaseFragment {
 
@@ -79,8 +76,8 @@ public class AddFragment extends BaseFragment {
 
         if (mMinute >= 30) {
                 mMinute = 0;
-                if (mHour > 23)
-                    mHour = 0;
+                if (mHour >= 24)
+                    calendar.set(Calendar.HOUR_OF_DAY, 0);
                 mHour  = mHour + 1;
 
             tvForStartTime.setText(mHour+":"+mMinute);
@@ -145,9 +142,30 @@ public class AddFragment extends BaseFragment {
         editColor.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast.makeText(getMainActivity(), "You have chosen to see the list of colors", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getMainActivity(), "You have chosen to see the list of colors", Toast.LENGTH_SHORT).show();
+                showDialog();
             }
         });
+
+    }
+
+    private void showDialog() {
+
+        final Dialog colorDialog = new Dialog(getMainActivity());
+
+        colorDialog.setContentView(R.layout.colors_dialogfragment);
+
+        TextView tvForBanana = (TextView) mainView.findViewById(R.id.color_banana);
+
+//        tvForBanana.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                editColor.setText("Banana");
+//                colorDialog.dismiss();
+//            }
+//        });
+
+        colorDialog.show();
 
     }
 
