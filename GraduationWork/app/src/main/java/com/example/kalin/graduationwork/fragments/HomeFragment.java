@@ -37,20 +37,27 @@ public class HomeFragment extends BaseFragment {
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
         layout = (LinearLayout) mainView.findViewById(R.id.layout_for_no_events);
 
-        dbmanager = new DBManager(getActivity());
-        dbmanager.open();
-
-
 
         Event event = new Event();
-        event.getId();
-        event.getName();
-        event.getColor();
-        event.getNote();
-        event.getNotification();
-        event.getPrice();
-        event.getDuration();
-        event.getLocation();
+
+
+        event.setName("Free");
+
+
+
+//        event.getId();
+//        event.getName();
+//        event.getColor();
+//        event.getNote();
+//        event.getNotification();
+//        event.getPrice();
+//        event.getDuration();
+//        event.getLocation();
+
+        DBManager.getInstance(getActivity()).addEvent(event, false);
+
+        DBManager.getInstance(getActivity()).getAllEvents();
+
 
 //        ArrayList<Event> values = new ArrayList<>();
 //

@@ -30,7 +30,7 @@ public class DBManager {
     private SQLiteDatabase mDatabase;
     private DBHelper mDBHelper;
 
-    public DBManager(Context context) {
+    private DBManager(Context context) {
         this.context = context;
         mDBHelper = new DBHelper(context);
     }
