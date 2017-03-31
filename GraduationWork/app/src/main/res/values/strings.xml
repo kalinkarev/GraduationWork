@@ -3,4 +3,29 @@
     <string name="action_settings">Settings</string>
     <string name="action_settings_newEvent">Settings</string>
     <string name="no_tasks_in_the_database_create_new_one_by_clicking_the_add_button">No tasks in the database.</string>
+    
+    <string name="dark_blue">#303F9F</string>
+    <string name="blue">#3F51B5</string>
+    <string name="light_blue">#2699C0</string>
+
+    <string name="dark_pink">#DE5253</string>
+    <string name="pink">#E15555</string>
+    <string name="light_pink">#FF4081</string>
+
+    <string name="red">#D24647</string>
+    <string name="light_red">#D54A4B</string>
+
+    <string name="dark_orange">#E18823</string>
+    <string name="orange">#E18823</string>
+
+    <string name="green">#94ba22</string>
+
+    <string name="gray">#CBCACA</string>
+
+    <string name="purple">#9E6BB8</string>
+    <string name="light_purple">#A673C0</string>
+
+    <string name="white">#DDDDDE</string>
+
+    <string name="light_gray">#D9D9DA</string>
 </resources>
