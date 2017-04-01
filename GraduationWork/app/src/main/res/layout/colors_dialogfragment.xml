@@ -5,35 +5,37 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/layout_for_imageColors"
-        android:layout_width="30dp"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/ready_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/color_row_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:paddingLeft="30dp"
+                android:textColor="@color/colorGreyForEvents"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_toRightOf="@+id/layout_for_imageColors">
-
-        <TextView
-            android:id="@+id/color_banana"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Banana"
-            android:textSize="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/color_banana"
-            android:text="Grape"
-            android:textSize="20dp" />
-
-    </RelativeLayout>
 
 </RelativeLayout>

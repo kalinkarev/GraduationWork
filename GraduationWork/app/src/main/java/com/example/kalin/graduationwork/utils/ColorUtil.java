@@ -31,8 +31,46 @@ public class ColorUtil {
     }
 
     public void init() {
+        ColorData darkBlue = new ColorData();
+        colors.add(darkBlue);
         ColorData blue = new ColorData();
         colors.add(blue);
+        ColorData lightBlue = new ColorData();
+        colors.add(lightBlue);
+
+        ColorData darkPink = new ColorData();
+        colors.add(darkPink);
+        ColorData pink = new ColorData();
+        colors.add(pink);
+        ColorData lightPink = new ColorData();
+        colors.add(lightPink);
+
+        ColorData red = new ColorData();
+        colors.add(red);
+        ColorData lightRed = new ColorData();
+        colors.add(lightRed);
+
+        ColorData darkOrange = new ColorData();
+        colors.add(darkOrange);
+        ColorData orange = new ColorData();
+        colors.add(orange);
+
+        ColorData green = new ColorData();
+        colors.add(green);
+
+        ColorData gray = new ColorData();
+        colors.add(gray);
+        ColorData lightGray = new ColorData();
+        colors.add(lightGray);
+
+        ColorData purple = new ColorData();
+        colors.add(purple);
+        ColorData lightPurple = new ColorData();
+        colors.add(lightPurple);
+
+        ColorData white = new ColorData();
+        colors.add(white);
+
     }
 
     public List<ColorData> getColors() {

@@ -38,10 +38,10 @@ public class HomeFragment extends BaseFragment {
         layout = (LinearLayout) mainView.findViewById(R.id.layout_for_no_events);
 
 
-        Event event = new Event();
+//        Event event = new Event();
 
 
-        event.setName("Free");
+//        event.setName("Free");
 
 
 
@@ -54,9 +54,9 @@ public class HomeFragment extends BaseFragment {
 //        event.getDuration();
 //        event.getLocation();
 
-        DBManager.getInstance(getActivity()).addEvent(event, false);
+//        DBManager.getInstance(getActivity()).addEvent(event, false);
 
-        DBManager.getInstance(getActivity()).getAllEvents();
+//        DBManager.getInstance(getActivity()).getAllEvents();
 
 
 //        ArrayList<Event> values = new ArrayList<>();
@@ -74,8 +74,8 @@ public class HomeFragment extends BaseFragment {
 //        adapter.addItems(events);
 
         ArrayList<Event> events = new ArrayList<>();
-//        Event event1 = new Event();
-//        event1.setName("Free");
+        Event event1 = new Event();
+        event1.setName("Free");
 //        Event event2 = new Event();
 //        event2.setName("Lunch");
 //        Event event3 = new Event();
@@ -86,13 +86,13 @@ public class HomeFragment extends BaseFragment {
 //        event5.setName("Working");
 //        Event event6 = new Event();
 //        event6.setName("Sleeping");
-//        events.add(event1);
+        events.add(event1);
 //        events.add(event2);
 //        events.add(event3);
 //        events.add(event4);
 //        events.add(event5);
 //        events.add(event6);
-//        adapter.addItems(events);
+        adapter.addItems(events);
 
         if (events.size() == 0) {
             list.setVisibility(View.GONE);

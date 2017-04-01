@@ -155,7 +155,7 @@ public class AddFragment extends BaseFragment {
 
         colorDialog.setContentView(R.layout.colors_dialogfragment);
 
-        TextView tvForBanana = (TextView) mainView.findViewById(R.id.color_banana);
+//        TextView tvForBanana = (TextView) mainView.findViewById(R.id.color_banana);
 
 //        tvForBanana.setOnClickListener(new View.OnClickListener(){
 //            @Override
