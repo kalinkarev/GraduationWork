@@ -49,7 +49,7 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsView
         public ColorsViewHolder(View itemView) {
             super(itemView);
 
-            colorName = (TextView) itemView.findViewById(R.id.color_row_name);
+//            colorName = (TextView) itemView.findViewById(R.id.color_row_name);
 
         }
 
