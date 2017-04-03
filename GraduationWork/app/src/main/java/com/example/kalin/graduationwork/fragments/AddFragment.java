@@ -1,8 +1,9 @@
 package com.example.kalin.graduationwork.fragments;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
+import android.app.FragmentManager;
 import android.app.TimePickerDialog;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
@@ -14,7 +15,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.kalin.graduationwork.ColorDialogFragment;
 import com.example.kalin.graduationwork.R;
+import com.example.kalin.graduationwork.adapter.ColorsAdapter;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -36,6 +39,9 @@ public class AddFragment extends BaseFragment {
     Calendar startDate;
 
     TextView editColor;
+
+    private ColorsAdapter adapter;
+    private RecyclerView list;
 
     @Override
     protected int getLayoutId() {
@@ -139,11 +145,51 @@ public class AddFragment extends BaseFragment {
 
         editColor = (TextView) mainView.findViewById(R.id.TextViewColor);
 
+        final FragmentManager fm = getFragmentManager();
+        final ColorDialogFragment cf = new ColorDialogFragment();
+
         editColor.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-//                Toast.makeText(getMainActivity(), "You have chosen to see the list of colors", Toast.LENGTH_SHORT).show();
-                showDialog();
+
+                cf.show(fm, "Color_tag");
+
+
+
+
+
+//                final Dialog colorDialog = new Dialog(getMainActivity());
+//
+//                colorDialog.setContentView(R.layout.content_colors_dialogfragment);
+//
+//                list = (RecyclerView) mainView.findViewById(R.id.colorsRecycleView);
+//                adapter = new ColorsAdapter();
+//                list.setAdapter(adapter);
+//                list.setLayoutManager(new LinearLayoutManager(getActivity()));
+//
+//                ArrayList<ColorData> events = new ArrayList<>();
+//                ColorData event1 = new ColorData();
+//                event1.setName("Free");
+////        Event event2 = new Event();
+////        event2.setName("Lunch");
+////        Event event3 = new Event();
+////        event3.setName("Dinner");
+////        Event event4 = new Event();
+////        event4.setName("Free");
+////        Event event5 = new Event();
+////        event5.setName("Working");
+////        Event event6 = new Event();
+////        event6.setName("Sleeping");
+//                events.add(event1);
+////        events.add(event2);
+////        events.add(event3);
+////        events.add(event4);
+////        events.add(event5);
+////        events.add(event6);
+//                adapter.addItems(events);
+//
+//                colorDialog.show();
+
             }
         });
 
@@ -151,21 +197,35 @@ public class AddFragment extends BaseFragment {
 
     private void showDialog() {
 
-        final Dialog colorDialog = new Dialog(getMainActivity());
-
-        colorDialog.setContentView(R.layout.colors_dialogfragment);
-
-//        TextView tvForBanana = (TextView) mainView.findViewById(R.id.color_banana);
-
-//        tvForBanana.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                editColor.setText("Banana");
-//                colorDialog.dismiss();
-//            }
-//        });
-
-        colorDialog.show();
+//        RecyclerView rv;
+//        ColorsAdapter coloradapter;
+//
+//        rv = (RecyclerView) mainView.findViewById(R.id.colorsRecycleView);
+//        coloradapter = new ColorsAdapter();
+//        rv.setAdapter(coloradapter);
+//        rv.setLayoutManager(new LinearLayoutManager(getMainActivity()));
+//
+//        final Dialog colorDialog = new Dialog(getMainActivity());
+//
+//        colorDialog.setContentView(R.layout.colors_list_row_dialogfragment);
+//
+////        TextView tvForBanana = (TextView) mainView.findViewById(R.id.color_banana);
+//
+////        tvForBanana.setOnClickListener(new View.OnClickListener(){
+////            @Override
+////            public void onClick(View v) {
+////                editColor.setText("Banana");
+////                colorDialog.dismiss();
+////            }
+////        });
+//
+//        ArrayList<ColorData> colors = new ArrayList<>();
+//        ColorData color1 = new ColorData();
+//        color1.setName("Free");
+//        colors.add(color1);
+//        coloradapter.addItems(colors);
+//
+//        colorDialog.show();
 
     }
 

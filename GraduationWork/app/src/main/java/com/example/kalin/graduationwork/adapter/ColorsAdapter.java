@@ -24,7 +24,7 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsView
     @Override
     public ColorsAdapter.ColorsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.colors_dialogfragment, parent, false);
+                .inflate(R.layout.colors_list_row_dialogfragment, parent, false);
 
         ColorsAdapter.ColorsViewHolder vh = new ColorsAdapter.ColorsViewHolder(view);
         return vh;
@@ -49,9 +49,17 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsView
         public ColorsViewHolder(View itemView) {
             super(itemView);
 
-//            colorName = (TextView) itemView.findViewById(R.id.color_row_name);
+            colorName = (TextView) itemView.findViewById(R.id.colors_row_title);
 
         }
+
+    }
+
+    public void addItems(List<ColorData> colors) {
+
+        items.clear();
+        items.addAll(colors);
+        notifyDataSetChanged();
 
     }
 

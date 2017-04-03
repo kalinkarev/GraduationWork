@@ -8,7 +8,7 @@
     <string name="blue">#3F51B5</string>
     <string name="light_blue">#2699C0</string>
 
-    <string name="dark_pink">#DE5253</string>
+    <string name="dark_pink">0xDE5253</string>
     <string name="pink">#E15555</string>
     <string name="light_pink">#FF4081</string>
 

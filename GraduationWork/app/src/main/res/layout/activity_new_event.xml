@@ -171,13 +171,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageViewPrice"/>
 
-
-
-                <com.example.kalin.graduationwork.views.ColorView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp" />
         </RelativeLayout>
-
 
     </RelativeLayout>
 </ScrollView>
