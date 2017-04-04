@@ -36,10 +36,70 @@ public class ColorDialogFragment extends DialogFragment {
 
 
         ArrayList<ColorData> colors = new ArrayList<>();
-        ColorData event1 = new ColorData();
-        event1.setName("Blue");
+        ColorData color1 = new ColorData();
+        color1.setName("Dark Blue");
+        colors.add(color1);
 
-        colors.add(event1);
+        ColorData color2 = new ColorData();
+        color2.setName("Blue");
+        colors.add(color2);
+
+        ColorData color3 = new ColorData();
+        color3.setName("Light Blue");
+        colors.add(color3);
+
+        ColorData color4 = new ColorData();
+        color4.setName("Dark Pink");
+        colors.add(color4);
+
+        ColorData color5 = new ColorData();
+        color5.setName("Pink");
+        colors.add(color5);
+
+        ColorData color6 = new ColorData();
+        color6.setName("Light Pink");
+        colors.add(color6);
+
+        ColorData color7 = new ColorData();
+        color7.setName("Red");
+        colors.add(color7);
+
+        ColorData color8 = new ColorData();
+        color8.setName("Light Red");
+        colors.add(color8);
+
+        ColorData color9 = new ColorData();
+        color9.setName("Dark Orange");
+        colors.add(color9);
+
+        ColorData color10 = new ColorData();
+        color10.setName("Orange");
+        colors.add(color10);
+
+        ColorData color11 = new ColorData();
+        color11.setName("Green");
+        colors.add(color11);
+
+        ColorData color12 = new ColorData();
+        color12.setName("Gray");
+        colors.add(color12);
+
+        ColorData color13 = new ColorData();
+        color13.setName("Light Gray");
+        colors.add(color13);
+
+        ColorData color14 = new ColorData();
+        color14.setName("Purple");
+        colors.add(color14);
+
+        ColorData color15 = new ColorData();
+        color15.setName("Light Purple");
+        colors.add(color15);
+
+        ColorData color16 = new ColorData();
+        color16.setName("White");
+        colors.add(color16);
+
         adapter.addItems(colors);
 
         return rootView;
