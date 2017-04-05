@@ -12,7 +12,10 @@ import android.widget.Toast;
 import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.adapter.EventsAdapter;
 import com.example.kalin.graduationwork.dao.DBManager;
+import com.example.kalin.graduationwork.model.ColorData;
+import com.example.kalin.graduationwork.model.Duration;
 import com.example.kalin.graduationwork.model.Event;
+import com.example.kalin.graduationwork.model.Location;
 
 import java.util.ArrayList;
 
@@ -37,20 +40,53 @@ public class HomeFragment extends BaseFragment {
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
         layout = (LinearLayout) mainView.findViewById(R.id.layout_for_no_events);
 
-        dbmanager = new DBManager(getActivity());
-        dbmanager.open();
+        ColorData color = new ColorData();
+        color.setName("blue");
 
+        Duration duration = new Duration();
+        duration.setStart("15:00");
+        duration.setFinish("16:00");
+        duration.setRepeat("No");
+        duration.setAllday("False");
 
+        Location location = new Location();
+        location.setName("Birthday");
+        location.setLongitute("100.00");
+        location.setLatitude("50.00");
 
         Event event = new Event();
-        event.getId();
-        event.getName();
-        event.getColor();
-        event.getNote();
-        event.getNotification();
-        event.getPrice();
-        event.getDuration();
-        event.getLocation();
+        event.setName("Sleep");
+        event.setColor(color);
+        event.setNote("This task is for today!");
+        event.setNotification("No");
+        event.setPrice("50$");
+        event.setDuration(duration);
+        event.setLocation(location);
+
+        DBManager.getInstance(getActivity()).addEvent(event, false);
+        DBManager.getInstance(getActivity()).getAllEvents();
+
+
+//        Event event = new Event();
+
+
+//        event.setName("Free");
+
+
+
+//        event.getId();
+//        event.getName();
+//        event.getColor();
+//        event.getNote();
+//        event.getNotification();
+//        event.getPrice();
+//        event.getDuration();
+//        event.getLocation();
+
+//        DBManager.getInstance(getActivity()).addEvent(event, false);
+
+//        DBManager.getInstance(getActivity()).getAllEvents();
+
 
 //        ArrayList<Event> values = new ArrayList<>();
 //
@@ -67,8 +103,8 @@ public class HomeFragment extends BaseFragment {
 //        adapter.addItems(events);
 
         ArrayList<Event> events = new ArrayList<>();
-//        Event event1 = new Event();
-//        event1.setName("Free");
+        Event event1 = new Event();
+        event1.setName("Free");
 //        Event event2 = new Event();
 //        event2.setName("Lunch");
 //        Event event3 = new Event();
@@ -79,13 +115,13 @@ public class HomeFragment extends BaseFragment {
 //        event5.setName("Working");
 //        Event event6 = new Event();
 //        event6.setName("Sleeping");
-//        events.add(event1);
+        events.add(event1);
 //        events.add(event2);
 //        events.add(event3);
 //        events.add(event4);
 //        events.add(event5);
 //        events.add(event6);
-//        adapter.addItems(events);
+        adapter.addItems(events);
 
         if (events.size() == 0) {
             list.setVisibility(View.GONE);

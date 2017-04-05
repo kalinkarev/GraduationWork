@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.example.kalin.graduationwork.fragments.AddFragment;
 import com.example.kalin.graduationwork.fragments.BaseFragment;
 import com.example.kalin.graduationwork.fragments.HomeFragment;
+import com.example.kalin.graduationwork.utils.ColorUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ColorUtil.getInstance(this).init();
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
 

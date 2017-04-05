@@ -1,7 +1,9 @@
 package com.example.kalin.graduationwork.fragments;
 
 import android.app.DatePickerDialog;
+import android.app.FragmentManager;
 import android.app.TimePickerDialog;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
@@ -13,16 +15,14 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.kalin.graduationwork.ColorDialogFragment;
 import com.example.kalin.graduationwork.R;
+import com.example.kalin.graduationwork.adapter.ColorsAdapter;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
-/**
- * Created by Kalin on 19.1.2017 г..
- */
 
 public class AddFragment extends BaseFragment {
 
@@ -37,6 +37,11 @@ public class AddFragment extends BaseFragment {
     TextView tvForFinishTime;
 
     Calendar startDate;
+
+    TextView editColor;
+
+    private ColorsAdapter adapter;
+    private RecyclerView list;
 
     @Override
     protected int getLayoutId() {
@@ -74,12 +79,13 @@ public class AddFragment extends BaseFragment {
         final Calendar calendar = Calendar.getInstance();
         mMinute = calendar.get(Calendar.MINUTE);
         mHour = calendar.get(Calendar.HOUR_OF_DAY);
+
         if (mMinute >= 30) {
-            mMinute = 0;
-            mHour  = mHour + 1;
-            if (mHour >= 24) {
-                mHour = 0;
-            }
+                mMinute = 0;
+                if (mHour >= 24)
+                    calendar.set(Calendar.HOUR_OF_DAY, 0);
+                mHour  = mHour + 1;
+
             tvForStartTime.setText(mHour+":"+mMinute);
         } else {
             mMinute = 30;
@@ -136,6 +142,25 @@ public class AddFragment extends BaseFragment {
             tvForStartTime.setVisibility(View.VISIBLE);
             tvForFinishTime.setVisibility(View.VISIBLE);
         }
+
+        editColor = (TextView) mainView.findViewById(R.id.TextViewColor);
+
+        final FragmentManager fm = getFragmentManager();
+        final ColorDialogFragment cf = new ColorDialogFragment();
+
+        editColor.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+                cf.show(fm, "Color_tag");
+
+                ColorsAdapter.getInstance(getActivity()).getName();
+
+//                editColor.setText();
+
+            }
+        });
+
     }
 
     @Override

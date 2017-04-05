@@ -45,7 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + TABLE_EVENTS + "( "
             + COLUMN_EVENT_ID + " integer primary key autoincrement, "
             + COLUMN_EVENT_NAME + " text not null, "
-            + COLUMN_EVENT_COLOR + " text not null, "
+            + COLUMN_EVENT_COLOR + " ,"
             + COLUMN_EVENT_NOTE + " text not null, "
             + COLUMN_EVENT_NOTIFICATION + " boolean, "
             + COLUMN_EVENT_PRICE + " integer not null);";
