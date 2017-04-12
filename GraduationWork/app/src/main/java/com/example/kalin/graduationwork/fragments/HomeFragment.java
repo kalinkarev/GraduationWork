@@ -58,13 +58,13 @@ public class HomeFragment extends BaseFragment {
         event.setName("Sleep");
         event.setColor(color);
         event.setNote("This task is for today!");
-        event.setNotification("No");
-        event.setPrice("50$");
+        event.setNotification(false);
+        event.setPrice(50);
         event.setDuration(duration);
         event.setLocation(location);
 
-//        DBManager.getInstance(getActivity()).addEvent(event, false);
-//        DBManager.getInstance(getActivity()).getAllEvents();
+        DBManager.getInstance(getActivity()).addEvent(event, false);
+        DBManager.getInstance(getActivity()).getAllEvents();
 
 
 //        Event event = new Event();

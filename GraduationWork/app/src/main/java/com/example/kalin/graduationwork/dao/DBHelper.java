@@ -5,10 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-/**
- * Created by Kalin on 23.1.2017 г..
- */
-
 public class DBHelper extends SQLiteOpenHelper {
 
     // columns of the events table
