@@ -7,17 +7,15 @@ package com.example.kalin.graduationwork.model;
 public class ColorData {
 
     private String mName;
-//    private int mColor;
-    private Event mEvent;
+    private int mColor;
 
     public ColorData() {
 
     }
 
-    public ColorData(String name, int color, Event event) {
+    public ColorData(String name, int color) {
         this.mName = name;
-//        this.mColor = color;
-        this.mEvent = event;
+        this.mColor = color;
     }
 
     public String getName() {
@@ -28,19 +26,12 @@ public class ColorData {
         this.mName = mName;
     }
 
-//    public int getColor() {
-//        return mColor;
-//    }
-//
-//    public void setColor(int mColor) {
-//        this.mColor = mColor;
-//    }
-
-    public Event getEvent() {
-        return mEvent;
+    public int getColor() {
+        return mColor;
     }
 
-    public void setEvent(Event mEvent) {
-        this.mEvent = mEvent;
+    public void setColor(int mColor) {
+        this.mColor = mColor;
     }
+
 }

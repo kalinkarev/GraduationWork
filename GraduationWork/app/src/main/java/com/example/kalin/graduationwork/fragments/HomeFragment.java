@@ -63,8 +63,8 @@ public class HomeFragment extends BaseFragment {
         event.setDuration(duration);
         event.setLocation(location);
 
-        DBManager.getInstance(getActivity()).addEvent(event, false);
-        DBManager.getInstance(getActivity()).getAllEvents();
+//        DBManager.getInstance(getActivity()).addEvent(event, false);
+//        DBManager.getInstance(getActivity()).getAllEvents();
 
 
 //        Event event = new Event();

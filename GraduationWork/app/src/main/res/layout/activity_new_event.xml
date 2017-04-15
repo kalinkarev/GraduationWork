@@ -30,46 +30,69 @@
             android:layout_below="@+id/editTextTitle"
             android:background="@color/colorAlmostWhite2ForEvents"/>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/editTextTitle"
-            android:layout_marginLeft="40dp">
+            android:orientation="vertical" >
 
-            <Switch
-                android:id="@+id/switchForDuration"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="All-day"
-                />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textViewForStartDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/switchForDuration" />
+                <Switch
+                    android:id="@+id/switchForDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="All-day"
+                    />
 
-            <TextView
-                android:id="@+id/textViewForStartTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/switchForDuration"/>
+                <LinearLayout
+                    android:id="@+id/linearlayoutstart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/switchForDuration">
 
-            <TextView
-                android:id="@+id/textViewForFinishDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/textViewForStartDate"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/textViewForFinishTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/textViewForStartTime"/>
+                        <TextView
+                            android:id="@+id/textViewForFinishDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="text1"/>
+
+                        <TextView
+                            android:id="@+id/textViewForFinishTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="text2" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textViewForStartDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollHorizontally="false"
+                        android:layout_weight="1"
+                        android:layout_below="@+id/linearlayoutstart" />
+
+                    <TextView
+                        android:id="@+id/textViewForStartTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollHorizontally="false"
+                        android:layout_weight="10" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <View
                 android:layout_width="fill_parent"
@@ -124,54 +147,7 @@
                 android:layout_below="@+id/editTextPrice"
                 android:textSize="30dp" />
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/editTextTitle"
-            android:gravity="center"
-            >
-
-            <ImageView
-                android:id="@+id/imageViewClock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/clock"/>
-
-            <ImageView
-                android:id="@+id/imageViewLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imageViewClock"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/location"/>
-
-            <ImageView
-                android:id="@+id/imageViewNotification"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imageViewLocation"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/bell"/>
-
-            <ImageView
-                android:id="@+id/imageViewPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imageViewNotification"
-                android:layout_marginTop="23dp"
-                android:background="@drawable/price"/>
-
-            <com.example.kalin.graduationwork.views.ColorView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_below="@+id/imageViewPrice"
-                android:layout_marginTop="20dp"
-                />
-
-        </RelativeLayout>
+        </LinearLayout>
 
     </RelativeLayout>
 </ScrollView>

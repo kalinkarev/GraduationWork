@@ -48,7 +48,7 @@ public class DBManager {
 
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_EVENT_NAME, event.getName());
-        values.put(DBHelper.COLUMN_EVENT_COLOR, String.valueOf(event.getColor()));
+        values.put(DBHelper.COLUMN_EVENT_COLOR, String.valueOf(event.getColor().getColor()));
         values.put(DBHelper.COLUMN_EVENT_NOTE, event.getNote());
         values.put(DBHelper.COLUMN_EVENT_NOTIFICATION, event.getNotification());
         values.put(DBHelper.COLUMN_EVENT_PRICE, event.getPrice());

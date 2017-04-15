@@ -2,6 +2,7 @@ package com.example.kalin.graduationwork.utils;
 
 import android.content.Context;
 
+import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.model.ColorData;
 
 import java.util.ArrayList;
@@ -31,7 +32,8 @@ public class ColorUtil {
     }
 
     public void init() {
-        ColorData darkBlue = new ColorData();
+        ColorData darkBlue = new ColorData(context.getString(R.string.dark_blue),
+                context.getResources().getColor(R.color.colorPrimaryDark));
         colors.add(darkBlue);
         ColorData blue = new ColorData();
         colors.add(blue);

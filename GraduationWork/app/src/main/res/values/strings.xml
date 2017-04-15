@@ -4,7 +4,7 @@
     <string name="action_settings_newEvent">Settings</string>
     <string name="no_tasks_in_the_database_create_new_one_by_clicking_the_add_button">No tasks in the database.</string>
 
-    <string name="dark_blue">#303F9F</string>
+    <string name="dark_blue">Dark blue</string>
     <string name="blue">#3F51B5</string>
     <string name="light_blue">#2699C0</string>
 
