@@ -5,10 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-/**
- * Created by Kalin on 23.1.2017 г..
- */
-
 public class DBHelper extends SQLiteOpenHelper {
 
     // columns of the events table
@@ -45,7 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + TABLE_EVENTS + "( "
             + COLUMN_EVENT_ID + " integer primary key autoincrement, "
             + COLUMN_EVENT_NAME + " text not null, "
-            + COLUMN_EVENT_COLOR + " text not null, "
+            + COLUMN_EVENT_COLOR + " ,"
             + COLUMN_EVENT_NOTE + " text not null, "
             + COLUMN_EVENT_NOTIFICATION + " boolean, "
             + COLUMN_EVENT_PRICE + " integer not null);";

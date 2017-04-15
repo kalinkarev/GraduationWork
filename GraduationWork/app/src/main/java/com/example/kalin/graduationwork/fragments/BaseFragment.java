@@ -14,8 +14,6 @@ import com.example.kalin.graduationwork.MainActivity;
 
 public abstract class BaseFragment extends Fragment {
 
-
-
     protected View mainView;
 
     @Override

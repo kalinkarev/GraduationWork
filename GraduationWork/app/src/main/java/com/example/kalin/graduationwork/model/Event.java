@@ -13,10 +13,10 @@ public class Event implements Serializable {
 
     private long mId;
     private String mName;
-    private String mColor;
+    private ColorData mColor;
     private String mNote;
-    private String mNotication;
-    private String mPrice;
+    private boolean mNotication;
+    private int mPrice;
     private Duration mDuration;
     private Location mLocation;
 
@@ -24,7 +24,7 @@ public class Event implements Serializable {
 
     }
 
-    public Event(String name, String color, String note, String notification, String price,
+    public Event(String name, ColorData color, String note, boolean notification, int price,
                  Duration duration, Location location) {
         this.mName = name;
         this.mColor = color;
@@ -38,10 +38,12 @@ public class Event implements Serializable {
     public Event(Cursor cursor) {
         setId(cursor.getLong(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_ID)));
         setName(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NAME)));
-        setColor(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_COLOR)));
+//        setColor(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_COLOR)));
         setNote(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTE)));
-        setNotification(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTIFICATION)));
-        setPrice(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_PRICE)));
+//        setNotification(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTIFICATION)));
+//        setNotification(cursor.getWantsAllOnMoveCalls(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTIFICATION)));
+//        setPrice(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_PRICE)));
+        setPrice(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_PRICE)));
     }
 
     public long getId() {
@@ -60,11 +62,11 @@ public class Event implements Serializable {
         this.mName = mName;
     }
 
-    public String getColor() {
+    public ColorData getColor() {
         return mColor;
     }
 
-    public void setColor(String mColor) {
+    public void setColor(ColorData mColor) {
         this.mColor = mColor;
     }
 
@@ -76,19 +78,19 @@ public class Event implements Serializable {
         this.mNote = mNote;
     }
 
-    public String getNotification() {
+    public boolean getNotification() {
         return mNotication;
     }
 
-    public void setNotification(String mNotiication) {
+    public void setNotification(boolean mNotiication) {
         this.mNotication = mNotiication;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return mPrice;
     }
 
-    public void setPrice(String mPrice) {
+    public void setPrice(int mPrice) {
         this.mPrice = mPrice;
     }
 
