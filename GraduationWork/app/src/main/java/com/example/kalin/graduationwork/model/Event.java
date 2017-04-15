@@ -8,9 +8,6 @@ import java.io.Serializable;
 
 public class Event implements Serializable {
 
-    public static final String TAG = "Event";
-    private static final long serialVersionUID = -7406082437623008161L;
-
     private long mId;
     private String mName;
     private ColorData mColor;
@@ -40,9 +37,7 @@ public class Event implements Serializable {
         setName(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NAME)));
 //        setColor(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_COLOR)));
         setNote(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTE)));
-//        setNotification(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTIFICATION)));
-//        setNotification(cursor.getWantsAllOnMoveCalls(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTIFICATION)));
-//        setPrice(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_PRICE)));
+        setNotification(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTIFICATION)) == 1);
         setPrice(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_PRICE)));
     }
 

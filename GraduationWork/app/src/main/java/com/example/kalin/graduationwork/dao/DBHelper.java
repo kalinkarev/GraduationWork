@@ -19,10 +19,10 @@ public class DBHelper extends SQLiteOpenHelper {
     // columns of the durations table
     public static final String TABLE_DURATIONS = "durations";
     public static final String COLUMN_DURATION_ID = COLUMN_EVENT_ID;
-    public static final String COLUMN_DURATION_START = "from";
-    public static final String COLUMN_DURATION_FINISH = "to";
+    public static final String COLUMN_DURATION_START = "start";
+    public static final String COLUMN_DURATION_FINISH = "finish";
     public static final String COLUMN_DURATION_REPEAT = "repeat";
-    public static final String COLUMN_DURATION_ALLDAY = "all-day";
+    public static final String COLUMN_DURATION_ALLDAY = "allDay";
     public static final String COLUMN_DURATION_EVENT_ID = "event_id";
 
     // columns of the location table

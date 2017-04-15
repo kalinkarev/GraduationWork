@@ -44,10 +44,10 @@ public class HomeFragment extends BaseFragment {
         color.setName("blue");
 
         Duration duration = new Duration();
-        duration.setStart("15:00");
-        duration.setFinish("16:00");
-        duration.setRepeat("No");
-        duration.setAllday("False");
+        duration.setStart(15);
+        duration.setFinish(16);
+        duration.setRepeat(false);
+        duration.setAllday(false);
 
         Location location = new Location();
         location.setName("Birthday");
@@ -63,8 +63,8 @@ public class HomeFragment extends BaseFragment {
         event.setDuration(duration);
         event.setLocation(location);
 
-//        DBManager.getInstance(getActivity()).addEvent(event, false);
-//        DBManager.getInstance(getActivity()).getAllEvents();
+        DBManager.getInstance(getActivity()).addEvent(event, false);
+        DBManager.getInstance(getActivity()).getAllEvents();
 
 
 //        Event event = new Event();
