@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_new_event"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,75 +20,90 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toolbar_newEvent"
-            android:hint="Enter titles, people and places"
-            />
+            android:hint="Enter titles, people and places" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dip"
             android:layout_below="@+id/editTextTitle"
-            android:background="@color/colorAlmostWhite2ForEvents"/>
+            android:background="@color/colorAlmostWhite2ForEvents" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/editTextTitle"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <Switch
-                    android:id="@+id/switchForDuration"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="All-day"
-                    />
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/clock"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"/>
+
+                    <Switch
+                        android:id="@+id/switchForDuration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="All-day"
+                        android:layout_marginLeft="15dp"/>
+
+                </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/switchForDuration"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp">
 
                     <TextView
                         android:id="@+id/textViewForStartDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="left"
                         android:layout_weight="1"
-                        />
+                        android:gravity="left" />
 
                     <TextView
                         android:id="@+id/textViewForStartTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
                         android:layout_weight="1"
-                        />
+                        android:gravity="right" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/switchForDuration"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp">
 
                     <TextView
                         android:id="@+id/textViewForFinishDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:gravity="left" />
 
                     <TextView
                         android:id="@+id/textViewForFinishTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:gravity="right" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -97,76 +111,100 @@
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1dip"
-                android:background="@color/colorAlmostWhite2ForEvents"/>
+                android:background="@color/colorAlmostWhite2ForEvents" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/location" />
 
                 <EditText
                     android:id="@+id/editTextLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textViewForFinishDate"
-                    android:hint="Add location"
-                    />
+                    android:layout_marginLeft="15dp"
+                    android:hint="Add location" />
 
             </LinearLayout>
 
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1dip"
-                android:background="@color/colorAlmostWhite2ForEvents"/>
+                android:background="@color/colorAlmostWhite2ForEvents" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/bell" />
+
                 <EditText
                     android:id="@+id/editTextNotification"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/editTextLocation"
-                    android:hint="Add a notification"/>
+                    android:layout_marginLeft="15dp"
+                    android:hint="Add a notification" />
 
             </LinearLayout>
 
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1dip"
-                android:background="@color/colorAlmostWhite2ForEvents"/>
+                android:background="@color/colorAlmostWhite2ForEvents" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/editTextPrice"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/editTextNotification"
-                android:hint="Add price"/>
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/price" />
+
+                <EditText
+                    android:id="@+id/editTextPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editTextNotification"
+                    android:layout_marginLeft="15dp"
+                    android:hint="Add price" />
+
+            </LinearLayout>
 
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1dip"
-                android:background="@color/colorAlmostWhite2ForEvents"/>
+                android:background="@color/colorAlmostWhite2ForEvents" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/TextViewColor"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/editTextPrice"
-                android:textSize="30dp" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/TextViewColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editTextPrice"
+                    android:textSize="30dp" />
 
             </LinearLayout>
         </LinearLayout>
