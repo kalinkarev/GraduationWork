@@ -48,7 +48,7 @@ public class DBManager {
 
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_EVENT_NAME, event.getName());
-        values.put(DBHelper.COLUMN_EVENT_COLOR, event.getColor());
+        values.put(DBHelper.COLUMN_EVENT_COLOR, String.valueOf(event.getColor().getColor()));
         values.put(DBHelper.COLUMN_EVENT_NOTE, event.getNote());
         values.put(DBHelper.COLUMN_EVENT_NOTIFICATION, event.getNotification());
         values.put(DBHelper.COLUMN_EVENT_PRICE, event.getPrice());
@@ -116,77 +116,3 @@ public class DBManager {
         return events;
     }
 }
-
-    //    // Database fields
-//    private SQLiteDatabase database;
-//    private DBHelper dbHelper;
-//    private String[] allColumns = { DBHelper.COLUMN_EVENT_ID, DBHelper.COLUMN_EVENT_NAME, DBHelper.COLUMN_EVENT_COLOR,
-//            DBHelper.COLUMN_EVENT_NOTE, DBHelper.COLUMN_EVENT_NOTIFICATION, DBHelper.COLUMN_EVENT_PRICE };
-//
-//    public DBManager(Context context) {
-//        dbHelper = new DBHelper(context);
-//    }
-//
-//    public void open() throws SQLException {
-//        database = dbHelper.getWritableDatabase();
-//    }
-//
-//    public void close() {
-//        dbHelper.close();
-//    }
-//
-//    public Event createEvent(String name) {
-//        ContentValues values = new ContentValues();
-//        values.put(DBHelper.COLUMN_EVENT_NAME, name);
-//        long insertId = database.insert(DBHelper.TABLE_EVENTS, null, values);
-//        Cursor cursor = database.query(DBHelper.TABLE_EVENTS, allColumns, DBHelper.COLUMN_EVENT_ID + " = " +
-//        insertId, null, null, null, null);
-//        cursor.moveToFirst();
-//        Event newEvent = cursorToEvent(cursor);
-//        cursor.close();
-//        return newEvent;
-//    }
-//
-//    public void deleteEvent(Event event) {
-//        long id = event.getId();
-//        System.out.println("Event deleted with id: " + id);
-//        database.delete(DBHelper.TABLE_EVENTS, DBHelper.COLUMN_EVENT_ID + " = " + id, null);
-//    }
-//
-//    public void updateEvent(Event event) {
-//        long id = event.getId();
-//        System.out.println("Event updated with id: " + id);
-//        database.update(DBHelper.TABLE_EVENTS, null, null, null);
-//    }
-//
-//    public List<Event> getAllEvents() {
-//        List<Event> events = new ArrayList<Event>();
-//
-//        Cursor cursor = database.query(DBHelper.TABLE_EVENTS, allColumns, null, null, null, null, null);
-//
-//        cursor.moveToFirst();
-//
-//        while (!cursor.isAfterLast()) {
-//            Event event = cursorToEvent(cursor);
-//            events.add(event);
-//            cursor.moveToNext();
-//        }
-//
-//        // make sure to close the cursor
-//        cursor.close();
-//        return events;
-//    }
-//
-//    private Event cursorToEvent(Cursor cursor) {
-//        Event event = new Event();
-//        event.setId(cursor.getLong(0));
-//        event.setName(cursor.getString(1));
-//        event.setColor(cursor.getString(2));
-//        event.setNote(cursor.getString(3));
-//        event.setNotification(cursor.getString(4));
-//        event.setPrice(cursor.getString(5));
-//
-//        return event;
-//    }
-//
-//}

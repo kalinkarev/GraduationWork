@@ -1,7 +1,6 @@
 package com.example.kalin.graduationwork.fragments;
 
 import android.app.DatePickerDialog;
-import android.app.FragmentManager;
 import android.app.TimePickerDialog;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -15,16 +14,17 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.kalin.graduationwork.ColorDialogFragment;
 import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.adapter.ColorsAdapter;
+import com.example.kalin.graduationwork.interfaces.ColorSelectedListener;
+import com.example.kalin.graduationwork.model.ColorData;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class AddFragment extends BaseFragment {
+public class AddFragment extends BaseFragment implements ColorSelectedListener{
 
     protected View addView;
     Toolbar toolbarAddfragment;
@@ -145,16 +145,13 @@ public class AddFragment extends BaseFragment {
 
         editColor = (TextView) mainView.findViewById(R.id.TextViewColor);
 
-        final FragmentManager fm = getFragmentManager();
-        final ColorDialogFragment cf = new ColorDialogFragment();
 
         editColor.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
 
-                cf.show(fm, "Color_tag");
+                ColorDialogFragment fragment = ColorDialogFragment.newInstance(AddFragment.this);
 
-                ColorsAdapter.getInstance(getActivity()).getName();
 
 //                editColor.setText();
 
@@ -268,4 +265,8 @@ public class AddFragment extends BaseFragment {
         timePickerDialog.show();
     }
 
+    @Override
+    public void onColorSelected(ColorData data) {
+
+    }
 }

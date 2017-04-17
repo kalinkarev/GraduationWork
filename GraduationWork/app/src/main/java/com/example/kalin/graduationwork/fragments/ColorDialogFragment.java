@@ -1,4 +1,4 @@
-package com.example.kalin.graduationwork;
+package com.example.kalin.graduationwork.fragments;
 
 import android.app.DialogFragment;
 import android.os.Bundle;
@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.adapter.ColorsAdapter;
+import com.example.kalin.graduationwork.interfaces.ColorSelectedListener;
 import com.example.kalin.graduationwork.model.ColorData;
 
 import java.util.ArrayList;
@@ -22,6 +24,16 @@ public class ColorDialogFragment extends DialogFragment {
 
     private ColorsAdapter adapter;
     private RecyclerView list;
+    ColorSelectedListener listener;
+
+    public static ColorDialogFragment newInstance(ColorSelectedListener listener) {
+        Bundle args = new Bundle();
+
+        ColorDialogFragment fragment = new ColorDialogFragment();
+        fragment.listener = listener;
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Nullable
     @Override
@@ -30,7 +42,7 @@ public class ColorDialogFragment extends DialogFragment {
         View rootView = inflater.inflate(R.layout.content_colors_dialogfragment, container);
 
         list = (RecyclerView) rootView.findViewById(R.id.colorsRecycleView);
-        adapter = new ColorsAdapter();
+        adapter = new ColorsAdapter(listener);
         list.setAdapter(adapter);
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
 

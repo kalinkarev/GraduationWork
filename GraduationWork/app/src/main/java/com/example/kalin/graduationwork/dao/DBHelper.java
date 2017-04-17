@@ -5,10 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-/**
- * Created by Kalin on 23.1.2017 г..
- */
-
 public class DBHelper extends SQLiteOpenHelper {
 
     // columns of the events table
@@ -23,10 +19,10 @@ public class DBHelper extends SQLiteOpenHelper {
     // columns of the durations table
     public static final String TABLE_DURATIONS = "durations";
     public static final String COLUMN_DURATION_ID = COLUMN_EVENT_ID;
-    public static final String COLUMN_DURATION_START = "from";
-    public static final String COLUMN_DURATION_FINISH = "to";
+    public static final String COLUMN_DURATION_START = "start";
+    public static final String COLUMN_DURATION_FINISH = "finish";
     public static final String COLUMN_DURATION_REPEAT = "repeat";
-    public static final String COLUMN_DURATION_ALLDAY = "all-day";
+    public static final String COLUMN_DURATION_ALLDAY = "allDay";
     public static final String COLUMN_DURATION_EVENT_ID = "event_id";
 
     // columns of the location table
@@ -45,7 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + TABLE_EVENTS + "( "
             + COLUMN_EVENT_ID + " integer primary key autoincrement, "
             + COLUMN_EVENT_NAME + " text not null, "
-            + COLUMN_EVENT_COLOR + " text not null, "
+            + COLUMN_EVENT_COLOR + " ,"
             + COLUMN_EVENT_NOTE + " text not null, "
             + COLUMN_EVENT_NOTIFICATION + " boolean, "
             + COLUMN_EVENT_PRICE + " integer not null);";
