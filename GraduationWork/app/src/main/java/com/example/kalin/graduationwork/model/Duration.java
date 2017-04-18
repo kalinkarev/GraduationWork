@@ -1,32 +1,43 @@
 package com.example.kalin.graduationwork.model;
 
-import java.io.Serializable;
+import android.database.Cursor;
 
-/**
- * Created by Kalin on 30.1.2017 г..
- */
+import com.example.kalin.graduationwork.dao.DBHelper;
+
+import java.io.Serializable;
 
 public class Duration implements Serializable {
 
-    public static final String TAG = "Duration";
-    private static final long serialVersionUID = -7406082437623008161L;
-
     private long mId;
-    private String mStart;
-    private String mFinish;
-    private String mRepeat;
-    private String mAllday;
+    private int mStart;
+    private int mFinish;
+    private boolean mRepeat;
+    private boolean mAllday;
     private Event mEvent;
 
     public Duration() {
 
     }
 
-    public Duration(String start, String finish, String repeat, String allday) {
+    public Duration(Cursor cursor) {
+        setId(cursor.getLong(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_ID)));
+        setStart(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_START)));
+        setFinish(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_FINISH)));
+        setRepeat(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_REPEAT)) == 1);
+        setAllday(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_ALLDAY)) == 1);
+
+//        setStart(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_START)));
+//        setFinish(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_FINISH)));
+//        setRepeat(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_REPEAT)));
+//        setAllday(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_ALLDAY)));
+    }
+
+    public Duration(int start, int finish, boolean repeat, boolean allday, Event event) {
         this.mStart = start;
         this.mFinish = finish;
         this.mRepeat = repeat;
         this.mAllday = allday;
+        this.mEvent = event;
     }
 
     public long getId() {
@@ -37,35 +48,35 @@ public class Duration implements Serializable {
         this.mId = mId;
     }
 
-    public String getStart() {
+    public int getStart() {
         return mStart;
     }
 
-    public void setStart(String mStart) {
+    public void setStart(int mStart) {
         this.mStart = mStart;
     }
 
-    public String getFinish() {
+    public int getFinish() {
         return mFinish;
     }
 
-    public void setFinish(String mFinish) {
+    public void setFinish(int mFinish) {
         this.mFinish = mFinish;
     }
 
-    public String getRepeat() {
+    public boolean getRepeat() {
         return mRepeat;
     }
 
-    public void setRepeat(String mRepeat) {
+    public void setRepeat(boolean mRepeat) {
         this.mRepeat = mRepeat;
     }
 
-    public String getAllday() {
+    public boolean getAllday() {
         return mAllday;
     }
 
-    public void setAllday(String mAllday) {
+    public void setAllday(boolean mAllday) {
         this.mAllday = mAllday;
     }
 

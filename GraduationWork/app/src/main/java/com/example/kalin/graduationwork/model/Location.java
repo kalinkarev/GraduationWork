@@ -1,10 +1,10 @@
 package com.example.kalin.graduationwork.model;
 
-import java.io.Serializable;
+import android.database.Cursor;
 
-/**
- * Created by Kalin on 30.1.2017 г..
- */
+import com.example.kalin.graduationwork.dao.DBHelper;
+
+import java.io.Serializable;
 
 public class Location implements Serializable {
 
@@ -21,10 +21,18 @@ public class Location implements Serializable {
 
     }
 
-    public Location(String name, String longitute, String latitude) {
+    public Location(Cursor cursor) {
+        setId(cursor.getLong(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_ID)));
+        setName(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NAME)));
+        setLongitute(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_LOCATION_LONGITUTE)));
+        setLatitude(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_LOCATION_LATITUDE)));
+    }
+
+    public Location(String name, String longitute, String latitude, Event event) {
         this.mName = name;
         this.mLongitute = longitute;
         this.mLatitude = latitude;
+        this.mEvent = event;
     }
 
     public long getId() {
