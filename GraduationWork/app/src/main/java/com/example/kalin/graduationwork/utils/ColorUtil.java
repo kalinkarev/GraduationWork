@@ -8,10 +8,6 @@ import com.example.kalin.graduationwork.model.ColorData;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Kalin on 30.3.2017 г..
- */
-
 public class ColorUtil {
 
     static ColorUtil instance;
