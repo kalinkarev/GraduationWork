@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.interfaces.ColorSelectedListener;
 import com.example.kalin.graduationwork.model.ColorData;
+import com.example.kalin.graduationwork.views.ColorView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,11 +43,14 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsView
         final ColorData colorData = items.get(position);
 
         holder.colorName.setText(colorData.getName());
+        holder.colorCircle.setCircleColor(colorData.getColor());
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (listener != null) {
-                    listener.onColorSelected(colorData);                }
+                    listener.onColorSelected(colorData);
+                }
             }
         });
     }
@@ -63,11 +67,13 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsView
     static class ColorsViewHolder extends RecyclerView.ViewHolder {
 
         TextView colorName;
+        ColorView colorCircle;
 
         public ColorsViewHolder(View itemView) {
             super(itemView);
 
             colorName = (TextView) itemView.findViewById(R.id.colors_row_title);
+            colorCircle = (ColorView) itemView.findViewById(R.id.circleView);
 
         }
 

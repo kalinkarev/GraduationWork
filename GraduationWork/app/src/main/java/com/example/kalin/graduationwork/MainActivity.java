@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showColorDialog() {
         android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
-//        ColorDialogFragment colorDialogFragment = ColorDialogFragment.newInstance(ColorUtil.getInstance());
+//        ColorDialogFragment colorDialogFragment = ColorDialogFragment.newInstance(ColorUtil.getInstance(getApplicationContext()));
 //        colorDialogFragment.show(fm, "fragment_edit_color");
     }
 
