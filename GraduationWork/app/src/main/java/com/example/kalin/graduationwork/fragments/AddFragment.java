@@ -145,13 +145,20 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
 
         editColor = (TextView) mainView.findViewById(R.id.TextViewColor);
 
-
         editColor.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
 
                 ColorDialogFragment fragment = ColorDialogFragment.newInstance(AddFragment.this);
+                    showAlertDialog();
+//                dialog.show(getActivity().getFragmentManager(), "ColorDialogFragment");
 
+
+//                fragment.dismiss();
+
+//                Toast.makeText(getMainActivity(), "You have clicked the dialog fragment", Toast.LENGTH_SHORT).show();
+
+//                ColorDialogFragment fragment = ColorDialogFragment.newInstance(AddFragment.this);
 
 //                editColor.setText();
 
@@ -263,6 +270,10 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
             }
         }, mHourFinish, mMinute, false);
         timePickerDialog.show();
+    }
+
+    private void showAlertDialog() {
+        ColorDialogFragment colorDialogFragment = ColorDialogFragment.newInstance(AddFragment.this);
     }
 
     @Override

@@ -28,16 +28,6 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsView
         this.listener = listener;
     }
 
-
-    //    private static ColorsAdapter instance;
-
-//    public static ColorsAdapter getInstance(Context context) {
-//        if (instance == null) {
-//            instance = new ColorsAdapter();
-//        }
-//        return instance;
-//    }
-
     @Override
     public ColorsAdapter.ColorsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())

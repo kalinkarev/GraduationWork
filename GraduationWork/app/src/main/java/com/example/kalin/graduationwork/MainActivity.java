@@ -30,12 +30,20 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_SHORT).show();
                 showFragmentAndAddToBackstack(new AddFragment());
             }
         });
 
         showFragment(new HomeFragment());
+
+        showColorDialog();
+
+    }
+
+    private void showColorDialog() {
+        android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+//        ColorDialogFragment colorDialogFragment = ColorDialogFragment.newInstance(ColorUtil.getInstance());
+//        colorDialogFragment.show(fm, "fragment_edit_color");
     }
 
     public void showFragment(BaseFragment fragment) {
