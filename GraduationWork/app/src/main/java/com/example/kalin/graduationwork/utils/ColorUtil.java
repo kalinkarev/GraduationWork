@@ -28,23 +28,23 @@ public class ColorUtil {
     }
 
     public void init() {
-        ColorData black = new ColorData("Black", context.getResources().getColor(R.color.Black));
-        ColorData darkBlue = new ColorData("DarkBlue", context.getResources().getColor(R.color.DarkBlue));
-        ColorData blue = new ColorData("Blue", context.getResources().getColor(R.color.Blue));
-        ColorData lightBlue = new ColorData("LightBlue", context.getResources().getColor(R.color.LightBlue));
-        ColorData darkPink = new ColorData("DarkPink", context.getResources().getColor(R.color.DarkPink));
-        ColorData pink = new ColorData("Pink", context.getResources().getColor(R.color.Pink));
-        ColorData lightPink = new ColorData("LightPink", context.getResources().getColor(R.color.LightPink));
-        ColorData darkRed = new ColorData("DarkRed", context.getResources().getColor(R.color.DarkRed));
-        ColorData red = new ColorData("Red", context.getResources().getColor(R.color.Red));
-        ColorData orange = new ColorData("Orange", context.getResources().getColor(R.color.Orange));
-        ColorData lightOrange = new ColorData("LightOrange", context.getResources().getColor(R.color.LightOrange));
-        ColorData green = new ColorData("Green", context.getResources().getColor(R.color.Green));
-        ColorData darkGray = new ColorData("DarkGray", context.getResources().getColor(R.color.DarkGray));
-        ColorData gray = new ColorData("Gray", context.getResources().getColor(R.color.Gray));
-        ColorData lightGray = new ColorData("LightGray", context.getResources().getColor(R.color.LightGray));
-        ColorData purple = new ColorData("Purple", context.getResources().getColor(R.color.Purple));
-        ColorData lightPurple = new ColorData("LightPurple", context.getResources().getColor(R.color.LightPurple));
+        ColorData black = new ColorData(context.getString(R.string.black), context.getResources().getColor(R.color.Black));
+        ColorData darkBlue = new ColorData(context.getString(R.string.dark_blue), context.getResources().getColor(R.color.DarkBlue));
+        ColorData blue = new ColorData(context.getString(R.string.blue), context.getResources().getColor(R.color.Blue));
+        ColorData lightBlue = new ColorData(context.getString(R.string.light_blue), context.getResources().getColor(R.color.LightBlue));
+        ColorData darkPink = new ColorData(context.getString(R.string.dark_pink), context.getResources().getColor(R.color.DarkPink));
+        ColorData pink = new ColorData(context.getString(R.string.pink), context.getResources().getColor(R.color.Pink));
+        ColorData lightPink = new ColorData(context.getString(R.string.light_pink), context.getResources().getColor(R.color.LightPink));
+        ColorData darkRed = new ColorData(context.getString(R.string.dark_red), context.getResources().getColor(R.color.DarkRed));
+        ColorData red = new ColorData(context.getString(R.string.red), context.getResources().getColor(R.color.Red));
+        ColorData orange = new ColorData(context.getString(R.string.orange), context.getResources().getColor(R.color.Orange));
+        ColorData lightOrange = new ColorData(context.getString(R.string.light_orange), context.getResources().getColor(R.color.LightOrange));
+        ColorData green = new ColorData(context.getString(R.string.green), context.getResources().getColor(R.color.Green));
+        ColorData darkGray = new ColorData(context.getString(R.string.dark_gray), context.getResources().getColor(R.color.DarkGray));
+        ColorData gray = new ColorData(context.getString(R.string.gray), context.getResources().getColor(R.color.Gray));
+        ColorData lightGray = new ColorData(context.getString(R.string.light_gray), context.getResources().getColor(R.color.LightGray));
+        ColorData purple = new ColorData(context.getString(R.string.purple), context.getResources().getColor(R.color.Purple));
+        ColorData lightPurple = new ColorData(context.getString(R.string.light_purple), context.getResources().getColor(R.color.LightPurple));
 
         colors.add(black);
         colors.add(darkBlue);

@@ -150,7 +150,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
             public void onClick(View view) {
 
                 ColorDialogFragment colorDialogFragment = ColorDialogFragment.newInstance(AddFragment.this);
-
+                getMainActivity().showColorDialog(colorDialogFragment);
 //                dialog.show(getActivity().getFragmentManager(), "ColorDialogFragment");
 
 
