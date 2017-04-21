@@ -14,10 +14,6 @@ import com.example.kalin.graduationwork.views.ColorView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Kalin on 1.4.2017 г..
- */
-
 public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsViewHolder> {
 
     List<ColorData> items = new ArrayList<>();

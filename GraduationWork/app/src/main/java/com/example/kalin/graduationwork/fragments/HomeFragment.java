@@ -61,8 +61,8 @@ public class HomeFragment extends BaseFragment {
         event.setDuration(duration);
         event.setLocation(location);
 
-//        DBManager.getInstance(getActivity()).addEvent(event, false);
-//        DBManager.getInstance(getActivity()).getAllEvents();
+        DBManager.getInstance(getActivity()).addEvent(event, false);
+        DBManager.getInstance(getActivity()).getAllEvents();
 
 
 //        Event event = new Event();
@@ -129,7 +129,7 @@ public class HomeFragment extends BaseFragment {
 //            layout.setVisibility(View.GONE);
 //        }
 //
-//        getMainActivity().getFab().show();
+        getMainActivity().getFab().show();
     }
 
     @Override

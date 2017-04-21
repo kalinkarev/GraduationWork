@@ -148,20 +148,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
         editColor.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
                 ColorDialogFragment colorDialogFragment = ColorDialogFragment.newInstance(AddFragment.this);
                 getMainActivity().showColorDialog(colorDialogFragment);
-//                dialog.show(getActivity().getFragmentManager(), "ColorDialogFragment");
-
-
-//                fragment.dismiss();
-
-//                Toast.makeText(getMainActivity(), "You have clicked the dialog fragment", Toast.LENGTH_SHORT).show();
-
-//                ColorDialogFragment fragment = ColorDialogFragment.newInstance(AddFragment.this);
-
-//                editColor.setText();
-
             }
         });
 
