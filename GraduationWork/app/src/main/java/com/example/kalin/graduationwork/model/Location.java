@@ -8,9 +8,6 @@ import java.io.Serializable;
 
 public class Location implements Serializable {
 
-    public static final String TAG = "Location";
-    private static final long serialVersionUID = -7406082437623008161L;
-
     private long mId;
     private String mName;
     private String mLongitute;
@@ -22,8 +19,8 @@ public class Location implements Serializable {
     }
 
     public Location(Cursor cursor) {
-        setId(cursor.getLong(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_ID)));
-        setName(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NAME)));
+        setId(cursor.getLong(cursor.getColumnIndex(DBHelper.COLUMN_LOCATION_ID)));
+        setName(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_LOCATION_NAME)));
         setLongitute(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_LOCATION_LONGITUTE)));
         setLatitude(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_LOCATION_LATITUDE)));
     }

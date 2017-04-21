@@ -32,7 +32,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:paddingLeft="30dp"
-                android:textColor="@color/colorGreyForEvents"
+                android:textColor="@color/DarkGray"
                 />
 
         </LinearLayout>
@@ -41,7 +41,7 @@
             android:id="@+id/buttonsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlueForEvents"
+            android:background="@color/LightBlue"
             android:padding="10dp">
 
             <ImageButton
@@ -67,13 +67,13 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:background="@color/colorAlmostWhite2ForEvents"/>
+        android:background="@color/Gray"/>
 
     <LinearLayout
         android:layout_width="20dp"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
-        android:background="@color/colorBlueForEvents"
+        android:background="@color/LightBlue"
         android:orientation="vertical">
 
     </LinearLayout>

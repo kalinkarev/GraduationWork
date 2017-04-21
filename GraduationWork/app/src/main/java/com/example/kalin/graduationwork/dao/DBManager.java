@@ -40,7 +40,7 @@ public class DBManager {
     }
 
     public void close() {
-        mDBHelper.close();
+        mDatabase.close();
     }
 
     public synchronized void addEvent(Event event, boolean toUpdate) {
@@ -76,12 +76,15 @@ public class DBManager {
     }
 
     public synchronized void deleteEvent(Event event) {
+        open();
         mDatabase.delete(DBHelper.TABLE_EVENTS, DBHelper.COLUMN_EVENT_ID + " = " + id, null);
         mDatabase.delete(DBHelper.TABLE_LOCATIONS, DBHelper.COLUMN_LOCATION_EVENT_ID + " = " + id, null);
         mDatabase.delete(DBHelper.TABLE_DURATIONS, DBHelper.COLUMN_DURATION_EVENT_ID + " = " + id, null);
+        close();
     }
 
     public synchronized List<Event> getAllEvents() {
+        open();
         List<Event> events = new ArrayList<>();
 
         Cursor cursor = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_EVENTS, null);
@@ -112,6 +115,7 @@ public class DBManager {
 
             cursor.close();
         }
+        close();
 
         return events;
     }

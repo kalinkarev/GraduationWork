@@ -6,23 +6,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:orientation="horizontal" >
 
-        <android.support.v4.widget.CircleImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <com.example.kalin.graduationwork.views.ColorView
+            android:id="@+id/circleView"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp" />
 
         <TextView
             android:id="@+id/colors_row_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="Default color"
+            android:textSize="25dp" />
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:paddingLeft="30dp"
-            android:textSize="20dp"
-            android:textColor="@color/Black"
-            />
+            android:background="@drawable/compleate"
+            android:layout_marginLeft="-50dp" />
 
     </LinearLayout>
 

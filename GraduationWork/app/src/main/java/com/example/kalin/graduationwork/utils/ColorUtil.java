@@ -8,10 +8,6 @@ import com.example.kalin.graduationwork.model.ColorData;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Kalin on 30.3.2017 г..
- */
-
 public class ColorUtil {
 
     static ColorUtil instance;
@@ -32,47 +28,41 @@ public class ColorUtil {
     }
 
     public void init() {
-        ColorData darkBlue = new ColorData(context.getString(R.string.dark_blue),
-                context.getResources().getColor(R.color.colorPrimaryDark));
+        ColorData black = new ColorData(context.getString(R.string.black), context.getResources().getColor(R.color.Black));
+        ColorData darkBlue = new ColorData(context.getString(R.string.dark_blue), context.getResources().getColor(R.color.DarkBlue));
+        ColorData blue = new ColorData(context.getString(R.string.blue), context.getResources().getColor(R.color.Blue));
+        ColorData lightBlue = new ColorData(context.getString(R.string.light_blue), context.getResources().getColor(R.color.LightBlue));
+        ColorData darkPink = new ColorData(context.getString(R.string.dark_pink), context.getResources().getColor(R.color.DarkPink));
+        ColorData pink = new ColorData(context.getString(R.string.pink), context.getResources().getColor(R.color.Pink));
+        ColorData lightPink = new ColorData(context.getString(R.string.light_pink), context.getResources().getColor(R.color.LightPink));
+        ColorData darkRed = new ColorData(context.getString(R.string.dark_red), context.getResources().getColor(R.color.DarkRed));
+        ColorData red = new ColorData(context.getString(R.string.red), context.getResources().getColor(R.color.Red));
+        ColorData orange = new ColorData(context.getString(R.string.orange), context.getResources().getColor(R.color.Orange));
+        ColorData lightOrange = new ColorData(context.getString(R.string.light_orange), context.getResources().getColor(R.color.LightOrange));
+        ColorData green = new ColorData(context.getString(R.string.green), context.getResources().getColor(R.color.Green));
+        ColorData darkGray = new ColorData(context.getString(R.string.dark_gray), context.getResources().getColor(R.color.DarkGray));
+        ColorData gray = new ColorData(context.getString(R.string.gray), context.getResources().getColor(R.color.Gray));
+        ColorData lightGray = new ColorData(context.getString(R.string.light_gray), context.getResources().getColor(R.color.LightGray));
+        ColorData purple = new ColorData(context.getString(R.string.purple), context.getResources().getColor(R.color.Purple));
+        ColorData lightPurple = new ColorData(context.getString(R.string.light_purple), context.getResources().getColor(R.color.LightPurple));
+
+        colors.add(black);
         colors.add(darkBlue);
-        ColorData blue = new ColorData();
         colors.add(blue);
-        ColorData lightBlue = new ColorData();
         colors.add(lightBlue);
-
-        ColorData darkPink = new ColorData();
         colors.add(darkPink);
-        ColorData pink = new ColorData();
         colors.add(pink);
-        ColorData lightPink = new ColorData();
         colors.add(lightPink);
-
-        ColorData red = new ColorData();
+        colors.add(darkRed);
         colors.add(red);
-        ColorData lightRed = new ColorData();
-        colors.add(lightRed);
-
-        ColorData darkOrange = new ColorData();
-        colors.add(darkOrange);
-        ColorData orange = new ColorData();
         colors.add(orange);
-
-        ColorData green = new ColorData();
+        colors.add(lightOrange);
         colors.add(green);
-
-        ColorData gray = new ColorData();
+        colors.add(darkGray);
         colors.add(gray);
-        ColorData lightGray = new ColorData();
         colors.add(lightGray);
-
-        ColorData purple = new ColorData();
         colors.add(purple);
-        ColorData lightPurple = new ColorData();
         colors.add(lightPurple);
-
-        ColorData white = new ColorData();
-        colors.add(white);
-
     }
 
     public List<ColorData> getColors() {

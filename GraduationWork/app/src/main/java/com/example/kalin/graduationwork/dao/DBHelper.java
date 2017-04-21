@@ -41,7 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + TABLE_EVENTS + "( "
             + COLUMN_EVENT_ID + " integer primary key autoincrement, "
             + COLUMN_EVENT_NAME + " text not null, "
-            + COLUMN_EVENT_COLOR + " ,"
+            + COLUMN_EVENT_COLOR + " integer, "
             + COLUMN_EVENT_NOTE + " text not null, "
             + COLUMN_EVENT_NOTIFICATION + " boolean, "
             + COLUMN_EVENT_PRICE + " integer not null);";
@@ -52,8 +52,8 @@ public class DBHelper extends SQLiteOpenHelper {
             + COLUMN_DURATION_ID + " integer primary key autoincrement, "
             + COLUMN_DURATION_START + " integer, "
             + COLUMN_DURATION_FINISH + " integer, "
-            + COLUMN_DURATION_REPEAT + " boolean, "
-            + COLUMN_DURATION_ALLDAY + " boolean, "
+            + COLUMN_DURATION_REPEAT + " integer, "
+            + COLUMN_DURATION_ALLDAY + " integer, "
             + COLUMN_DURATION_EVENT_ID + " integer not null);";
 
     // Database creation sql statement
@@ -62,7 +62,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + COLUMN_LOCATION_ID + " integer primary key autoincrement, "
             + COLUMN_LOCATION_NAME + " text not null, "
             + COLUMN_LOCATION_LATITUDE + " integer, "
-            + COLUMN_LOCATION_LONGITUTE + " boolean, "
+            + COLUMN_LOCATION_LONGITUTE + " integer, "
             + COLUMN_LOCATION_EVENT_ID + " integer not null);";
 
     public DBHelper(Context context) {
