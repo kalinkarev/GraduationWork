@@ -4,6 +4,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/linearLayoutForRowOfColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
@@ -20,10 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:text="Default color"
             android:textSize="25dp" />
 
         <ImageView
+            android:id="@+id/imageViewColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/compleate"

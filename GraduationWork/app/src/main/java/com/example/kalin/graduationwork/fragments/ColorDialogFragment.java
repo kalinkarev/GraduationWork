@@ -52,5 +52,6 @@ public class ColorDialogFragment extends DialogFragment {
 
         List colornames = color.getColors();
         adapter.addItems(colornames);
+
     }
 }

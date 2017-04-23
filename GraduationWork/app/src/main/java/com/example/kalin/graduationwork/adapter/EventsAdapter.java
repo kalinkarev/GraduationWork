@@ -16,10 +16,6 @@ import com.example.kalin.graduationwork.model.Event;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Kalin on 1.2.2017 г..
- */
-
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsViewHolder> {
 
     List<Event> items = new ArrayList<>();

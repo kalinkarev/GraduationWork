@@ -18,6 +18,7 @@ import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.adapter.ColorsAdapter;
 import com.example.kalin.graduationwork.interfaces.ColorSelectedListener;
 import com.example.kalin.graduationwork.model.ColorData;
+import com.example.kalin.graduationwork.views.ColorView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -39,6 +40,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
     Calendar startDate;
 
     TextView editColor;
+
+    ColorView circleColor;
 
     private ColorsAdapter adapter;
     private RecyclerView list;
@@ -152,6 +155,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
                 getMainActivity().showColorDialog(colorDialogFragment);
             }
         });
+
+        circleColor = (ColorView) mainView.findViewById(R.id.circleView);
 
     }
 

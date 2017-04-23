@@ -4,6 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.kalin.graduationwork.R;
@@ -35,20 +37,24 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsView
     }
 
     @Override
-    public void onBindViewHolder(ColorsAdapter.ColorsViewHolder holder, final int position) {
+    public void onBindViewHolder(final ColorsAdapter.ColorsViewHolder holder, final int position) {
         final ColorData colorData = items.get(position);
 
         holder.colorName.setText(colorData.getName());
         holder.colorCircle.setCircleColor(colorData.getColor());
+        holder.selectedColor.setVisibility(View.GONE);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null) {
-                    listener.onColorSelected(colorData);
+        holder.linearLayoutForColorsRow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        listener.onColorSelected(colorData);
+                        holder.selectedColor.setVisibility(View.VISIBLE);
+                    }
                 }
-            }
         });
+
+        colorData.getName();
     }
 
     public void getName() {
@@ -64,12 +70,16 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsView
 
         TextView colorName;
         ColorView colorCircle;
+        ImageView selectedColor;
+        LinearLayout linearLayoutForColorsRow;
 
         public ColorsViewHolder(View itemView) {
             super(itemView);
 
             colorName = (TextView) itemView.findViewById(R.id.colors_row_title);
             colorCircle = (ColorView) itemView.findViewById(R.id.circleView);
+            selectedColor = (ImageView) itemView.findViewById(R.id.imageViewColor);
+            linearLayoutForColorsRow = (LinearLayout) itemView.findViewById(R.id.linearLayoutForRowOfColor);
 
         }
 
