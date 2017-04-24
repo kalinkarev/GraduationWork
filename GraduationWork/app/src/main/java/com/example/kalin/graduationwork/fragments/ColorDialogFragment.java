@@ -54,4 +54,5 @@ public class ColorDialogFragment extends DialogFragment {
         adapter.addItems(colornames);
 
     }
+
 }

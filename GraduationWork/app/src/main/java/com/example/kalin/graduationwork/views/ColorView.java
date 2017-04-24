@@ -1,6 +1,5 @@
 package com.example.kalin.graduationwork.views;
 
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
