@@ -162,19 +162,12 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
 
     @Override
     protected void setupToolbar() {
-
-//        Toolbar toolbarAddfragment = (Toolbar) getMainActivity().getLayoutInflater().inflate(R.layout.toolbar_addfragment, null);
-//
-//        getMainActivity().setSupportActionBar(toolbarAddfragment);
-
-
         Toolbar toolbarAdd = (Toolbar) mainView.findViewById(R.id.toolbar_newEvent);
         ImageView buttonCancel = (ImageView) mainView.findViewById(R.id.buttonCancel);
 
         buttonCancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-//                Toast.makeText(getMainActivity(), "You have clicked the cancel button", Toast.LENGTH_SHORT).show();
                 getMainActivity().showFragmentAndAddToBackstack(new HomeFragment());
             }
         });
@@ -271,6 +264,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
 
     @Override
     public void onColorSelected(ColorData data) {
-
+        Toast.makeText(getActivity(), "You have selected " + data + " color", Toast.LENGTH_SHORT).show();
     }
 }

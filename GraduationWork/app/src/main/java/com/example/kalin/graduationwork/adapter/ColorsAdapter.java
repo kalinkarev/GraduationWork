@@ -54,7 +54,6 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsView
                 }
         });
 
-        colorData.getName();
     }
 
     public void getName() {
