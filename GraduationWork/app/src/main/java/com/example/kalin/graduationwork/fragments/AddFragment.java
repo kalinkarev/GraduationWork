@@ -2,6 +2,7 @@ package com.example.kalin.graduationwork.fragments;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -29,6 +30,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
 
     protected View addView;
     Toolbar toolbarAddfragment;
+    Context context;
 
     int mYear, mMonth, mDay, mDayWeek, mHour, mHourFinish, mMinute;
 
@@ -265,5 +267,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
     @Override
     public void onColorSelected(ColorData data) {
         Toast.makeText(getActivity(), "You have selected " + data + " color", Toast.LENGTH_SHORT).show();
+//        adapter = new ColorsAdapter(context, data);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.kalin.graduationwork.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,12 +19,18 @@ import java.util.List;
 
 public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsViewHolder> {
 
+    private Context context;
     List<ColorData> items = new ArrayList<>();
     private int selectedPosition = -1;
     ColorData col;
-    ColorSelectedListener listener;
+    private static ColorSelectedListener listener;
 
     public ColorsAdapter(ColorSelectedListener listener) {
+        this.listener = listener;
+    }
+
+    public ColorsAdapter(Context context, ColorSelectedListener listener) {
+        this.context = context;
         this.listener = listener;
     }
 
@@ -79,9 +86,7 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsView
             colorCircle = (ColorView) itemView.findViewById(R.id.circleView);
             selectedColor = (ImageView) itemView.findViewById(R.id.imageViewColor);
             linearLayoutForColorsRow = (LinearLayout) itemView.findViewById(R.id.linearLayoutForRowOfColor);
-
         }
-
     }
 
     public void addItems(List<ColorData> colors) {

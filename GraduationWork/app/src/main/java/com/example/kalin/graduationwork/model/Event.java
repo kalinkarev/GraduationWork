@@ -17,9 +17,7 @@ public class Event implements Serializable {
     private Duration mDuration;
     private Location mLocation;
 
-    public Event() {
-
-    }
+    public Event() {}
 
     public Event(String name, ColorData color, String note, boolean notification, int price,
                  Duration duration, Location location) {
@@ -35,6 +33,7 @@ public class Event implements Serializable {
     public Event(Cursor cursor) {
         setId(cursor.getLong(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_ID)));
         setName(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NAME)));
+        setColor(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_COLOR)));
 //        setColor(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_COLOR)));
         setNote(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTE)));
         setNotification(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTIFICATION)) == 1);
