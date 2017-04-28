@@ -68,4 +68,13 @@ public class ColorUtil {
     public List<ColorData> getColors() {
         return colors;
     }
+
+    public  ColorData findColor(int colorHex) {
+        for (ColorData data : colors) {
+            if (data.getColor() == colorHex) {
+                return data;
+            }
+        }
+        return null;
+    }
 }

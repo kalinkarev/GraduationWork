@@ -2,7 +2,9 @@ package com.example.kalin.graduationwork.model;
 
 import android.database.Cursor;
 
+import com.example.kalin.graduationwork.BusyApplication;
 import com.example.kalin.graduationwork.dao.DBHelper;
+import com.example.kalin.graduationwork.utils.ColorUtil;
 
 import java.io.Serializable;
 
@@ -33,7 +35,7 @@ public class Event implements Serializable {
     public Event(Cursor cursor) {
         setId(cursor.getLong(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_ID)));
         setName(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NAME)));
-        setColor(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_COLOR)));
+        setColor(ColorUtil.getInstance(BusyApplication.getInstance()).findColor(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_COLOR))));
 //        setColor(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_COLOR)));
         setNote(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTE)));
         setNotification(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTIFICATION)) == 1);
