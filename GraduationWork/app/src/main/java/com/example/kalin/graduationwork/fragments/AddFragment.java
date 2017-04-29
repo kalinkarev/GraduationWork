@@ -44,6 +44,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
     TextView editColor;
 
     ColorView circleColor;
+    String nameOfColor;
 
     private ColorsAdapter adapter;
     private RecyclerView list;
@@ -158,6 +159,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
             }
         });
 
+        editColor.setText(nameOfColor);
+
         circleColor = (ColorView) mainView.findViewById(R.id.circleView);
 
     }
@@ -266,7 +269,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
 
     @Override
     public void onColorSelected(ColorData data) {
-        Toast.makeText(getActivity(), "You have selected " + data + " color", Toast.LENGTH_SHORT).show();
-//        adapter = new ColorsAdapter(context, data);
+        Toast.makeText(getActivity(), "You have selected " + data.getName() + " color", Toast.LENGTH_SHORT).show();
+        nameOfColor = data.getName().toString();
+        getMainActivity().showFragmentAndAddToBackstack(AddFragment.this);
     }
 }
