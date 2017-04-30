@@ -158,11 +158,9 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
                 getMainActivity().showColorDialog(colorDialogFragment);
             }
         });
-
         editColor.setText(nameOfColor);
 
         circleColor = (ColorView) mainView.findViewById(R.id.circleView);
-
         circleColor.setCircleColor(colorOfCircle);
     }
 
