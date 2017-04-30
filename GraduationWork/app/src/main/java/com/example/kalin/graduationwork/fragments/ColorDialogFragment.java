@@ -54,4 +54,13 @@ public class ColorDialogFragment extends DialogFragment {
         adapter.addItems(colornames);
     }
 
+/*
+    public void onResume() {
+        super.onResume();
+        Window window = getDialog().getWindow();
+        window.setLayout(100, 100);
+        window.setGravity(Gravity.CENTER);
+    }
+*/
+
 }
