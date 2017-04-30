@@ -35,12 +35,14 @@ public class ColorDialogFragment extends DialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // android how to make dialogfragment transparent
         return inflater.inflate(R.layout.content_colors_dialogfragment, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.AppDialogTheme);
         list = (RecyclerView) view.findViewById(R.id.colorsRecycleView);
 
         adapter = new ColorsAdapter(listener);
@@ -53,14 +55,5 @@ public class ColorDialogFragment extends DialogFragment {
         List colornames = color.getColors();
         adapter.addItems(colornames);
     }
-
-/*
-    public void onResume() {
-        super.onResume();
-        Window window = getDialog().getWindow();
-        window.setLayout(100, 100);
-        window.setGravity(Gravity.CENTER);
-    }
-*/
 
 }
