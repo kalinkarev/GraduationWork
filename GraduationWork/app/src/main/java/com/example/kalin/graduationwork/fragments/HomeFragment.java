@@ -17,6 +17,9 @@ import com.example.kalin.graduationwork.model.Duration;
 import com.example.kalin.graduationwork.model.Event;
 import com.example.kalin.graduationwork.model.Location;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeFragment extends BaseFragment {
 
     private EventsAdapter adapter;
@@ -37,6 +40,8 @@ public class HomeFragment extends BaseFragment {
         list.setAdapter(adapter);
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
         layout = (LinearLayout) mainView.findViewById(R.id.layout_for_no_events);
+
+        List<Event> events = new ArrayList<>();
 
         ColorData color = new ColorData();
         color.setName("blue");
@@ -64,14 +69,11 @@ public class HomeFragment extends BaseFragment {
         DBManager.getInstance(getActivity()).addEvent(event, false);
         DBManager.getInstance(getActivity()).getAllEvents();
 
+        events.add(event);
+        adapter.addItems(events);
 
 //        Event event = new Event();
-
-
 //        event.setName("Free");
-
-
-
 //        event.getId();
 //        event.getName();
 //        event.getColor();
@@ -121,14 +123,14 @@ public class HomeFragment extends BaseFragment {
 //        events.add(event6);
 //        adapter.addItems(events);
 //
-//        if (events.size() == 0) {
-//            list.setVisibility(View.GONE);
-//            layout.setVisibility(View.VISIBLE);
-//        } else {
-//            list.setVisibility(View.VISIBLE);
-//            layout.setVisibility(View.GONE);
-//        }
-//
+        if (events.size() == 0) {
+            list.setVisibility(View.GONE);
+            layout.setVisibility(View.VISIBLE);
+        } else {
+            list.setVisibility(View.VISIBLE);
+            layout.setVisibility(View.GONE);
+        }
+
         getMainActivity().getFab().show();
     }
 
