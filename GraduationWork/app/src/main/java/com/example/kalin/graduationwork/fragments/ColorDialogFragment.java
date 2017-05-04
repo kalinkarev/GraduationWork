@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.adapter.ColorsAdapter;
 import com.example.kalin.graduationwork.interfaces.ColorSelectedListener;
+import com.example.kalin.graduationwork.model.ColorData;
 import com.example.kalin.graduationwork.utils.ColorUtil;
 
 import java.util.List;
@@ -21,14 +22,16 @@ public class ColorDialogFragment extends DialogFragment {
     private ColorsAdapter adapter;
     private RecyclerView list;
     ColorSelectedListener listener;
+    ColorData data;
 
     public ColorDialogFragment() { }
 
-    public static ColorDialogFragment newInstance(ColorSelectedListener listener) {
+    public static ColorDialogFragment newInstance(ColorSelectedListener listener, ColorData data) {
         Bundle args = new Bundle();
 
         ColorDialogFragment fragment = new ColorDialogFragment();
         fragment.listener = listener;
+        fragment.data=data;
         fragment.setArguments(args);
         return fragment;
     }
@@ -57,7 +60,6 @@ public class ColorDialogFragment extends DialogFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.AppDialogTheme);
         list = (RecyclerView) view.findViewById(R.id.colorsRecycleView);
 
 //        onStart();
@@ -70,7 +72,13 @@ public class ColorDialogFragment extends DialogFragment {
         ColorUtil color = ColorUtil.getInstance(getActivity().getApplicationContext());
 
         List colornames = color.getColors();
+        adapter.setCol(data);
         adapter.addItems(colornames);
+
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }

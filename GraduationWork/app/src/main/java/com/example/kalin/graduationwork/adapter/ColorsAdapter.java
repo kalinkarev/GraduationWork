@@ -51,14 +51,17 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsView
         holder.colorCircle.setCircleColor(colorData.getColor());
         holder.selectedColor.setVisibility(View.GONE);
 
-        col = colorData;
+        if (col != null && col.getColor() == colorData.getColor()) {
+            holder.selectedColor.setVisibility(View.VISIBLE);
+        }
 
         holder.linearLayoutForColorsRow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (listener != colorData) {
-                            holder.selectedColor.setVisibility(View.VISIBLE);
+                    if (listener != null) {
+                        col = colorData;
                             listener.onColorSelected(colorData);
+                        notifyDataSetChanged();
                     }
                 }
         });
@@ -98,4 +101,7 @@ public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorsView
 
     }
 
+    public void setCol(ColorData col) {
+        this.col = col;
+    }
 }

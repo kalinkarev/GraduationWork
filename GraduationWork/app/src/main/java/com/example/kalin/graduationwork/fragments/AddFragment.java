@@ -19,6 +19,7 @@ import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.adapter.ColorsAdapter;
 import com.example.kalin.graduationwork.interfaces.ColorSelectedListener;
 import com.example.kalin.graduationwork.model.ColorData;
+import com.example.kalin.graduationwork.utils.ColorUtil;
 import com.example.kalin.graduationwork.views.ColorView;
 
 import java.text.DateFormat;
@@ -42,9 +43,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
 
     ColorView circleColor;
     TextView editColor;
+    ColorData currentColor;
 
-    String nameOfColor;
-    int colorOfCircle;
 
     private ColorsAdapter adapter;
     private RecyclerView list;
@@ -154,14 +154,17 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
         editColor.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                ColorDialogFragment colorDialogFragment = ColorDialogFragment.newInstance(AddFragment.this);
+                ColorDialogFragment colorDialogFragment = ColorDialogFragment.newInstance(AddFragment.this, currentColor);
                 getMainActivity().showColorDialog(colorDialogFragment);
             }
         });
-        editColor.setText(nameOfColor);
+
+        currentColor = ColorUtil.getInstance(getActivity()).getColors().get(0);
+
+        editColor.setText(currentColor.getName());
 
         circleColor = (ColorView) mainView.findViewById(R.id.circleView);
-        circleColor.setCircleColor(colorOfCircle);
+        circleColor.setCircleColor(currentColor.getColor());
     }
 
     @Override
@@ -262,15 +265,13 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
         timePickerDialog.show();
     }
 
-    private void showAlertDialog() {
-        ColorDialogFragment colorDialogFragment = ColorDialogFragment.newInstance(AddFragment.this);
-    }
 
     @Override
     public void onColorSelected(ColorData data) {
         Toast.makeText(getActivity(), "You have selected " + data.getName() + " color", Toast.LENGTH_SHORT).show();
-        nameOfColor = data.getName().toString();
-        colorOfCircle = data.getColor();
+        currentColor = data;
         getMainActivity().showFragmentAndAddToBackstack(AddFragment.this);
+        editColor.setText(currentColor.getName());
+
     }
 }
