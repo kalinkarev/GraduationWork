@@ -188,7 +188,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
             }
         });
 
-
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -265,13 +264,16 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
         timePickerDialog.show();
     }
 
+    public void selectedColor() {
+        editColor.setText(currentColor.getName());
+        circleColor.setCircleColor(currentColor.getColor());
+    }
 
     @Override
     public void onColorSelected(ColorData data) {
         Toast.makeText(getActivity(), "You have selected " + data.getName() + " color", Toast.LENGTH_SHORT).show();
         currentColor = data;
-        getMainActivity().showFragmentAndAddToBackstack(AddFragment.this);
-        editColor.setText(currentColor.getName());
-
+        selectedColor();
     }
+
 }

@@ -12,25 +12,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
         <Button
-            android:id="@+id/testbutton"
+            android:id="@+id/btnCancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Save" />
+            android:text="Cancel" />
 
         <Button
-            android:id="@+id/cancelButton"
+            android:id="@+id/btnOK"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cancel"/>
+            android:text="OK" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/colorsRecycleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnForColors"
-        />
+        android:layout_above="@+id/btnForColors" />
 
 </RelativeLayout>
