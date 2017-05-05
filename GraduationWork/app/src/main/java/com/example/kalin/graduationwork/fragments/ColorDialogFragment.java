@@ -27,14 +27,15 @@ public class ColorDialogFragment extends DialogFragment {
     ColorSelectedListener listener;
     ColorData data;
 
-    public ColorDialogFragment() { }
+    public ColorDialogFragment() {
+    }
 
     public static ColorDialogFragment newInstance(ColorSelectedListener listener, ColorData data) {
         Bundle args = new Bundle();
 
         ColorDialogFragment fragment = new ColorDialogFragment();
         fragment.listener = listener;
-        fragment.data=data;
+        fragment.data = data;
         fragment.setArguments(args);
         return fragment;
     }
@@ -59,7 +60,7 @@ public class ColorDialogFragment extends DialogFragment {
         list.setAdapter(adapter);
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        ColorUtil color = ColorUtil.getInstance(getActivity().getApplicationContext());
+        final ColorUtil color = ColorUtil.getInstance(getActivity().getApplicationContext());
 
         final List colornames = color.getColors();
         adapter.setCol(data);
@@ -75,14 +76,9 @@ public class ColorDialogFragment extends DialogFragment {
         btn_Cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                listener.onColorSelected(data);
 
                 dismiss();
-                data = ColorUtil.getInstance(getActivity()).getColors().get(0);
-
-
-                /* При натискане на cancel на dialogfragment-a трябва да остане default-ния цвят.
-                Ако пторебителят е избрал някой цвят и натисне cancel след това кой цвят трябва да се вземе */
-
             }
         });
 
