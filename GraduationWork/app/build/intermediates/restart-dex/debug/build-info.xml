@@ -5,33 +5,70 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="505756352447908"
-    token="4214695008034197959"
-    verifier="FULL_BUILD_REQUESTED" >
+    timestamp="584787081408774"
+    token="4151906866532912132"
+    verifier="CLASS_ADDED" >
 
     <task
         name="javac"
-        duration="7300" />
+        duration="1521" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="3633" />
+        duration="207" />
     <task
         name="verifier"
-        duration="1042" />
+        duration="117" />
 
     <artifact
-        location="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\outputs\apk\app-debug.apk"
-        type="MAIN" />
+        location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+        type="RESOURCES" />
+    <artifact
+        location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+        type="DEX" />
 
     <build
-        timestamp="505756352447908"
+        timestamp="584381988632954"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\outputs\apk\app-debug.apk"
+            location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="584787081408774"
+        verifier="CLASS_ADDED" >
+        <artifact
+            location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
+        <artifact
+            location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

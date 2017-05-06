@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GraduationWork.iml" filepath="$PROJECT_DIR$/.idea/modules/GraduationWork.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GraduationWork(With the whole color).iml" filepath="$PROJECT_DIR$/GraduationWork(With the whole color).iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
