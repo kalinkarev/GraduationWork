@@ -1,0 +1,7 @@
+#Fri May 05 17:45:32 EEST 2017
+base.0=C\:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_9cd0976d12c84d117ea6b6abcff4fca804e77994
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_6379fab17145b3b3ce6f532018e1c6f67627a286\\classes.dex
+base.1=C\:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_6379fab17145b3b3ce6f532018e1c6f67627a286
+file.0=C\:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_9cd0976d12c84d117ea6b6abcff4fca804e77994\\classes.dex
