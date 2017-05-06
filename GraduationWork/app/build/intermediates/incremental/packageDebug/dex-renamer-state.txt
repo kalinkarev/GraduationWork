@@ -1,4 +1,4 @@
-#Sat May 06 15:35:53 EEST 2017
+#Sat May 06 19:14:24 EEST 2017
 base.0=E\:\\AndroidSutdioProjects\\GraduationWork(With the whole color)\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_45cfb3b2d0ce55aecddf8fb304018837a1ca4949
 renamed.1=classes2.dex
 renamed.0=classes.dex

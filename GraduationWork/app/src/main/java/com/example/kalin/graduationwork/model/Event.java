@@ -36,7 +36,6 @@ public class Event implements Serializable {
         setId(cursor.getLong(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_ID)));
         setName(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NAME)));
         setColor(ColorUtil.getInstance(BusyApplication.getInstance()).findColor(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_COLOR))));
-//        setColor(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_COLOR)));
         setNote(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTE)));
         setNotification(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTIFICATION)) == 1);
         setPrice(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_PRICE)));

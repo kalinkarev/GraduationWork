@@ -5,10 +5,12 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -33,6 +35,10 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
     Toolbar toolbarAddfragment;
     Context context;
 
+    EditText txtTitle;
+    EditText txtLocation;
+    EditText txtPrice;
+
     int mYear, mMonth, mDay, mDayWeek, mHour, mHourFinish, mMinute;
 
     TextView tvForStartDate;
@@ -45,6 +51,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
     TextView editColor;
     ColorData currentColor;
 
+    TextView buttonSave;
+    ImageView buttonCancel;
 
     private ColorsAdapter adapter;
     private RecyclerView list;
@@ -57,10 +65,18 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
     @Override
     protected void onCreateView() {
 
-        String formatCurrentDate = DateFormat.getDateInstance(DateFormat.FULL).format(new Date());
-
+        txtTitle = (EditText) mainView.findViewById(R.id.editTextTitle);
+        txtLocation = (EditText) mainView.findViewById(R.id.editTextLocation);
+        txtPrice = (EditText) mainView.findViewById(R.id.editTextPrice);
         tvForStartDate = (TextView) mainView.findViewById(R.id.textViewForStartDate);
         tvForFinishDate = (TextView) mainView.findViewById(R.id.textViewForFinishDate);
+        tvForStartTime = (TextView) mainView.findViewById(R.id.textViewForStartTime);
+        tvForFinishTime = (TextView) mainView.findViewById(R.id.textViewForFinishTime);
+        Switch switchForDateDuration = (Switch) mainView.findViewById(R.id.switchForDuration);
+        editColor = (TextView) mainView.findViewById(R.id.TextViewColor);
+        circleColor = (ColorView) mainView.findViewById(R.id.circleView);
+
+        String formatCurrentDate = DateFormat.getDateInstance(DateFormat.FULL).format(new Date());
 
         tvForStartDate.setText(formatCurrentDate);
         tvForFinishDate.setText(formatCurrentDate);
@@ -79,8 +95,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
             }
         });
 
-        tvForStartTime = (TextView) mainView.findViewById(R.id.textViewForStartTime);
-        tvForFinishTime = (TextView) mainView.findViewById(R.id.textViewForFinishTime);
 
         final Calendar calendar = Calendar.getInstance();
         mMinute = calendar.get(Calendar.MINUTE);
@@ -115,8 +129,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
             }
         });
 
-        Switch switchForDateDuration = (Switch) mainView.findViewById(R.id.switchForDuration);
-
         // set the switch to ON
         switchForDateDuration.setChecked(false);
         //attach a listener to check for changes in state
@@ -149,8 +161,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
             tvForFinishTime.setVisibility(View.VISIBLE);
         }
 
-        editColor = (TextView) mainView.findViewById(R.id.TextViewColor);
-
         editColor.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -163,14 +173,18 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
 
         editColor.setText(currentColor.getName());
 
-        circleColor = (ColorView) mainView.findViewById(R.id.circleView);
         circleColor.setCircleColor(currentColor.getColor());
+
+//        Editable eventTitle = txtTitle.getText();
+//        Editable location = txtLocation.getText();
+//        Editable price = txtPrice.getText();
+
     }
 
     @Override
     protected void setupToolbar() {
         Toolbar toolbarAdd = (Toolbar) mainView.findViewById(R.id.toolbar_newEvent);
-        ImageView buttonCancel = (ImageView) mainView.findViewById(R.id.buttonCancel);
+        buttonCancel = (ImageView) mainView.findViewById(R.id.buttonCancel);
 
         buttonCancel.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -179,12 +193,17 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
             }
         });
 
-        TextView buttonSave = (TextView) mainView.findViewById(R.id.buttonSave);
+        buttonSave = (TextView) mainView.findViewById(R.id.buttonSave);
 
         buttonSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(getMainActivity(), "You have clicked the save button", Toast.LENGTH_SHORT).show();
+                Editable eventTitle = txtTitle.getText();
+                Editable location = txtLocation.getText();
+                Editable price = txtPrice.getText();
+
+
+                Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location + "the price" + price, Toast.LENGTH_SHORT).show();
             }
         });
 
