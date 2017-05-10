@@ -185,6 +185,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/editTextNotification"
                     android:layout_marginLeft="15dp"
+                    android:inputType="number"
                     android:hint="Add price" />
 
             </LinearLayout>

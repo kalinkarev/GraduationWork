@@ -1,7 +1,7 @@
-#Sat May 06 19:14:24 EEST 2017
-base.0=E\:\\AndroidSutdioProjects\\GraduationWork(With the whole color)\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_45cfb3b2d0ce55aecddf8fb304018837a1ca4949
+#Wed May 10 19:23:04 EEST 2017
+base.0=C\:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_9cd0976d12c84d117ea6b6abcff4fca804e77994
 renamed.1=classes2.dex
 renamed.0=classes.dex
-file.1=E\:\\AndroidSutdioProjects\\GraduationWork(With the whole color)\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_4580511a709ac53d7fc2a0ee2bdef6e0d9594a30\\classes.dex
-base.1=E\:\\AndroidSutdioProjects\\GraduationWork(With the whole color)\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_4580511a709ac53d7fc2a0ee2bdef6e0d9594a30
-file.0=E\:\\AndroidSutdioProjects\\GraduationWork(With the whole color)\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_45cfb3b2d0ce55aecddf8fb304018837a1ca4949\\classes.dex
+file.1=C\:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_6379fab17145b3b3ce6f532018e1c6f67627a286\\classes.dex
+base.1=C\:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_6379fab17145b3b3ce6f532018e1c6f67627a286
+file.0=C\:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_9cd0976d12c84d117ea6b6abcff4fca804e77994\\classes.dex

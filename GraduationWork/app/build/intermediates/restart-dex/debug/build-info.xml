@@ -5,40 +5,40 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="597684992950528"
-    token="4151906866532912132"
+    timestamp="202434829362152"
+    token="4214695008034197959"
     verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="1220" />
+        duration="0" />
     <task
         name="instant-run-dex"
-        duration="73" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="73" />
+        duration="0" />
     <task
         name="verifier"
-        duration="37" />
+        duration="0" />
 
     <artifact
-        location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        location="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+        type="RESOURCES" />
 
     <build
-        timestamp="597513035897675"
+        timestamp="202122800634362"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\outputs\apk\app-debug.apk"
+            location="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="597684992950528"
+        timestamp="202434829362152"
         verifier="COMPATIBLE" >
         <artifact
-            location="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\reload-dex\debug\classes.dex"
-            type="RELOAD_DEX" />
+            location="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
     </build>
 
 </instant-run>

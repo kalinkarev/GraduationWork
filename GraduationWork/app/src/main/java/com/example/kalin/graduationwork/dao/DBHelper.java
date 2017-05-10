@@ -12,7 +12,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_EVENT_ID = "_id";
     public static final String COLUMN_EVENT_NAME = "event_name";
     public static final String COLUMN_EVENT_COLOR = "color";
-    public static final String COLUMN_EVENT_NOTE = "note";
+//    public static final String COLUMN_EVENT_NOTE = "note";
     public static final String COLUMN_EVENT_NOTIFICATION = "notification";
     public static final String COLUMN_EVENT_PRICE = "price";
 
@@ -42,7 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + COLUMN_EVENT_ID + " integer primary key autoincrement, "
             + COLUMN_EVENT_NAME + " text not null, "
             + COLUMN_EVENT_COLOR + " integer, "
-            + COLUMN_EVENT_NOTE + " text not null, "
+//            + COLUMN_EVENT_NOTE + " text not null, "
             + COLUMN_EVENT_NOTIFICATION + " boolean, "
             + COLUMN_EVENT_PRICE + " integer not null);";
 
