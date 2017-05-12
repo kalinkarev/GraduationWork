@@ -22,7 +22,6 @@ import com.example.kalin.graduationwork.adapter.ColorsAdapter;
 import com.example.kalin.graduationwork.dao.DBManager;
 import com.example.kalin.graduationwork.interfaces.ColorSelectedListener;
 import com.example.kalin.graduationwork.model.ColorData;
-import com.example.kalin.graduationwork.model.Event;
 import com.example.kalin.graduationwork.utils.ColorUtil;
 import com.example.kalin.graduationwork.views.ColorView;
 
@@ -209,12 +208,12 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener{
                 Editable notification = txtNotification.getText();
                 int color = circleColor.getCircleColor();
 
-                Event createdEvent = mdbManager.addEvent(
-                        eventTitle.toString(),
-                        color,
-                        notification,
-//                        location.toString(),
-                        price, false);
+//                Event createdEvent = mdbManager.addEvent(
+//                        eventTitle.toString(),
+//                        color,
+//                        notification,
+////                        location.toString(),
+//                        price, false);
 
                 Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location + "the price" + price, Toast.LENGTH_SHORT).show();
             }

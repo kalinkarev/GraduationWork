@@ -60,7 +60,7 @@ public class HomeFragment extends BaseFragment {
         Event event = new Event();
         event.setName("Sleep");
         event.setColor(color);
-        event.setNote("This task is for today!");
+//        event.setNote("This task is for today!");
         event.setNotification(false);
         event.setPrice(50);
         event.setDuration(duration);

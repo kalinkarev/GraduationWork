@@ -1,15 +1,15 @@
 [
     {
-        "merged": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\res\\merged\\debug\\layout\\events_list_row.xml",
-        "source": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\src\\main\\res\\layout\\events_list_row.xml"
+        "merged": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
         "merged": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
         "source": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
-        "merged": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_bar_title_item.xml"
+        "merged": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\res\\merged\\debug\\layout\\events_list_row.xml",
+        "source": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\src\\main\\res\\layout\\events_list_row.xml"
     },
     {
         "merged": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
@@ -32,12 +32,12 @@
         "source": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\res\\merged\\debug\\layout\\colors_list_row_dialogfragment.xml",
-        "source": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\src\\main\\res\\layout\\colors_list_row_dialogfragment.xml"
-    },
-    {
         "merged": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
         "source": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\res\\merged\\debug\\layout\\colors_list_row_dialogfragment.xml",
+        "source": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\src\\main\\res\\layout\\colors_list_row_dialogfragment.xml"
     },
     {
         "merged": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
