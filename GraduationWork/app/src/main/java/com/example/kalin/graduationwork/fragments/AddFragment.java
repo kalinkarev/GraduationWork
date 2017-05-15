@@ -56,7 +56,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
     private static final String OUT_JSON = "/json";
 
     //------------ make your specific key ------------
-    private static final String API_KEY = "AIzaSyAU9ShujnIg3IDQxtPr7Q1qOvFVdwNmWc4";
+
+    private static final String API_KEY = "AIzaSyCjKffmFemdUklvZVeUZEoBnaSuOm3cGds";
 
     protected View addView;
     Toolbar toolbarAddfragment;
