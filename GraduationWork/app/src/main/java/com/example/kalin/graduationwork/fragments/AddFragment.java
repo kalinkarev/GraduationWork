@@ -243,8 +243,10 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 
                 Location newlocation = new Location();
                 newlocation.setName(location.toString());
-                newlocation.setLatitude("50.00");
-                newlocation.setLongitute("50.00");
+                newlocation.setLatitude("");
+
+//                newlocation.setLatitude("50.00");
+//                newlocation.setLongitute("50.00");
 
                 Event newevent = new Event();
                 newevent.setName(eventTitle.toString());
@@ -255,10 +257,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
                 newevent.setLocation(newlocation);
 
                 DBManager.getInstance(getActivity()).addEvent(newevent, false);
-
-//                DBManager.getInstance(getActivity()).addEvent(event, false);
-//                DBManager.getInstance(getActivity()).getAllEvents();
-
 
 
                 Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location + "the price" + finalPrice, Toast.LENGTH_SHORT).show();

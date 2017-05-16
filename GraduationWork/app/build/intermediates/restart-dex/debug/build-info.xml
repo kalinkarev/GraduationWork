@@ -5,7 +5,7 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="417788985729400"
+    timestamp="419296209934557"
     token="-1405761288864339267"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -22,10 +22,6 @@
         name="verifier"
         duration="0" />
 
-    <artifact
-        location="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
-        type="DEX" />
-
     <build
         timestamp="416113805325046"
         verifier="FULL_BUILD_REQUESTED" >
@@ -34,11 +30,14 @@
             type="MAIN" />
     </build>
     <build
-        timestamp="417788985729400"
+        timestamp="419265746140080"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
             type="DEX" />
     </build>
+    <build
+        timestamp="419296209934557"
+        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>
