@@ -75,15 +75,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.0_fbded82912888f1a140f164dd718fae76ecd4fab\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\AndroidSutdioProjects\DiplomnaRabotaOriginal\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -171,6 +162,15 @@
         revision="25.0.2"
         sha1="25438f55fc6d906a0e72f30b21487541430ede43">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkWorkingOnItAfterConsulting\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_a6f46f061b37c6d2fc2490d02a859742a341e49c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.0_253a7ea43fd2bd4bebb6c2b8808cc5dfca469123\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -354,6 +354,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_96fc3edf1f45da5cf07e7c2c2aee9d79ca9b8b43\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="E:\AndroidSutdioProjects\DiplomnaRabota15.04\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -441,15 +450,6 @@
         revision="25.0.2"
         sha1="aee64634871d88a419d59eb743c1258a60f19700">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkUpdatingRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_ceb1166b750f25b0862edb7bdc783c373f8b3b79\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_d4fa05036afb2e167519f53942b13fd7d0eef211\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -639,15 +639,6 @@
         revision="25.0.2"
         sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkImprovingEverything\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_bb5370e33b7f8c36b4de165de82a3149a6a92ac9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_491eb55782d125ff83de38fab52b36b91f36cdce\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -1011,6 +1002,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aa495b716d31033d06fc4b898db924d17c24ed19">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d818fabab7a113abe0ad5f1be6367e887e387d6a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="E:\AndroidSutdioProjects\DiplomnaRabotaMakingEverything\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -1236,15 +1236,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_ef4fecf78022df49af7d0e38f24c1e4a4753522d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\AndroidSutdioProjects\GraduationWorkStanislav\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -1380,15 +1371,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.0_b96c2ceea2effe08e8cf0cb0cb59dd47e09bdb77\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\AndroidSutdioProjects\GraduationWorkUpdatingRecyclerView\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -1413,6 +1395,15 @@
         revision="25.0.2"
         sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkWorkOnToolbars\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_f99aafbbdd466a82767a0a4980767c2036ca9cd3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_d82fa4ebda88db6afb4f2a110d6fb91a99e25fda\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -1443,21 +1434,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_ab443805990a37d62ca6ca809ed1a285c09d7cc0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\AndroidSutdioProjects\GraduationWorkImprovingTheRV\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3d4cbc9d1247473eec592d12496f9e6242f1769b">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkImprovingTheRV\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_77a66703ab04b17b09627386907599e56e2a5020\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_e37bcab31ca58bb8da7d8fcf732c1fe2cf847066\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -1551,15 +1542,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_d2af17cd5f002489877fe8d99ef67b1a8e620a25\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\AndroidSutdioProjects\GraduationWorkImproveEverything19.02\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -1650,12 +1632,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.0_832e44877d6eccff9b6287e7637cc24e93a11b56\classes.dex" />
+        sha1="dbde8fbddbc5356cb2c26342b960d99f30f3ae51">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_e8976eaf8a16a3ebc6a1019d0a2423257aefef0a\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -1683,15 +1665,6 @@
         revision="25.0.2"
         sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkWorkingOnItAfterConsulting\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_90b97c11f2933abc5a766221f5b0a5ed6cc4ab73\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="64e44286f8447f0bf4cc768ec466f962bb04425f">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_6379fab17145b3b3ce6f532018e1c6f67627a286\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -1938,6 +1911,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_7eeddf657179e5788dd782fef13eeb869389fb82\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="E:\AndroidSutdioProjects\GraduationWorkImprovingEverything\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -2046,15 +2028,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.0.1_b83a52acc60fafc26f1b20219586a5a6b18d7035\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\AndroidSutdioProjects\GraduationWorkImprovingEverything\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -2127,6 +2100,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_73650d17c6506b189f7649c4344c0860d4ada7c3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="E:\AndroidSutdioProjects\DiplomnaRabotaMakingEverything\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -2160,6 +2142,15 @@
         revision="25.0.2"
         sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkUpdatingRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_a3652884afbae4d3f17942980d400404e54e4784\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_5509523437652b455dc33f188c0686a901843253\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -2199,12 +2190,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_290bc0ef649e6b45b9be9f2e1f69537e8c140769\classes.dex" />
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.0_487247312adfa8cc71bc54d584e8145fed67797e\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -2214,15 +2205,6 @@
         revision="25.0.2"
         sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkOriginalImproving\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_e92a54771b68f8feaa18c83cc642b8922aefb6b5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="016fedebcc37551e44d4b725cad732d1b0f7dace">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_9cd0976d12c84d117ea6b6abcff4fca804e77994\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -2343,12 +2325,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_734c210a04565131235db3225b470e110142a836\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="E:\AndroidSutdioProjects\GraduationWorkUpdatingRecyclerView\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="25438f55fc6d906a0e72f30b21487541430ede43">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkUpdatingRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_4bb16a1bb66a5355c19634798fc301bb8d98deff\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_b5f98a6e875ee6b93b73b424a8525bd5ca42d6a5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_bc741814e73d7b1fa33043e043570649b25d7e9a\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -2496,15 +2505,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_cd955befb54dc52e7f711db32fef51fc74c960ad\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\AndroidSutdioProjects\GraduationWorkOriginal\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -2574,15 +2574,6 @@
         revision="25.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkWorkingOnEverything\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_13536399a7a865419df7adcfff2ee92bc8ae9230\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_e00c9445c6c294b480786bc77019f383e2898d18\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -2694,15 +2685,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_a4826f04555fdac5cea66b759349edb4985db27f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\AndroidSutdioProjects\DiplomnaRabotaOriginal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -2754,15 +2736,6 @@
         revision="25.0.2"
         sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkImprovingTheRV\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_139abd2a4455d82179cf14d655242f17d2520e72\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_a9969b6224cf498b0f690486a3ae88c55bc121b6\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -2829,15 +2802,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_7a1b450c4fd45e8ac46f9001201245aac452dce1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\AndroidSutdioProjects\GraduationWork(With the whole color)\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -2853,6 +2817,15 @@
         revision="25.0.2"
         sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkUpdatingRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_42dd6d0637eea254923e2fe1c8c281e0d1bfbd24\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_4450ec676d33e23c132b17c10b867283e8575df3\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -3015,6 +2988,15 @@
         revision="25.0.2"
         sha1="210a712a4f864ed2dbb03a9b2b85dc97445af85b">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkWorkOnToolbars\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_4fc611ab08f67a773e98b3ba9f5bb86648baec14\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_98ac126b80e8656776a4c413cd4f9dd901512858\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -3261,12 +3243,30 @@
     </item>
     <item
         is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.0.1_1a21bcaf4aa4f9b801e72d3f6d2928edd801a95a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="E:\AndroidSutdioProjects\GraduationWorkUpToAfterStanislav\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkUpToAfterStanislav\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_2c3ec76abaae6e8ff3981e1d61a9ef157ed770af\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_c36ac5491105434a9d1d224676d58ad317ff4f0d\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -3342,15 +3342,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
-        <dex dex="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_4567b843725108d69dacc3222136a0b222b24ffd\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\AndroidSutdioProjects\DiplomnaRabota21.04\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -3375,6 +3366,15 @@
         revision="25.0.2"
         sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
         <dex dex="E:\AndroidSutdioProjects\GraduationWorkOriginalImproving\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_4365e8ae1a751084bb3ebd9f1c8e37b1b1fd5b8d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="E:\AndroidSutdioProjects\GraduationWorkAddingLocation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.0_da0d9a9815ae093eabb19fbdfd86e8aa5c95f387\classes.dex" />
     </item>
     <item
         is-multidex="true"

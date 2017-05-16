@@ -125,14 +125,21 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/location" />
 
-                <EditText
+                <AutoCompleteTextView
+                    android:id="@+id/editTextLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:hint="Add location" />
+
+<!--                <EditText
                     android:id="@+id/editTextLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textViewForFinishDate"
                     android:layout_marginLeft="15dp"
                     android:hint="Add location" />
-
+-->
             </LinearLayout>
 
             <View
