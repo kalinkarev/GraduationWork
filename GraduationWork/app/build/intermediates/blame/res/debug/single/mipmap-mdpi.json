@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
+        "source": "C:\\Users\\Kalin\\Documents\\GraduationWork\\GraduationWork\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
         "merged": "E:\\AndroidSutdioProjects\\GraduationWorkAddingLocation\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
         "source": "E:\\AndroidSutdioProjects\\GraduationWorkAddingLocation\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     }
