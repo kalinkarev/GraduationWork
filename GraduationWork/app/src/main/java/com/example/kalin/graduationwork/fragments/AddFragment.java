@@ -28,6 +28,9 @@ import com.example.kalin.graduationwork.adapter.ColorsAdapter;
 import com.example.kalin.graduationwork.dao.DBManager;
 import com.example.kalin.graduationwork.interfaces.ColorSelectedListener;
 import com.example.kalin.graduationwork.model.ColorData;
+import com.example.kalin.graduationwork.model.Duration;
+import com.example.kalin.graduationwork.model.Event;
+import com.example.kalin.graduationwork.model.Location;
 import com.example.kalin.graduationwork.utils.ColorUtil;
 import com.example.kalin.graduationwork.views.ColorView;
 
@@ -55,8 +58,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
     private static final String TYPE_AUTOCOMPLETE = "/autocomplete";
     private static final String OUT_JSON = "/json";
 
-    //------------ make your specific key ------------
-
+    //------------ the API key for find places ------------
     private static final String API_KEY = "AIzaSyCjKffmFemdUklvZVeUZEoBnaSuOm3cGds";
 
     protected View addView;
@@ -86,7 +88,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
     private ColorsAdapter adapter;
     private RecyclerView list;
 
-    private DBManager mdbManager;
+    private DBManager mdbmanager;
 
     @Override
     protected int getLayoutId() {
@@ -206,12 +208,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 
         circleColor.setCircleColor(currentColor.getColor());
 
-//        Editable eventTitle = txtTitle.getText();
-//        Editable location = txtLocation.getText();
-//        Editable price = txtPrice.getText();
-
         txtLocation.setAdapter(new GooglePlacesAutocompleteAdapter(getMainActivity(), R.layout.list_item_location));
-//        txtLocation.setOnClickListener((View.OnClickListener) getActivity());
 
     }
 
@@ -235,17 +232,36 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
                 Editable eventTitle = txtTitle.getText();
                 Editable location = txtLocation.getText();
                 Editable price = txtPrice.getText();
-                Editable notification = txtNotification.getText();
-                int color = circleColor.getCircleColor();
+//                Editable notification = txtNotification.getText();
+                int finalPrice = Integer.parseInt(price.toString());
 
-//                Event createdEvent = mdbManager.addEvent(
-//                        eventTitle.toString(),
-//                        color,
-//                        notification,
-////                        location.toString(),
-//                        price, false);
+                Duration newduration = new Duration();
+                newduration.setStart(15);
+                newduration.setFinish(16);
+                newduration.setRepeat(false);
+                newduration.setAllday(false);
 
-                Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location + "the price" + price, Toast.LENGTH_SHORT).show();
+                Location newlocation = new Location();
+                newlocation.setName(location.toString());
+                newlocation.setLatitude("50.00");
+                newlocation.setLongitute("50.00");
+
+                Event newevent = new Event();
+                newevent.setName(eventTitle.toString());
+                newevent.setColor(currentColor);
+                newevent.setNotification(false);
+                newevent.setPrice(finalPrice);
+                newevent.setDuration(newduration);
+                newevent.setLocation(newlocation);
+
+                DBManager.getInstance(getActivity()).addEvent(newevent, false);
+
+//                DBManager.getInstance(getActivity()).addEvent(event, false);
+//                DBManager.getInstance(getActivity()).getAllEvents();
+
+
+
+                Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location + "the price" + finalPrice, Toast.LENGTH_SHORT).show();
             }
         });
 

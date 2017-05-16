@@ -5,26 +5,26 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="416113805325046"
+    timestamp="417788985729400"
     token="-1405761288864339267"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1939" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="726" />
+        duration="0" />
     <task
         name="verifier"
-        duration="513" />
+        duration="0" />
 
     <artifact
-        location="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\outputs\apk\app-debug.apk"
-        type="MAIN" />
+        location="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+        type="DEX" />
 
     <build
         timestamp="416113805325046"
@@ -32,6 +32,13 @@
         <artifact
             location="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="417788985729400"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Kalin\Documents\GraduationWork\GraduationWork\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>
