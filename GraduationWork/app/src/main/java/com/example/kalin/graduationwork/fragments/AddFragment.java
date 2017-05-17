@@ -3,6 +3,8 @@ package com.example.kalin.graduationwork.fragments;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -33,6 +35,7 @@ import com.example.kalin.graduationwork.model.Event;
 import com.example.kalin.graduationwork.model.Location;
 import com.example.kalin.graduationwork.utils.ColorUtil;
 import com.example.kalin.graduationwork.views.ColorView;
+import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,10 +52,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class AddFragment extends BaseFragment implements ColorSelectedListener, AdapterView.OnItemClickListener {
-
-    private static final String LOG_TAG = "ExampleApp";
 
     private static final String PLACES_API_BASE = "https://maps.googleapis.com/maps/api/place";
     private static final String TYPE_AUTOCOMPLETE = "/autocomplete";
@@ -235,6 +237,24 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 //                Editable notification = txtNotification.getText();
                 int finalPrice = Integer.parseInt(price.toString());
 
+                if (Geocoder.isPresent()) {
+                    try {
+                        String finallocation = location.toString();
+                        Geocoder gc = new Geocoder(getMainActivity());
+                        List<Address> addresses = gc.getFromLocationName(finallocation, 5);
+
+                        List<LatLng> ll = new ArrayList<LatLng>(addresses.size());
+                        for (Address a : addresses) {
+                            if (a.hasLatitude() && a.hasLongitude()) {
+                                ll.add(new LatLng(a.getLatitude(), a.getLongitude()));
+                            }
+                        }
+                        Log.d("The latitude is", String.valueOf(ll));
+                    } catch (IOException e) {
+
+                    }
+                }
+
                 Duration newduration = new Duration();
                 newduration.setStart(15);
                 newduration.setFinish(16);
@@ -244,9 +264,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
                 Location newlocation = new Location();
                 newlocation.setName(location.toString());
                 newlocation.setLatitude("");
-
-//                newlocation.setLatitude("50.00");
-//                newlocation.setLongitute("50.00");
 
                 Event newevent = new Event();
                 newevent.setName(eventTitle.toString());
@@ -380,10 +397,10 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
                 jsonResults.append(buff, 0, read);
             }
         } catch (MalformedURLException e) {
-            Log.e(LOG_TAG, "Error processing Places API URL", e);
+//            Log.e(LOG_TAG, "Error processing Places API URL", e);
             return resultList;
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Error connecting to Places API", e);
+//            Log.e(LOG_TAG, "Error connecting to Places API", e);
             return resultList;
         } finally {
             if (conn != null) {
@@ -405,7 +422,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
                 resultList.add(predsJsonArray.getJSONObject(i).getString("description"));
             }
         } catch (JSONException e) {
-            Log.e(LOG_TAG, "Cannot process JSON results", e);
+//            Log.e(LOG_TAG, "Cannot process JSON results", e);
         }
 
         return resultList;
@@ -456,6 +473,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
             };
             return filter;
         }
+
     }
 
 }
