@@ -39,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="300dp"
             android:text="@string/no_tasks_in_the_database_create_new_one_by_clicking_the_add_button"
+            android:textColor="@color/LightGray"
             />
 
         <ImageView
