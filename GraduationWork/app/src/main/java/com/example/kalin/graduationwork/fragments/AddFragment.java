@@ -237,6 +237,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 //                Editable notification = txtNotification.getText();
                 int finalPrice = Integer.parseInt(price.toString());
 
+                // make a function for getting the things for the event
+
                 if (Geocoder.isPresent()) {
                     try {
                         String finallocation = location.toString();
