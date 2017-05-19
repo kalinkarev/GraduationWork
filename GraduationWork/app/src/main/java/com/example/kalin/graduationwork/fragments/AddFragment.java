@@ -8,6 +8,7 @@ import android.location.Geocoder;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -231,13 +232,9 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         buttonSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
                 getThings();
-
             }
-
         });
-
     }
 
     public void getThings() {
@@ -247,47 +244,47 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 //      Editable notification = txtNotification.getText();
         int finalPrice = Integer.parseInt(price.toString());
 
-        if (Geocoder.isPresent()) {
-            try {
-                String finallocation = location.toString();
-                Geocoder gc = new Geocoder(getMainActivity());
-                List<Address> addresses = gc.getFromLocationName(finallocation, 5);
+        String finalLocation = location.toString();
+        Geocoder gc = new Geocoder(getMainActivity());
+        List<LatLng> ll = null;
+        try {
+            List<Address> addresses = gc.getFromLocationName(finalLocation, 5);
 
-                List<LatLng> ll = new ArrayList<LatLng>(addresses.size());
-                for (Address a : addresses) {
-                    if (a.hasLatitude() && a.hasLongitude()) {
-                        ll.add(new LatLng(a.getLatitude(), a.getLongitude()));
-                    }
+            ll = new ArrayList<LatLng>(addresses.size());
+            for (Address a : addresses) {
+                if (a.hasLatitude() && a.hasLongitude()) {
+                    ll.add(new LatLng(a.getLatitude(), a.getLongitude()));
                 }
-                Log.d("The latitude is", String.valueOf(ll));
-            } catch (IOException e) {
-
             }
+            Log.d("The latitude is", String.valueOf(ll));
+        } catch (IOException e) {
         }
 
-        Duration newduration = new Duration();
-        newduration.setStart(15);
-        newduration.setFinish(16);
-        newduration.setRepeat(false);
-        newduration.setAllday(false);
+        Duration newDuration = new Duration();
+        newDuration.setStart(15);
+        newDuration.setFinish(16);
+        newDuration.setRepeat(false);
+        newDuration.setAllday(false);
 
-        Location newlocation = new Location();
-        newlocation.setName(location.toString());
-        newlocation.setLatitude("");
+        Location newLocation = new Location();
+        newLocation.setName(location.toString());
+        newLocation.setLatitude(String.valueOf(ll));
+        newLocation.setLongitute(String.valueOf(ll));
 
-        Event newevent = new Event();
-        newevent.setName(eventTitle.toString());
-        newevent.setColor(currentColor);
-        newevent.setNotification(false);
-        newevent.setPrice(finalPrice);
-        newevent.setDuration(newduration);
-        newevent.setLocation(newlocation);
+        Event newEvent = new Event();
+        newEvent.setName(eventTitle.toString());
+        newEvent.setColor(currentColor);
+        newEvent.setNotification(false);
+        newEvent.setPrice(finalPrice);
+        newEvent.setDuration(newDuration);
+        newEvent.setLocation(newLocation);
 
-        DBManager.getInstance(getActivity()).addEvent(newevent, false);
-
-
-        Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location + "the price" + finalPrice, Toast.LENGTH_SHORT).show();
-
+        if (!TextUtils.isEmpty(eventTitle) && !TextUtils.isEmpty(price)) {
+            DBManager.getInstance(getActivity()).addEvent(newEvent, false);
+            Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location + "the price" + finalPrice, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getMainActivity(), "You haven`t complete the needed fields", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

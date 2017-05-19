@@ -61,8 +61,8 @@ public class DBHelper extends SQLiteOpenHelper {
             + TABLE_LOCATIONS + "( "
             + COLUMN_LOCATION_ID + " integer primary key autoincrement, "
             + COLUMN_LOCATION_NAME + " text not null, "
-            + COLUMN_LOCATION_LATITUDE + " integer, "
-            + COLUMN_LOCATION_LONGITUTE + " integer, "
+            + COLUMN_LOCATION_LATITUDE + " string, "
+            + COLUMN_LOCATION_LONGITUTE + " string, "
             + COLUMN_LOCATION_EVENT_ID + " integer not null);";
 
     public DBHelper(Context context) {
