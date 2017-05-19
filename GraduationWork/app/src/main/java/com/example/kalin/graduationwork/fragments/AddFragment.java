@@ -257,8 +257,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
                 }
             }
             Log.d("The latitude is", String.valueOf(ll));
-        } catch (IOException e) {
-        }
+        } catch (IOException e) {}
 
         Duration newDuration = new Duration();
         newDuration.setStart(15);
