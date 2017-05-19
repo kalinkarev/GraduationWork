@@ -231,56 +231,62 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         buttonSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Editable eventTitle = txtTitle.getText();
-                Editable location = txtLocation.getText();
-                Editable price = txtPrice.getText();
-//                Editable notification = txtNotification.getText();
-                int finalPrice = Integer.parseInt(price.toString());
 
-                /* make a function for getting the things for the event */
+                getThings();
 
-                if (Geocoder.isPresent()) {
-                    try {
-                        String finallocation = location.toString();
-                        Geocoder gc = new Geocoder(getMainActivity());
-                        List<Address> addresses = gc.getFromLocationName(finallocation, 5);
+            }
 
-                        List<LatLng> ll = new ArrayList<LatLng>(addresses.size());
-                        for (Address a : addresses) {
-                            if (a.hasLatitude() && a.hasLongitude()) {
-                                ll.add(new LatLng(a.getLatitude(), a.getLongitude()));
-                            }
-                        }
-                        Log.d("The latitude is", String.valueOf(ll));
-                    } catch (IOException e) {
+        });
 
+    }
+
+    public void getThings() {
+        Editable eventTitle = txtTitle.getText();
+        Editable location = txtLocation.getText();
+        Editable price = txtPrice.getText();
+//      Editable notification = txtNotification.getText();
+        int finalPrice = Integer.parseInt(price.toString());
+
+        if (Geocoder.isPresent()) {
+            try {
+                String finallocation = location.toString();
+                Geocoder gc = new Geocoder(getMainActivity());
+                List<Address> addresses = gc.getFromLocationName(finallocation, 5);
+
+                List<LatLng> ll = new ArrayList<LatLng>(addresses.size());
+                for (Address a : addresses) {
+                    if (a.hasLatitude() && a.hasLongitude()) {
+                        ll.add(new LatLng(a.getLatitude(), a.getLongitude()));
                     }
                 }
+                Log.d("The latitude is", String.valueOf(ll));
+            } catch (IOException e) {
 
-                Duration newduration = new Duration();
-                newduration.setStart(15);
-                newduration.setFinish(16);
-                newduration.setRepeat(false);
-                newduration.setAllday(false);
-
-                Location newlocation = new Location();
-                newlocation.setName(location.toString());
-                newlocation.setLatitude("");
-
-                Event newevent = new Event();
-                newevent.setName(eventTitle.toString());
-                newevent.setColor(currentColor);
-                newevent.setNotification(false);
-                newevent.setPrice(finalPrice);
-                newevent.setDuration(newduration);
-                newevent.setLocation(newlocation);
-
-                DBManager.getInstance(getActivity()).addEvent(newevent, false);
-
-
-                Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location + "the price" + finalPrice, Toast.LENGTH_SHORT).show();
             }
-        });
+        }
+
+        Duration newduration = new Duration();
+        newduration.setStart(15);
+        newduration.setFinish(16);
+        newduration.setRepeat(false);
+        newduration.setAllday(false);
+
+        Location newlocation = new Location();
+        newlocation.setName(location.toString());
+        newlocation.setLatitude("");
+
+        Event newevent = new Event();
+        newevent.setName(eventTitle.toString());
+        newevent.setColor(currentColor);
+        newevent.setNotification(false);
+        newevent.setPrice(finalPrice);
+        newevent.setDuration(newduration);
+        newevent.setLocation(newlocation);
+
+        DBManager.getInstance(getActivity()).addEvent(newevent, false);
+
+
+        Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location + "the price" + finalPrice, Toast.LENGTH_SHORT).show();
 
     }
 
