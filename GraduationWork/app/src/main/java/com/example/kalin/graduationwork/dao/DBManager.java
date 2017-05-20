@@ -58,7 +58,7 @@ public class DBManager {
         ContentValues valuesDuration = new ContentValues();
         valuesDuration.put(DBHelper.COLUMN_DURATION_START, event.getDuration().getStart());
         valuesDuration.put(DBHelper.COLUMN_DURATION_FINISH, event.getDuration().getFinish());
-        valuesDuration.put(DBHelper.COLUMN_DURATION_REPEAT, event.getDuration().getRepeat());
+//        valuesDuration.put(DBHelper.COLUMN_DURATION_REPEAT, event.getDuration().getRepeat());
         valuesDuration.put(DBHelper.COLUMN_DURATION_ALLDAY, event.getDuration().getAllday());
         valuesDuration.put(DBHelper.COLUMN_DURATION_EVENT_ID, insertId);
 

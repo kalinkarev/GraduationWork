@@ -93,6 +93,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 
     private DBManager mdbmanager;
 
+    int what = 0;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_new_event;
@@ -176,10 +178,12 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
                     //switchStatus.setText("Switch is currently ON");
                     tvForStartTime.setVisibility(View.GONE);
                     tvForFinishTime.setVisibility(View.GONE);
+                    what = 1;
                 } else {
                     //switchStatus.setText("Switch is currently OFF");
                     tvForStartTime.setVisibility(View.VISIBLE);
                     tvForFinishTime.setVisibility(View.VISIBLE);
+                    what = 0;
                 }
             }
         });
@@ -259,16 +263,21 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
             Log.d("The latitude is", String.valueOf(ll));
         } catch (IOException e) {}
 
-        Duration newDuration = new Duration();
-        newDuration.setStart(15);
-        newDuration.setFinish(16);
-        newDuration.setRepeat(false);
-        newDuration.setAllday(false);
-
         Location newLocation = new Location();
         newLocation.setName(location.toString());
         newLocation.setLatitude(String.valueOf(ll));
         newLocation.setLongitute(String.valueOf(ll));
+
+        Duration newDuration = new Duration();
+        newDuration.setStart(15);
+        newDuration.setFinish(16);
+//        newDuration.setRepeat(false);
+
+        if (what == 1) {
+            newDuration.setAllday(true);
+        } else if (what == 0) {
+            newDuration.setAllday(false);
+        }
 
         Event newEvent = new Event();
         newEvent.setName(eventTitle.toString());
@@ -280,7 +289,10 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 
         if (!TextUtils.isEmpty(eventTitle) && !TextUtils.isEmpty(price)) {
             DBManager.getInstance(getActivity()).addEvent(newEvent, false);
-            Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location + "the price" + finalPrice, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location
+                    + "The color of the event is: " + currentColor.getName()
+                    + "The duration of the event is " + what
+                    + "the price" + finalPrice, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getMainActivity(), "You haven`t complete the needed fields", Toast.LENGTH_SHORT).show();
         }

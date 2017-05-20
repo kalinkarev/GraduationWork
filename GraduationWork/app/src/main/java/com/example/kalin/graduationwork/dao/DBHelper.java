@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + COLUMN_EVENT_NAME + " text not null, "
             + COLUMN_EVENT_COLOR + " integer, "
 //            + COLUMN_EVENT_NOTE + " text not null, "
-            + COLUMN_EVENT_NOTIFICATION + " boolean, "
+            + COLUMN_EVENT_NOTIFICATION + " integer, "
             + COLUMN_EVENT_PRICE + " integer not null);";
 
     // Database creation sql statement
