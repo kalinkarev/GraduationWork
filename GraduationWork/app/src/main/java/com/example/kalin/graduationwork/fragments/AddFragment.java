@@ -271,7 +271,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         Duration newDuration = new Duration();
         newDuration.setStart(15);
         newDuration.setFinish(16);
-//        newDuration.setRepeat(false);
 
         if (what == 1) {
             newDuration.setAllday(true);
