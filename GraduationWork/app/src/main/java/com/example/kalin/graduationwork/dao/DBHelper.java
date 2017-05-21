@@ -21,7 +21,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_DURATION_ID = COLUMN_EVENT_ID;
     public static final String COLUMN_DURATION_START = "start";
     public static final String COLUMN_DURATION_FINISH = "finish";
-    public static final String COLUMN_DURATION_REPEAT = "repeat";
+//    public static final String COLUMN_DURATION_REPEAT = "repeat";
     public static final String COLUMN_DURATION_ALLDAY = "allDay";
     public static final String COLUMN_DURATION_EVENT_ID = "event_id";
 
@@ -50,9 +50,9 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_CREATE_DURATIONS = "create table "
             + TABLE_DURATIONS + "( "
             + COLUMN_DURATION_ID + " integer primary key autoincrement, "
-            + COLUMN_DURATION_START + " integer, "
-            + COLUMN_DURATION_FINISH + " integer, "
-            + COLUMN_DURATION_REPEAT + " integer, "
+            + COLUMN_DURATION_START + " long, "
+            + COLUMN_DURATION_FINISH + " long, "
+//            + COLUMN_DURATION_REPEAT + " integer, "
             + COLUMN_DURATION_ALLDAY + " integer, "
             + COLUMN_DURATION_EVENT_ID + " integer not null);";
 

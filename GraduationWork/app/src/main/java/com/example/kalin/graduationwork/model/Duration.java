@@ -9,8 +9,8 @@ import java.io.Serializable;
 public class Duration implements Serializable {
 
     private long mId;
-    private int mStart;
-    private int mFinish;
+    private long mStart;
+    private long mFinish;
 //    private boolean mRepeat;
     private boolean mAllday;
     private Event mEvent;
@@ -21,13 +21,13 @@ public class Duration implements Serializable {
 
     public Duration(Cursor cursor) {
         setId(cursor.getLong(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_ID)));
-        setStart(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_START)));
-        setFinish(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_FINISH)));
+        setStart(cursor.getLong(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_START)));
+        setFinish(cursor.getLong(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_FINISH)));
 //        setRepeat(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_REPEAT)) == 1);
         setAllday(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_DURATION_ALLDAY)) == 1);
     }
 
-    public Duration(int start, int finish, boolean repeat, boolean allday, Event event) {
+    public Duration(long start, long finish, boolean repeat, boolean allday, Event event) {
         this.mStart = start;
         this.mFinish = finish;
 //        this.mRepeat = repeat;
@@ -43,19 +43,19 @@ public class Duration implements Serializable {
         this.mId = mId;
     }
 
-    public int getStart() {
+    public long getStart() {
         return mStart;
     }
 
-    public void setStart(int mStart) {
+    public void setStart(long mStart) {
         this.mStart = mStart;
     }
 
-    public int getFinish() {
+    public long getFinish() {
         return mFinish;
     }
 
-    public void setFinish(int mFinish) {
+    public void setFinish(long mFinish) {
         this.mFinish = mFinish;
     }
 
