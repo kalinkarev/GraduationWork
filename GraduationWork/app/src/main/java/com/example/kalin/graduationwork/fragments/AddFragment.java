@@ -84,6 +84,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
     ColorView circleColor;
     TextView editColor;
     ColorData currentColor;
+    Calendar calendar;
 
     TextView buttonSave;
     ImageView buttonCancel;
@@ -134,9 +135,10 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         });
 
 
-        Calendar calendar = Calendar.getInstance();
+        calendar = Calendar.getInstance();
         mMinute = calendar.get(Calendar.MINUTE);
         mHour = calendar.get(Calendar.HOUR_OF_DAY);
+        calendar.getTime();
 
         if (mMinute >= 30) {
             mMinute = 0;
@@ -269,7 +271,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         newLocation.setLongitute(String.valueOf(ll));
 
         Duration newDuration = new Duration();
-        newDuration.setStart(15);
+        newDuration.setStart(((Long) calendar.getTimeInMillis()));
         newDuration.setFinish(16);
 
         if (what == 1) {
@@ -326,7 +328,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener(){
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-
                 Calendar calendarfinish = Calendar.getInstance();
                 calendarfinish.set(year, monthOfYear, dayOfMonth);
                 SimpleDateFormat format = new SimpleDateFormat("EEEE, MMMM dd yyyy");
