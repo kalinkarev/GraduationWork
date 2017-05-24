@@ -94,7 +94,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 
     private DBManager mdbmanager;
 
-    int what = 0;
+    int optionForAllDay = 0;
 
     @Override
     protected int getLayoutId() {
@@ -133,7 +133,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
                 datePickerFinishDate();
             }
         });
-
 
         calendar = Calendar.getInstance();
         mMinute = calendar.get(Calendar.MINUTE);
@@ -180,12 +179,12 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
                     //switchStatus.setText("Switch is currently ON");
                     tvForStartTime.setVisibility(View.GONE);
                     tvForFinishTime.setVisibility(View.GONE);
-                    what = 1;
+                    optionForAllDay = 1;
                 } else {
                     //switchStatus.setText("Switch is currently OFF");
                     tvForStartTime.setVisibility(View.VISIBLE);
                     tvForFinishTime.setVisibility(View.VISIBLE);
-                    what = 0;
+                    optionForAllDay = 0;
                 }
             }
         });
@@ -271,13 +270,13 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         newLocation.setLongitute(String.valueOf(ll));
 
         Duration newDuration = new Duration();
-        newDuration.setStart(((Long) calendar.getTimeInMillis()));
-        newDuration.setFinish(16);
 
-        if (what == 1) {
+        if (optionForAllDay == 1) {
             newDuration.setAllday(true);
-        } else if (what == 0) {
+        } else if (optionForAllDay == 0) {
             newDuration.setAllday(false);
+            newDuration.setStart(mHour);
+            newDuration.setFinish(mHourFinish);
         }
 
         Event newEvent = new Event();
@@ -290,11 +289,10 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 
         if (!TextUtils.isEmpty(eventTitle) && !TextUtils.isEmpty(price)) {
             DBManager.getInstance(getActivity()).addEvent(newEvent, false);
-//            Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location
-//                    + "The color of the event is: " + currentColor.getName()
-//                    + "The duration of the event is " + what
-//                    + "the price" + finalPrice, Toast.LENGTH_SHORT).show();
-            Toast.makeText(getMainActivity(), "The start time is: " + newDuration.getStart(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location
+                    + "The color of the event is: " + currentColor.getName()
+                    + "The duration of the event is " + optionForAllDay
+                    + "the price" + finalPrice, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getMainActivity(), "You haven`t complete the needed fields", Toast.LENGTH_SHORT).show();
         }
@@ -338,15 +336,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
         datePickerDialog.show();
-    }
-
-    private void updateCalendar(Calendar cal) {
-        if (cal.get(Calendar.MINUTE) > 30) {
-            cal.set(Calendar.MINUTE, 0);
-            cal.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY) + 1);
-        } else {
-            cal.set(Calendar.MINUTE, 30);
-        }
     }
 
     public void timePickerStartTime() {
