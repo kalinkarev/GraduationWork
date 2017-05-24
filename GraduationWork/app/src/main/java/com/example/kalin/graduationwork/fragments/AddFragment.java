@@ -95,6 +95,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
     private DBManager mdbmanager;
 
     int optionForAllDay = 0;
+    int newFinishTime;
+    int newStartTime;
 
     @Override
     protected int getLayoutId() {
@@ -153,11 +155,14 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 
         mHourFinish = mHour + 1;
         tvForFinishTime.setText(mHourFinish +":"+ mMinute);
+        newStartTime = mHour;
+        newFinishTime = mHourFinish;
 
         tvForStartTime.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 timePickerStartTime();
+                mHour = newStartTime;
             }
         });
 
@@ -165,6 +170,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
             @Override
             public void onClick(View view) {
                 timePickerFinishTime();
+                mHourFinish = newFinishTime;
             }
         });
 
@@ -275,8 +281,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
             newDuration.setAllday(true);
         } else if (optionForAllDay == 0) {
             newDuration.setAllday(false);
-            newDuration.setStart(mHour);
-            newDuration.setFinish(mHourFinish);
+            newDuration.setStart(newStartTime);
+            newDuration.setFinish(newFinishTime);
         }
 
         Event newEvent = new Event();
@@ -344,6 +350,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 
                 tvForStartTime.setText(hourOfDay+":"+minute);
+                newStartTime = hourOfDay;
 
             }
         }, mHour, mMinute, false);
@@ -356,6 +363,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 
                 tvForFinishTime.setText(hourOfDay+":"+minute);
+                newFinishTime = hourOfDay;
 
             }
         }, mHourFinish, mMinute, false);
