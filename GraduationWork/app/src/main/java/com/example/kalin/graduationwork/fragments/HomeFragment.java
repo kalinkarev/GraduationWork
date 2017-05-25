@@ -44,13 +44,15 @@ public class HomeFragment extends BaseFragment {
 
         List<Event> events = new ArrayList<>();
 
+        events = dbmanager.getAllEvents();
+
+        
+
         ColorData color = new ColorData();
-        color.setName("blue");
 
         Duration duration = new Duration();
         duration.setStart(15);
         duration.setFinish(16);
-//        duration.setRepeat(false);
         duration.setAllday(false);
 
         Location location = new Location();
@@ -61,9 +63,6 @@ public class HomeFragment extends BaseFragment {
         Event event = new Event();
         event.setName("Sleep");
         event.setColor(color);
-//        event.setNote("This task is for today!");
-        event.setNotification(false);
-        event.setPrice(50);
         event.setDuration(duration);
         event.setLocation(location);
 
@@ -72,6 +71,40 @@ public class HomeFragment extends BaseFragment {
 
         events.add(event);
         adapter.addItems(events);
+
+
+
+
+
+//        ColorData color = new ColorData();
+////        color.setName("blue");
+//
+//        Duration duration = new Duration();
+//        duration.setStart(15);
+//        duration.setFinish(16);
+//////        duration.setRepeat(false);
+//        duration.setAllday(false);
+//
+//        Location location = new Location();
+//        location.setName("Birthday");
+//        location.setLongitute("100.00");
+//        location.setLatitude("50.00");
+//
+//        Event event = new Event();
+//        event.setName("Sleep");
+//        event.setColor(color);
+////        event.setColor(color);
+////        event.setNote("This task is for today!");
+////        event.setNotification(false);
+////        event.setPrice(50);
+//        event.setDuration(duration);
+//        event.setLocation(location);
+//
+//        DBManager.getInstance(getActivity()).addEvent(event, false);
+//        DBManager.getInstance(getActivity()).getAllEvents();
+//
+//        events.add(event);
+//        adapter.addItems(events);
 
 //        Event event = new Event();
 //        event.setName("Free");
