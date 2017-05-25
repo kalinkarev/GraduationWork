@@ -12,7 +12,10 @@ import android.widget.Toast;
 import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.adapter.EventsAdapter;
 import com.example.kalin.graduationwork.dao.DBManager;
+import com.example.kalin.graduationwork.model.ColorData;
+import com.example.kalin.graduationwork.model.Duration;
 import com.example.kalin.graduationwork.model.Event;
+import com.example.kalin.graduationwork.model.Location;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,7 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void onCreateView() {
+
         list = (RecyclerView) mainView.findViewById(R.id.kalinsRecyclerView);
         adapter = new EventsAdapter();
         list.setAdapter(adapter);
@@ -40,33 +44,33 @@ public class HomeFragment extends BaseFragment {
 
         List<Event> events = new ArrayList<>();
 
-//        ColorData color = new ColorData();
-//        color.setName("blue");
-//
-//        Duration duration = new Duration();
-//        duration.setStart(15);
-//        duration.setFinish(16);
+        ColorData color = new ColorData();
+        color.setName("blue");
+
+        Duration duration = new Duration();
+        duration.setStart(15);
+        duration.setFinish(16);
 //        duration.setRepeat(false);
-//        duration.setAllday(false);
-//
-//        Location location = new Location();
-//        location.setName("Birthday");
-//        location.setLongitute("100.00");
-//        location.setLatitude("50.00");
-//
-//        Event event = new Event();
-//        event.setName("Sleep");
-//        event.setColor(color);
-////        event.setNote("This task is for today!");
-//        event.setNotification(false);
-//        event.setPrice(50);
-//        event.setDuration(duration);
-//        event.setLocation(location);
-//
-//        DBManager.getInstance(getActivity()).addEvent(event, false);
-//        DBManager.getInstance(getActivity()).getAllEvents();
-//
-//        events.add(event);
+        duration.setAllday(false);
+
+        Location location = new Location();
+        location.setName("Birthday");
+        location.setLongitute("100.00");
+        location.setLatitude("50.00");
+
+        Event event = new Event();
+        event.setName("Sleep");
+        event.setColor(color);
+//        event.setNote("This task is for today!");
+        event.setNotification(false);
+        event.setPrice(50);
+        event.setDuration(duration);
+        event.setLocation(location);
+
+        DBManager.getInstance(getActivity()).addEvent(event, false);
+        DBManager.getInstance(getActivity()).getAllEvents();
+
+        events.add(event);
         adapter.addItems(events);
 
 //        Event event = new Event();
@@ -79,9 +83,9 @@ public class HomeFragment extends BaseFragment {
 //        event.getPrice();
 //        event.getDuration();
 //        event.getLocation();
-
+//
 //        DBManager.getInstance(getActivity()).addEvent(event, false);
-
+//
 //        DBManager.getInstance(getActivity()).getAllEvents();
 
 
