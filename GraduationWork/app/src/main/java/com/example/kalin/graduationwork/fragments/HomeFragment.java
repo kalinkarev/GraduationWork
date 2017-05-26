@@ -44,9 +44,7 @@ public class HomeFragment extends BaseFragment {
 
         List<Event> events = new ArrayList<>();
 
-        events = dbmanager.getAllEvents();
-
-        
+//        events = dbmanager.getAllEvents();
 
         ColorData color = new ColorData();
 
