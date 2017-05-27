@@ -1,5 +1,6 @@
 package com.example.kalin.graduationwork.adapter;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.kalin.graduationwork.R;
+import com.example.kalin.graduationwork.dao.DBManager;
 import com.example.kalin.graduationwork.model.Event;
 
 import java.util.ArrayList;
@@ -20,6 +22,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
 
     List<Event> items = new ArrayList<>();
     private int selectedPosition = -1;
+    private DBManager dbmanager;
+    Context context;
 
     @Override
     public EventsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -32,7 +36,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
 
     @Override
     public void onBindViewHolder(final EventsViewHolder holder, final int position) {
-        Event event = items.get(position);
+        final Event event = items.get(position);
 
         holder.title.setText(event.getName());
         holder.ivForReadyTask.setVisibility(View.GONE);
@@ -45,10 +49,17 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
                     holder.ivForReadyTask.setVisibility(View.VISIBLE);
                 }
             });
+            holder.ibForDelete.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+//                    dbmanager.deleteEvent(event);
+                    DBManager.getInstance(context).deleteEvent(event);
+                    notifyDataSetChanged();
+                }
+            });
         } else {
             holder.buttonsLayout.setVisibility(View.GONE);
         }
-
 
         if (position % 2 == 0) {
 //            holder.title.setBackgroundColor(Color.);
@@ -76,6 +87,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
         TextView title;
         LinearLayout buttonsLayout;
         ImageButton ibReadyTask;
+        ImageButton ibForDelete;
         ImageView ivForReadyTask;
 
         public EventsViewHolder(View itemView) {
@@ -84,6 +96,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
             title = (TextView) itemView.findViewById(R.id.events_row_title);
             buttonsLayout = (LinearLayout) itemView.findViewById(R.id.buttonsLayout);
             ibReadyTask = (ImageButton) itemView.findViewById(R.id.buttonForReadyTask);
+            ibForDelete = (ImageButton) itemView.findViewById(R.id.buttonForDelete);
             ivForReadyTask = (ImageView) itemView.findViewById(R.id.ready_task);
         }
     }
@@ -95,4 +108,5 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
         notifyDataSetChanged();
 
     }
+
 }

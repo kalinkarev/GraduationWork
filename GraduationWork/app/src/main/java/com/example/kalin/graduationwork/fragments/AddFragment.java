@@ -295,10 +295,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 
         if (!TextUtils.isEmpty(eventTitle) && !TextUtils.isEmpty(price)) {
             DBManager.getInstance(getActivity()).addEvent(newEvent, false);
-//            Toast.makeText(getMainActivity(), "The title of the event is" + eventTitle + "the location" + location
-//                    + "The color of the event is: " + currentColor.getName()
-//                    + "The duration of the event is " + optionForAllDay
-//                    + "the price" + finalPrice, Toast.LENGTH_SHORT).show();
             getMainActivity().showFragmentAndAddToBackstack(new HomeFragment());
         } else {
             Toast.makeText(getMainActivity(), "You haven`t complete the needed fields", Toast.LENGTH_SHORT).show();

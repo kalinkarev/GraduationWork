@@ -55,6 +55,15 @@ public class HomeFragment extends BaseFragment {
         getMainActivity().getFab().show();
     }
 
+/*
+    private void deleteCompany(final Event clickedEvent) {
+        if (dbmanager != null) {
+            dbmanager.deleteEvent(clickedEvent);
+//            list.remove(clickedEvent);
+        }
+    }
+*/
+
     @Override
     public void onPause() {
         super.onPause();
@@ -96,4 +105,5 @@ public class HomeFragment extends BaseFragment {
             }
         });
     }
+
 }
