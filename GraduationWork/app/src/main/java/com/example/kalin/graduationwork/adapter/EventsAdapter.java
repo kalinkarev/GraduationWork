@@ -51,7 +51,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
 
 
         if (position % 2 == 0) {
-            holder.title.setBackgroundColor(Color.WHITE);
+//            holder.title.setBackgroundColor(Color.);
         } else {
             holder.title.setBackgroundColor(Color.BLUE);
         }
