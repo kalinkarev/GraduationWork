@@ -13,17 +13,25 @@ import android.widget.TextView;
 
 import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.dao.DBManager;
+import com.example.kalin.graduationwork.interfaces.ColorSelectedListener;
+import com.example.kalin.graduationwork.model.ColorData;
 import com.example.kalin.graduationwork.model.Event;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsViewHolder> {
+public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsViewHolder> implements ColorSelectedListener {
 
     List<Event> items = new ArrayList<>();
     private int selectedPosition = -1;
     private DBManager dbmanager;
     Context context;
+    ColorData currentColor;
+
+    @Override
+    public void onColorSelected(ColorData data) {
+        currentColor = data;
+    }
 
     @Override
     public EventsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -39,22 +47,28 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
         final Event event = items.get(position);
 
         holder.title.setText(event.getName());
+//        holder.linearLayoutColorEvent.setBackgroundColor(currentColor.getColor());
+//        holder.linearLayoutColorEvent.setBackgroundColor(currentColor.getColor());
         holder.ivForReadyTask.setVisibility(View.GONE);
 
         if (selectedPosition == position) {
             holder.buttonsLayout.setVisibility(View.VISIBLE);
-            holder.ibReadyTask.setOnClickListener(new View.OnClickListener(){
+            holder.ibReadyTask.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     holder.ivForReadyTask.setVisibility(View.VISIBLE);
+//                    Toast.makeText(context, "The color is:" + currentColor.getName(), Toast.LENGTH_SHORT).show();
                 }
             });
-            holder.ibForDelete.setOnClickListener(new View.OnClickListener(){
+            holder.ibForDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    dbmanager.deleteEvent(event);
                     DBManager.getInstance(context).deleteEvent(event);
                     notifyDataSetChanged();
+
+                    List<Event> newEvents = new ArrayList<>();
+                    newEvents = DBManager.getInstance(context).getAllEvents();
+
                 }
             });
         } else {
@@ -62,9 +76,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
         }
 
         if (position % 2 == 0) {
-//            holder.title.setBackgroundColor(Color.);
-        } else {
-            holder.title.setBackgroundColor(Color.BLUE);
+            holder.linearLayoutEvent.setBackgroundColor(Color.TRANSPARENT);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -77,15 +89,21 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
 
     }
 
+
+
     @Override
     public int getItemCount() {
         return items.size();
     }
 
+
+
     static class EventsViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;
         LinearLayout buttonsLayout;
+        LinearLayout linearLayoutEvent;
+        LinearLayout linearLayoutColorEvent;
         ImageButton ibReadyTask;
         ImageButton ibForDelete;
         ImageView ivForReadyTask;
@@ -95,6 +113,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
 
             title = (TextView) itemView.findViewById(R.id.events_row_title);
             buttonsLayout = (LinearLayout) itemView.findViewById(R.id.buttonsLayout);
+            linearLayoutEvent = (LinearLayout) itemView.findViewById(R.id.linearLayoutEvent);
+            linearLayoutColorEvent = (LinearLayout) itemView.findViewById(R.id.linearLayoutForColorEvent);
             ibReadyTask = (ImageButton) itemView.findViewById(R.id.buttonForReadyTask);
             ibForDelete = (ImageButton) itemView.findViewById(R.id.buttonForDelete);
             ivForReadyTask = (ImageView) itemView.findViewById(R.id.ready_task);

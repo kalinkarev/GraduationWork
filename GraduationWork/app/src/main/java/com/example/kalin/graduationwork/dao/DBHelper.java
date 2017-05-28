@@ -88,4 +88,8 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public boolean updateDB(String status, String what, int value) {
+        return false;
+    }
+
 }

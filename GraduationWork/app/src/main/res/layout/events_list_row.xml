@@ -10,8 +10,10 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/linearLayoutEvent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#26FFFFFF"
             android:padding="10dp">
 
             <ImageView
@@ -33,6 +35,16 @@
                 android:gravity="center"
                 android:paddingLeft="30dp"
                 android:textColor="@color/DarkGray" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutForColorEvent"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="200dp"
+                android:orientation="vertical">
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -68,13 +80,5 @@
         android:layout_width="match_parent"
         android:layout_height="1dip"
         android:background="@color/Gray"/>
-
-    <LinearLayout
-        android:layout_width="20dp"
-        android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:orientation="vertical">
-
-    </LinearLayout>
 
 </RelativeLayout>
