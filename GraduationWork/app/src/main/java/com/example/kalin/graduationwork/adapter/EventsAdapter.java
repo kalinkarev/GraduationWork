@@ -62,6 +62,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
                 public void onClick(View v) {
                     holder.ivForReadyTask.setVisibility(View.VISIBLE);
                     ischecked = true;
+
+//                    DBManager.getInstance(context).addEvent(null, true);
 //                    DBManager.getInstance(context).addEvent(event, true);
 //                    notifyDataSetChanged();
 //                    Toast.makeText(context, "The color is:" + currentColor.getName(), Toast.LENGTH_SHORT).show();
