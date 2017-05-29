@@ -48,7 +48,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
 
         holder.title.setText(event.getName());
 //        holder.linearLayoutColorEvent.setBackgroundColor(currentColor.getColor());
-//        holder.linearLayoutColorEvent.setBackgroundColor(currentColor.getColor());
         holder.ivForReadyTask.setVisibility(View.GONE);
 
         if (selectedPosition == position) {
@@ -69,6 +68,12 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
                     List<Event> newEvents = new ArrayList<>();
                     newEvents = DBManager.getInstance(context).getAllEvents();
 
+                }
+            });
+            holder.ibForEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    getMainActivity().showFragmentAndAddToBackstack(new StatisticFragment());
                 }
             });
         } else {
@@ -106,6 +111,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
         LinearLayout linearLayoutColorEvent;
         ImageButton ibReadyTask;
         ImageButton ibForDelete;
+        ImageButton ibForEdit;
         ImageView ivForReadyTask;
 
         public EventsViewHolder(View itemView) {
@@ -117,6 +123,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
             linearLayoutColorEvent = (LinearLayout) itemView.findViewById(R.id.linearLayoutForColorEvent);
             ibReadyTask = (ImageButton) itemView.findViewById(R.id.buttonForReadyTask);
             ibForDelete = (ImageButton) itemView.findViewById(R.id.buttonForDelete);
+            ibForEdit = (ImageButton) itemView.findViewById(R.id.buttonForEdit);
             ivForReadyTask = (ImageView) itemView.findViewById(R.id.ready_task);
         }
     }
