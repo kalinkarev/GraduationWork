@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.dao.DBManager;
@@ -37,6 +38,9 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
     public EventsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.events_list_row, parent, false);
+
+        Context mContext = parent.getContext();
+        context = mContext;
 
         EventsViewHolder vh = new EventsViewHolder(view);
         return vh;
@@ -74,6 +78,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
                 @Override
                 public void onClick(View v) {
 //                    getMainActivity().showFragmentAndAddToBackstack(new StatisticFragment());
+                    Toast.makeText(context, "You have clicked the edit button", Toast.LENGTH_SHORT).show();
                 }
             });
         } else {
@@ -93,8 +98,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
         });
 
     }
-
-
 
     @Override
     public int getItemCount() {
