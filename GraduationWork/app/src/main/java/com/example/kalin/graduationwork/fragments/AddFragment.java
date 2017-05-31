@@ -148,7 +148,10 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         }
 
         if (oldEvent != null) {
-
+            txtTitle.setText(oldEvent.getName());
+            txtLocation.setText(oldEvent.getLocation().getName());
+            txtPrice.setText(Integer.toString(oldEvent.getPrice()));
+//            tvForStartDate.setText((int) oldEvent.getDuration().getStart());
         } else {
             String formatCurrentDate = DateFormat.getDateInstance(DateFormat.FULL).format(new Date());
 
@@ -293,10 +296,10 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         new Thread(new Runnable() {
             @Override
             public void run() {
+
                 Editable eventTitle = txtTitle.getText();
                 Editable location = txtLocation.getText();
                 Editable price = txtPrice.getText();
-//      Editable notification = txtNotification.getText();
                 int finalPrice = Integer.parseInt(price.toString());
 
                 String finalLocation = location.toString();
@@ -329,17 +332,15 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
                     endDate = Calendar.getInstance();
                     newDuration.setStart(startDate.getTimeInMillis());
                     newDuration.setFinish(endDate.getTimeInMillis());
-//                    newDuration.setStart(startDate.getTimeInMillis());
-//                    newDuration.setFinish(endDate.getTimeInMillis());
                 }
 
                 Event newEvent = oldEvent != null ? oldEvent : new Event();
-                newEvent.setName(eventTitle.toString());
-                newEvent.setColor(currentColor);
-                newEvent.setNotification(false);
-                newEvent.setPrice(finalPrice);
-                newEvent.setDuration(newDuration);
-                newEvent.setLocation(newLocation);
+                    newEvent.setName(eventTitle.toString());
+                    newEvent.setColor(currentColor);
+                    newEvent.setNotification(false);
+                    newEvent.setPrice(finalPrice);
+                    newEvent.setDuration(newDuration);
+                    newEvent.setLocation(newLocation);
 
                 if (!TextUtils.isEmpty(eventTitle) && !TextUtils.isEmpty(price)) {
                     DBManager.getInstance(getActivity()).addEvent(newEvent, oldEvent != null);
