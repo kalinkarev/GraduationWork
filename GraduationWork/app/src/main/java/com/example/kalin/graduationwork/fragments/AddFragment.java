@@ -94,7 +94,6 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
     EditText txtTitle;
     AutoCompleteTextView txtLocation;
     EditText txtPrice;
-    EditText txtNotification;
 
     int mYear, mMonth, mDay, mDayWeek, mHour, mHourFinish, mMinute;
 
@@ -119,6 +118,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
     private DBManager mdbmanager;
 
     int optionForAllDay = 0;
+    int optionForNotification = 0;
     int newFinishTime;
     int newStartTime;
 
@@ -140,6 +140,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         tvForStartTime = (TextView) mainView.findViewById(R.id.textViewForStartTime);
         tvForFinishTime = (TextView) mainView.findViewById(R.id.textViewForFinishTime);
         Switch switchForDateDuration = (Switch) mainView.findViewById(R.id.switchForDuration);
+        Switch switchForNotification = (Switch) mainView.findViewById(R.id.switchForNotification);
         editColor = (TextView) mainView.findViewById(R.id.TextViewColor);
         circleColor = (ColorView) mainView.findViewById(R.id.circleView);
 
@@ -245,6 +246,44 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
             tvForFinishTime.setVisibility(View.VISIBLE);
         }
 
+
+        // set the switch to ON
+        switchForNotification.setChecked(oldEvent != null ? oldEvent.getNotification() : false);
+        //attach a listener to check for changes in state
+        switchForNotification.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //switchStatus.setText("Switch is currently ON");
+//                    tvForStartTime.setVisibility(View.GONE);
+//                    tvForFinishTime.setVisibility(View.GONE);
+                    optionForNotification = 1;
+                } else {
+                    //switchStatus.setText("Switch is currently OFF");
+//                    tvForStartTime.setVisibility(View.VISIBLE);
+//                    tvForFinishTime.setVisibility(View.VISIBLE);
+                    optionForNotification = 0;
+                }
+            }
+        });
+
+        //check the current state before we display the screen
+        if (switchForNotification.isChecked()) {
+            //switchStatus.setText("Switch is currently ON");
+            //tvForData.setVisibility(View.GONE);
+//            tvForStartTime.setVisibility(View.GONE);
+//            tvForFinishTime.setVisibility(View.GONE);
+        } else {
+            //switchStatus.setText("Switch is currently OFF");
+            //tvForData.setVisibility(View.VISIBLE);
+//            tvForStartTime.setVisibility(View.VISIBLE);
+//            tvForFinishTime.setVisibility(View.VISIBLE);
+        }
+
+
+
+
         editColor.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -337,7 +376,11 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
                 Event newEvent = oldEvent != null ? oldEvent : new Event();
                     newEvent.setName(eventTitle.toString());
                     newEvent.setColor(currentColor);
-                    newEvent.setNotification(false);
+                    if (optionForNotification == 1) {
+                        newEvent.setNotification(true);
+                    } else if (optionForNotification == 0) {
+                        newEvent.setNotification(false);
+                    }
                     newEvent.setPrice(finalPrice);
                     newEvent.setDuration(newDuration);
                     newEvent.setLocation(newLocation);

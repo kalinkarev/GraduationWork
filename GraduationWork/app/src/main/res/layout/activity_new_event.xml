@@ -159,13 +159,13 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/bell" />
 
-                <EditText
-                    android:id="@+id/editTextNotification"
+                <Switch
+                    android:id="@+id/switchForNotification"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/editTextLocation"
-                    android:layout_marginLeft="15dp"
-                    android:hint="Add a notification" />
+                    android:text="Notification"
+                    android:layout_marginLeft="15dp"/>
 
             </LinearLayout>
 
