@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/backgr" >
+    android:background="@drawable/backgr"
+    android:orientation="vertical">
 
     <include
         android:id="@+id/toolbar_statistics"
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp" >
+        android:layout_marginRight="40dp">
 
         <TextView
             android:id="@+id/tvForActivity"
@@ -23,14 +23,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="Activity"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:textSize="20dp" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dip"
             android:layout_below="@+id/tvForActivity"
-            android:background="@color/Gray" />
+            android:background="@color/White" />
 
         <TextView
             android:id="@+id/tvForNameActivity"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvForActivity"
             android:text="Tennis"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:textSize="30dp" />
 
         <TextView
@@ -47,30 +47,39 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="140dp"
             android:text="Period"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:textSize="20dp" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dip"
             android:layout_below="@+id/tvForPeriod"
-            android:background="@color/Gray" />
+            android:background="@color/White" />
 
         <TextView
             android:id="@+id/tvForChoosingPeriod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvForPeriod"
-            android:text="01.01-01.02"
-            android:textColor="@color/Gray"
+            android:text="Choose the start date"
+            android:textColor="@color/White"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/tvForChoosingFinishPeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvForChoosingPeriod"
+            android:text="Choose the finish date"
+            android:textColor="@color/White"
             android:textSize="30dp" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dip"
-            android:layout_below="@+id/tvForChoosingPeriod"
+            android:layout_below="@+id/tvForChoosingFinishPeriod"
             android:layout_marginTop="30dp"
-            android:background="@color/Gray" />
+            android:background="@color/White" />
 
         <Button
             android:id="@+id/btnShowStatistics"
@@ -79,7 +88,7 @@
             android:layout_below="@+id/tvForChoosingPeriod"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="190dp"
-            android:background="@color/Gray"
+            android:background="@color/White"
             android:text="Show Statistics" />
 
     </RelativeLayout>

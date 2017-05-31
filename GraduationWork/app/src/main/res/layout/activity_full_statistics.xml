@@ -25,22 +25,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="Activity"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:textSize="20dp" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dip"
             android:layout_below="@+id/tvForActivity"
-            android:background="@color/Gray" />
+            android:background="@color/White" />
 
         <TextView
             android:id="@+id/tvForNameActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvForActivity"
-            android:text="Tennis"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:textSize="30dp" />
 
         <View
@@ -48,7 +47,7 @@
             android:layout_height="1dip"
             android:layout_below="@+id/tvForNameActivity"
             android:layout_marginTop="30dp"
-            android:background="@color/Gray" />
+            android:background="@color/White" />
 
         <TextView
             android:id="@+id/tvForChoosingPeriod"
@@ -56,24 +55,32 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvForNameActivity"
             android:layout_marginTop="60dp"
-            android:text="01.01-01.02"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/tvForChoosingFinishPeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvForChoosingPeriod"
+            android:layout_marginTop="60dp"
+            android:textColor="@color/White"
             android:textSize="30dp" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dip"
-            android:layout_below="@+id/tvForChoosingPeriod"
-            android:background="@color/Gray" />
+            android:layout_below="@+id/tvForChoosingFinishPeriod"
+            android:background="@color/White" />
 
         <TextView
             android:id="@+id/tvForNumberOfHours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Number of Hours"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:textSize="20dp"
-            android:layout_below="@+id/tvForChoosingPeriod"
+            android:layout_below="@+id/tvForChoosingFinishPeriod"
             android:layout_marginTop="30dp"
             android:layout_alignParentLeft="true"/>
 
@@ -81,16 +88,15 @@
             android:layout_width="fill_parent"
             android:layout_height="1dip"
             android:layout_below="@+id/tvForNumberOfHours"
-            android:background="@color/Gray" />
+            android:background="@color/White" />
 
         <TextView
             android:id="@+id/tvForHours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="24"
             android:textSize="20dp"
-            android:textColor="@color/Gray"
-            android:layout_below="@+id/tvForChoosingPeriod"
+            android:textColor="@color/White"
+            android:layout_below="@+id/tvForChoosingFinishPeriod"
             android:layout_marginTop="30dp"
             android:layout_alignParentRight="true" />
 
@@ -99,7 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hours Attended"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:textSize="20dp"
             android:layout_below="@+id/tvForNumberOfHours"
             android:layout_marginTop="10dp"
@@ -109,15 +115,14 @@
             android:layout_width="fill_parent"
             android:layout_height="1dip"
             android:layout_below="@+id/tvForHoursAttended"
-            android:background="@color/Gray" />
+            android:background="@color/White" />
 
         <TextView
             android:id="@+id/tvForAttended"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="17"
             android:textSize="20dp"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:layout_below="@+id/tvForHours"
             android:layout_marginTop="10dp"
             android:layout_alignParentRight="true" />
@@ -127,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Successful rate"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:textSize="20dp"
             android:layout_below="@+id/tvForHoursAttended"
             android:layout_marginTop="10dp"
@@ -137,7 +142,7 @@
             android:layout_width="fill_parent"
             android:layout_height="1dip"
             android:layout_below="@+id/tvForSuccessRate"
-            android:background="@color/Gray" />
+            android:background="@color/White" />
 
         <TextView
             android:id="@+id/tvForRate"
@@ -145,7 +150,7 @@
             android:layout_height="wrap_content"
             android:text="70%"
             android:textSize="20dp"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:layout_below="@+id/tvForAttended"
             android:layout_marginTop="10dp"
             android:layout_alignParentRight="true" />
@@ -155,7 +160,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Money spent:"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:textSize="20dp"
             android:layout_below="@+id/tvForSuccessRate"
             android:layout_marginTop="10dp"
@@ -165,7 +170,7 @@
             android:layout_width="fill_parent"
             android:layout_height="1dip"
             android:layout_below="@+id/tvForMoneySpent"
-            android:background="@color/Gray" />
+            android:background="@color/White" />
 
         <TextView
             android:id="@+id/tvForSpent"
@@ -173,7 +178,7 @@
             android:layout_height="wrap_content"
             android:text="135$"
             android:textSize="20dp"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:layout_below="@+id/tvForRate"
             android:layout_marginTop="10dp"
             android:layout_alignParentRight="true" />

@@ -15,6 +15,7 @@ import com.example.kalin.graduationwork.dao.DBManager;
 import com.example.kalin.graduationwork.model.Event;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class HomeFragment extends BaseFragment {
@@ -22,6 +23,7 @@ public class HomeFragment extends BaseFragment {
     private EventsAdapter adapter;
     private RecyclerView list;
     private LinearLayout layout;
+    Calendar currentDay;
 
     private DBManager dbmanager;
 
@@ -44,6 +46,8 @@ public class HomeFragment extends BaseFragment {
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
         layout = (LinearLayout) mainView.findViewById(R.id.layout_for_no_events);
 
+        currentDay = Calendar.getInstance();
+
         List<Event> events = new ArrayList<>();
 
         events = DBManager.getInstance(getActivity()).getAllEvents();
@@ -59,15 +63,6 @@ public class HomeFragment extends BaseFragment {
 
         getMainActivity().getFab().show();
     }
-
-/*
-    private void deleteCompany(final Event clickedEvent) {
-        if (dbmanager != null) {
-            dbmanager.deleteEvent(clickedEvent);
-//            list.remove(clickedEvent);
-        }
-    }
-*/
 
     @Override
     public void onPause() {
@@ -85,6 +80,7 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getMainActivity(), "You have clicked the left arrow", Toast.LENGTH_SHORT).show();
+                previousDay();
             }
         });
 
@@ -96,6 +92,7 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getMainActivity(), "You have clicked the right arrow", Toast.LENGTH_SHORT).show();
+                nextDay();
             }
         });
 
@@ -109,5 +106,21 @@ public class HomeFragment extends BaseFragment {
             }
         });
     }
+
+    public void nextDay() {
+        Calendar cal = Calendar.getInstance();
+        cal.getTimeInMillis();
+        int hours = cal.get(Calendar.HOUR_OF_DAY);
+        currentDay.set(Calendar.HOUR_OF_DAY, hours + 24);
+        Toast.makeText(getMainActivity(), "Those are the tasks for tomorrow", Toast.LENGTH_SHORT).show();
+    }
+
+    public void previousDay() {
+        Calendar prevDay = Calendar.getInstance();
+        prevDay.getTimeInMillis();
+        int hours = prevDay.get(Calendar.HOUR_OF_DAY);
+        currentDay.set(Calendar.HOUR_OF_DAY, hours - 24);
+    }
+
 
 }

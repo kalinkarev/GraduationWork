@@ -139,49 +139,48 @@ public class DBManager {
         return events;
     }
 
+    public synchronized List<Event> getAllEventsForStatistics(long start, long end) {
+        open();
+        List<Event> events = new ArrayList<>();
 
-//    public synchronized List<Event> getAllEvents(long start, long end) {
-//        open();
-//        List<Event> events = new ArrayList<>();
-//
-//        Cursor cursor = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_EVENTS, null);
-//
-//        if (cursor != null) {
-//            cursor.moveToFirst();
-//            while (cursor.moveToNext()) {
-//                Event event = new Event(cursor);
-//
-//                Cursor cursorDuration = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_DURATIONS + " WHERE "
-//                        + DBHelper.COLUMN_DURATION_EVENT_ID + "=" + event.getId(), null);
-//                if (cursorDuration.moveToNext()) {
-//                    Duration duration = new Duration(cursorDuration);
-//                    event.setDuration(duration);
-//                }
-//                cursorDuration.close();
-//
-//                Cursor cursorLocation = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_LOCATIONS + " WHERE "
-//                        + DBHelper.COLUMN_LOCATION_EVENT_ID + "=" + event.getId(), null);
-//                if (cursorLocation.moveToNext()) {
-//                    Location location = new Location(cursorLocation);
-//                    event.setLocation(location);
-//                }
-//                cursorLocation.close();
-//
-//                events.add(event);
-//            }
-//
-//            cursor.close();
-//        }
-//        close();
-//
-////        List<Event> eventsInPeriod = new ArrayList<>();
-////        for (Event event : events) {
-////            if (event.getDuration().getStart() > start && event.getDuration().getEvent() < end) {
-////                eventsInPeriod.add(event);
-////            }
-////        }
-////        return eventsInPeriod;
-//
+        Cursor cursor = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_EVENTS, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+            while (cursor.moveToNext()) {
+                Event event = new Event(cursor);
+
+                Cursor cursorDuration = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_DURATIONS + " WHERE "
+                        + DBHelper.COLUMN_DURATION_EVENT_ID + "=" + event.getId(), null);
+                if (cursorDuration.moveToNext()) {
+                    Duration duration = new Duration(cursorDuration);
+                    event.setDuration(duration);
+                }
+                cursorDuration.close();
+
+                Cursor cursorLocation = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_LOCATIONS + " WHERE "
+                        + DBHelper.COLUMN_LOCATION_EVENT_ID + "=" + event.getId(), null);
+                if (cursorLocation.moveToNext()) {
+                    Location location = new Location(cursorLocation);
+                    event.setLocation(location);
+                }
+                cursorLocation.close();
+
+                events.add(event);
+            }
+
+            cursor.close();
+        }
+        close();
+
+        List<Event> eventsInPeriod = new ArrayList<>();
+        for (Event event : events) {
+            if (event.getDuration().getStart() > start && event.getDuration().getFinish() < end) {
+                eventsInPeriod.add(event);
+            }
+        }
+        return eventsInPeriod;
+
 //        return events;
-//    }
+    }
 }

@@ -1,16 +1,20 @@
 package com.example.kalin.graduationwork.fragments;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.model.Event;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -34,6 +38,14 @@ public class StatisticFragment extends BaseFragment {
     Event selectedEvent;
     TextView eventName;
 
+    TextView startDate;
+    TextView finishDate;
+
+    int mYear, mMonth, mDay;
+
+    Calendar start;
+    Calendar finish;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_statistic;
@@ -42,12 +54,18 @@ public class StatisticFragment extends BaseFragment {
     @Override
     protected void onCreateView() {
 
+        start = Calendar.getInstance();
+        finish = Calendar.getInstance();
+
         Button btnShowStatistics = (Button) mainView.findViewById(R.id.btnShowStatistics);
         btnShowStatistics.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
 //                getMainActivity().showFragmentAndAddToBackstack(FullStatisticFragment.newInstance(selectedEvent, events,
 //                        startDate.getTimeInMillis()));
+                getMainActivity().showFragmentAndAddToBackstack(FullStatisticFragment.newInstance(selectedEvent, events,
+                        start.getTimeInMillis(), finish.getTimeInMillis()));
+
             }
         });
 
@@ -59,6 +77,24 @@ public class StatisticFragment extends BaseFragment {
                 showEventsDialog();
             }
         });
+
+        startDate = (TextView) mainView.findViewById(R.id.tvForChoosingPeriod);
+        finishDate = (TextView) mainView.findViewById(R.id.tvForChoosingFinishPeriod);
+
+        startDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePickerStartDate();
+            }
+        });
+
+        finishDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePickerFinishDate();
+            }
+        });
+
     }
 
     private void showEventsDialog() {
@@ -76,7 +112,7 @@ public class StatisticFragment extends BaseFragment {
                 dialog.dismiss();
             }
         });
-        builder.setTitle("Pesho");
+        builder.setTitle("Choose from the activities");
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -92,4 +128,45 @@ public class StatisticFragment extends BaseFragment {
     }
 
 
+    public void datePickerStartDate() {
+        if (start == null ) {
+            start = Calendar.getInstance();
+        }
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener(){
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year, monthOfYear, dayOfMonth);
+                SimpleDateFormat format = new SimpleDateFormat("dd. MM");
+                String dateString = format.format(calendar.getTime());
+                startDate.setText(dateString);
+                start.set(year, monthOfYear, dayOfMonth);
+            }
+        }, start.get(Calendar.YEAR), mMonth, mDay);
+
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
+        datePickerDialog.show();
+    }
+
+    public void datePickerFinishDate() {
+        if (finish == null) {
+            finish = Calendar.getInstance();
+        }
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year, monthOfYear, dayOfMonth);
+                SimpleDateFormat format = new SimpleDateFormat("dd. MM");
+                String dateString = format.format(calendar.getTime());
+                finishDate.setText(dateString);
+                finish.set(year, monthOfYear, dayOfMonth);
+            }
+        }, mYear, mMonth, mDay);
+
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
+        datePickerDialog.show();
+    }
 }
