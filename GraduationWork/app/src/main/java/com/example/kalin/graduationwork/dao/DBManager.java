@@ -78,7 +78,7 @@ public class DBManager {
         valuesLocation.put(DBHelper.COLUMN_LOCATION_EVENT_ID, insertId);
 
         if (toUpdate && event.getLocation().getId() != 0) {
-            mDatabase.update(DBHelper.TABLE_LOCATIONS, valuesDuration, DBHelper.COLUMN_LOCATION_ID + "=" + event.getLocation().getId(), null);
+            mDatabase.update(DBHelper.TABLE_LOCATIONS, valuesLocation, DBHelper.COLUMN_LOCATION_ID + "=" + event.getLocation().getId(), null);
         } else {
             mDatabase.insert(DBHelper.TABLE_LOCATIONS, null, valuesLocation);
         }
