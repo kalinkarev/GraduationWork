@@ -10,29 +10,26 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.kalin.graduationwork.R;
 import com.example.kalin.graduationwork.dao.DBManager;
-import com.example.kalin.graduationwork.interfaces.ColorSelectedListener;
 import com.example.kalin.graduationwork.model.ColorData;
 import com.example.kalin.graduationwork.model.Event;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsViewHolder> implements ColorSelectedListener {
+public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsViewHolder> {
 
     List<Event> items = new ArrayList<>();
     private int selectedPosition = -1;
     private DBManager dbmanager;
     Context context;
     ColorData currentColor;
-    boolean ischecked = false;
+    private EventsListener listener;
 
-    @Override
-    public void onColorSelected(ColorData data) {
-        currentColor = data;
+    public EventsAdapter(EventsListener listener) {
+        this.listener = listener;
     }
 
     @Override
@@ -52,41 +49,42 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
         final Event event = items.get(position);
 
         holder.title.setText(event.getName());
-//        holder.linearLayoutColorEvent.setBackgroundColor(currentColor.getColor());
+        holder.linearLayoutColorEvent.setBackgroundColor(event.getColor().getColor());
         holder.ivForReadyTask.setVisibility(View.GONE);
+
+        if (event.isChecked()) {
+            holder.ivForReadyTask.setVisibility(View.VISIBLE);
+        } else {
+            holder.ivForReadyTask.setVisibility(View.GONE);
+        }
 
         if (selectedPosition == position) {
             holder.buttonsLayout.setVisibility(View.VISIBLE);
-            holder.ibReadyTask.setOnClickListener(new View.OnClickListener() {
+
+            holder.ibForReadyTask.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     holder.ivForReadyTask.setVisibility(View.VISIBLE);
-                    ischecked = true;
-
-//                    DBManager.getInstance(context).addEvent(null, true);
-//                    DBManager.getInstance(context).addEvent(event, true);
-//                    notifyDataSetChanged();
-//                    Toast.makeText(context, "The color is:" + currentColor.getName(), Toast.LENGTH_SHORT).show();
+                    event.setChecked(!event.isChecked());
+                    update(event, holder);
                 }
             });
+
             holder.ibForDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     DBManager.getInstance(context).deleteEvent(event);
-                    notifyDataSetChanged();
-
-                    List<Event> newEvents = new ArrayList<>();
-                    newEvents = DBManager.getInstance(context).getAllEvents();
-
+                    update(event, holder);
                 }
             });
+
             holder.ibForEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    getMainActivity().showFragmentAndAddToBackstack(new StatisticFragment());
-                    Toast.makeText(context, "You have clicked the edit button", Toast.LENGTH_SHORT).show();
+                    listener.onEditClicked(event);
                 }
             });
+
         } else {
             holder.buttonsLayout.setVisibility(View.GONE);
         }
@@ -98,11 +96,21 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedPosition = position;
+                if (selectedPosition == position) {
+                    selectedPosition = -1;
+                } else {
+                    selectedPosition = position;
+                }
                 notifyDataSetChanged();
             }
         });
 
+    }
+
+    private void update(Event event, EventsViewHolder holder) {
+        DBManager.getInstance(context).addEvent(event, true);
+        addItems(DBManager.getInstance(context).getAllEvents());
+        holder.buttonsLayout.setVisibility(View.GONE);
     }
 
     @Override
@@ -118,7 +126,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
         LinearLayout buttonsLayout;
         LinearLayout linearLayoutEvent;
         LinearLayout linearLayoutColorEvent;
-        ImageButton ibReadyTask;
+        ImageButton ibForReadyTask;
         ImageButton ibForDelete;
         ImageButton ibForEdit;
         ImageView ivForReadyTask;
@@ -130,7 +138,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
             buttonsLayout = (LinearLayout) itemView.findViewById(R.id.buttonsLayout);
             linearLayoutEvent = (LinearLayout) itemView.findViewById(R.id.linearLayoutEvent);
             linearLayoutColorEvent = (LinearLayout) itemView.findViewById(R.id.linearLayoutForColorEvent);
-            ibReadyTask = (ImageButton) itemView.findViewById(R.id.buttonForReadyTask);
+            ibForReadyTask = (ImageButton) itemView.findViewById(R.id.buttonForReadyTask);
             ibForDelete = (ImageButton) itemView.findViewById(R.id.buttonForDelete);
             ibForEdit = (ImageButton) itemView.findViewById(R.id.buttonForEdit);
             ivForReadyTask = (ImageView) itemView.findViewById(R.id.ready_task);
@@ -145,4 +153,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
 
     }
 
+    public interface EventsListener {
+        void onEditClicked(Event event);
+    }
+
+    public List<Event> getItems() {
+        return items;
+    }
 }

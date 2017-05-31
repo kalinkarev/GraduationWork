@@ -13,8 +13,6 @@ import com.example.kalin.graduationwork.model.Location;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.R.attr.id;
-
 public class DBManager {
 
     private static DBManager instance;
@@ -49,20 +47,29 @@ public class DBManager {
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_EVENT_NAME, event.getName());
         values.put(DBHelper.COLUMN_EVENT_COLOR, String.valueOf(event.getColor().getColor()));
-//        values.put(DBHelper.COLUMN_EVENT_NOTE, event.getNote());
-        values.put(DBHelper.COLUMN_EVENT_NOTIFICATION, event.getNotification());
+        values.put(DBHelper.COLUMN_EVENT_NOTIFICATION, event.getNotification() ? 1 : 0);
         values.put(DBHelper.COLUMN_EVENT_PRICE, event.getPrice());
+        values.put(DBHelper.COLUMN_EVENT_CHECKED, event.isChecked() ? 1 : 0);
 
-        long insertId = mDatabase.insert(DBHelper.TABLE_EVENTS, null, values);
+        long insertId = 0;
+        if (toUpdate) {
+            insertId = event.getId();
+            mDatabase.update(DBHelper.TABLE_EVENTS, values, DBHelper.COLUMN_EVENT_ID + "=" + insertId, null);
+        } else {
+            insertId = mDatabase.insert(DBHelper.TABLE_EVENTS, null, values);
+        }
 
         ContentValues valuesDuration = new ContentValues();
         valuesDuration.put(DBHelper.COLUMN_DURATION_START, event.getDuration().getStart());
         valuesDuration.put(DBHelper.COLUMN_DURATION_FINISH, event.getDuration().getFinish());
-//        valuesDuration.put(DBHelper.COLUMN_DURATION_REPEAT, event.getDuration().getRepeat());
         valuesDuration.put(DBHelper.COLUMN_DURATION_ALLDAY, event.getDuration().getAllday());
         valuesDuration.put(DBHelper.COLUMN_DURATION_EVENT_ID, insertId);
 
-        mDatabase.insert(DBHelper.TABLE_DURATIONS, null, valuesDuration);
+        if (toUpdate&& event.getDuration().getId() != 0) {
+            mDatabase.update(DBHelper.TABLE_DURATIONS, valuesDuration, DBHelper.COLUMN_DURATION_ID + "=" + event.getDuration().getId(), null);
+        } else {
+            mDatabase.insert(DBHelper.TABLE_DURATIONS, null, valuesDuration);
+        }
 
         ContentValues valuesLocation = new ContentValues();
         valuesLocation.put(DBHelper.COLUMN_LOCATION_NAME, event.getLocation().getName());
@@ -70,16 +77,20 @@ public class DBManager {
         valuesLocation.put(DBHelper.COLUMN_LOCATION_LATITUDE, event.getLocation().getLatitude());
         valuesLocation.put(DBHelper.COLUMN_LOCATION_EVENT_ID, insertId);
 
-        mDatabase.insert(DBHelper.TABLE_LOCATIONS, null, valuesLocation);
+        if (toUpdate && event.getLocation().getId() != 0) {
+            mDatabase.update(DBHelper.TABLE_LOCATIONS, valuesDuration, DBHelper.COLUMN_LOCATION_ID + "=" + event.getLocation().getId(), null);
+        } else {
+            mDatabase.insert(DBHelper.TABLE_LOCATIONS, null, valuesLocation);
+        }
 
         close();
     }
 
     public synchronized void deleteEvent(Event event) {
         open();
-        mDatabase.delete(DBHelper.TABLE_EVENTS, DBHelper.COLUMN_EVENT_ID + " = " + id, null);
-        mDatabase.delete(DBHelper.TABLE_LOCATIONS, DBHelper.COLUMN_LOCATION_EVENT_ID + " = " + id, null);
-        mDatabase.delete(DBHelper.TABLE_DURATIONS, DBHelper.COLUMN_DURATION_EVENT_ID + " = " + id, null);
+        mDatabase.delete(DBHelper.TABLE_EVENTS, DBHelper.COLUMN_EVENT_ID + " = " + event.getId(), null);
+        mDatabase.delete(DBHelper.TABLE_LOCATIONS, DBHelper.COLUMN_LOCATION_EVENT_ID + " = " + event.getLocation().getId(), null);
+        mDatabase.delete(DBHelper.TABLE_DURATIONS, DBHelper.COLUMN_DURATION_EVENT_ID + " = " + event.getDuration().getId(), null);
         close();
     }
 
@@ -117,6 +128,60 @@ public class DBManager {
         }
         close();
 
+//        List<Event> eventsInPeriod = new ArrayList<>();
+//        for (Event event : events) {
+//            if (event.getDuration().getStart() > start && event.getDuration().getEvent() < end) {
+//                eventsInPeriod.add(event);
+//            }
+//        }
+//        return eventsInPeriod;
+
         return events;
     }
+
+
+//    public synchronized List<Event> getAllEvents(long start, long end) {
+//        open();
+//        List<Event> events = new ArrayList<>();
+//
+//        Cursor cursor = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_EVENTS, null);
+//
+//        if (cursor != null) {
+//            cursor.moveToFirst();
+//            while (cursor.moveToNext()) {
+//                Event event = new Event(cursor);
+//
+//                Cursor cursorDuration = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_DURATIONS + " WHERE "
+//                        + DBHelper.COLUMN_DURATION_EVENT_ID + "=" + event.getId(), null);
+//                if (cursorDuration.moveToNext()) {
+//                    Duration duration = new Duration(cursorDuration);
+//                    event.setDuration(duration);
+//                }
+//                cursorDuration.close();
+//
+//                Cursor cursorLocation = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_LOCATIONS + " WHERE "
+//                        + DBHelper.COLUMN_LOCATION_EVENT_ID + "=" + event.getId(), null);
+//                if (cursorLocation.moveToNext()) {
+//                    Location location = new Location(cursorLocation);
+//                    event.setLocation(location);
+//                }
+//                cursorLocation.close();
+//
+//                events.add(event);
+//            }
+//
+//            cursor.close();
+//        }
+//        close();
+//
+////        List<Event> eventsInPeriod = new ArrayList<>();
+////        for (Event event : events) {
+////            if (event.getDuration().getStart() > start && event.getDuration().getEvent() < end) {
+////                eventsInPeriod.add(event);
+////            }
+////        }
+////        return eventsInPeriod;
+//
+//        return events;
+//    }
 }

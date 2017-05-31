@@ -1,10 +1,14 @@
 package com.example.kalin.graduationwork.fragments;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -61,8 +65,27 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
     private static final String TYPE_AUTOCOMPLETE = "/autocomplete";
     private static final String OUT_JSON = "/json";
 
+    private static final String ARG_EVENT = "ARG_EVENT";
+
     //------------ the API key for find places ------------
     private static final String API_KEY = "AIzaSyCjKffmFemdUklvZVeUZEoBnaSuOm3cGds";
+
+    public static AddFragment newInstance() {
+        Bundle args = new Bundle();
+
+        AddFragment fragment = new AddFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    public static AddFragment newInstance(Event event) {
+        Bundle args = new Bundle();
+
+        AddFragment fragment = new AddFragment();
+        args.putSerializable(ARG_EVENT, event);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     protected View addView;
     Toolbar toolbarAddfragment;
@@ -80,6 +103,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
     TextView tvForStartTime;
     TextView tvForFinishTime;
     Calendar startDate;
+    Calendar endDate;
 
     ColorView circleColor;
     TextView editColor;
@@ -97,6 +121,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
     int optionForAllDay = 0;
     int newFinishTime;
     int newStartTime;
+
+    Event oldEvent;
 
     @Override
     protected int getLayoutId() {
@@ -117,46 +143,54 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         editColor = (TextView) mainView.findViewById(R.id.TextViewColor);
         circleColor = (ColorView) mainView.findViewById(R.id.circleView);
 
-        String formatCurrentDate = DateFormat.getDateInstance(DateFormat.FULL).format(new Date());
-
-        tvForStartDate.setText(formatCurrentDate);
-        tvForFinishDate.setText(formatCurrentDate);
-
-        tvForStartDate.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                datePickerStartDate();
-            }
-        });
-
-        tvForFinishDate.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                datePickerFinishDate();
-            }
-        });
-
-        calendar = Calendar.getInstance();
-        mMinute = calendar.get(Calendar.MINUTE);
-        mHour = calendar.get(Calendar.HOUR_OF_DAY);
-        calendar.getTime();
-
-        if (mMinute >= 30) {
-            mMinute = 0;
-            if (mHour >= 24)
-                calendar.set(Calendar.HOUR_OF_DAY, 0);
-            mHour  = mHour + 1;
-
-            tvForStartTime.setText(mHour+":"+mMinute);
-        } else {
-            mMinute = 30;
-            tvForStartTime.setText(mHour+":"+mMinute);
+        if (getArguments() != null) {
+            oldEvent = (Event) getArguments().getSerializable(ARG_EVENT);
         }
 
-        mHourFinish = mHour + 1;
-        tvForFinishTime.setText(mHourFinish +":"+ mMinute);
-        newStartTime = mHour;
-        newFinishTime = mHourFinish;
+        if (oldEvent != null) {
+
+        } else {
+            String formatCurrentDate = DateFormat.getDateInstance(DateFormat.FULL).format(new Date());
+
+            tvForStartDate.setText(formatCurrentDate);
+            tvForFinishDate.setText(formatCurrentDate);
+
+            tvForStartDate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    datePickerStartDate();
+                }
+            });
+
+            tvForFinishDate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    datePickerFinishDate();
+                }
+            });
+
+            calendar = Calendar.getInstance();
+            mMinute = calendar.get(Calendar.MINUTE);
+            mHour = calendar.get(Calendar.HOUR_OF_DAY);
+            calendar.getTime();
+
+            if (mMinute >= 30) {
+                mMinute = 0;
+                if (mHour >= 24)
+                    calendar.set(Calendar.HOUR_OF_DAY, 0);
+                mHour = mHour + 1;
+
+                tvForStartTime.setText(mHour + ":" + mMinute);
+            } else {
+                mMinute = 30;
+                tvForStartTime.setText(mHour + ":" + mMinute);
+            }
+
+            mHourFinish = mHour + 1;
+            tvForFinishTime.setText(mHourFinish + ":" + mMinute);
+            newStartTime = mHour;
+            newFinishTime = mHourFinish;
+        }
 
         tvForStartTime.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -175,7 +209,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         });
 
         // set the switch to ON
-        switchForDateDuration.setChecked(false);
+        switchForDateDuration.setChecked(oldEvent != null ? oldEvent.getDuration().getAllday() : false);
         //attach a listener to check for changes in state
         switchForDateDuration.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -216,7 +250,11 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
             }
         });
 
-        currentColor = ColorUtil.getInstance(getActivity()).getColors().get(0);
+        if (oldEvent != null) {
+            currentColor = oldEvent.getColor();
+        } else {
+            currentColor = ColorUtil.getInstance(getActivity()).getColors().get(0);
+        }
 
         editColor.setText(currentColor.getName());
 
@@ -249,79 +287,109 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
     }
 
     public void getThings() {
-        Editable eventTitle = txtTitle.getText();
-        Editable location = txtLocation.getText();
-        Editable price = txtPrice.getText();
+        final ProgressDialog pd = new ProgressDialog(getActivity());
+        pd.setCancelable(false);
+        pd.show();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Editable eventTitle = txtTitle.getText();
+                Editable location = txtLocation.getText();
+                Editable price = txtPrice.getText();
 //      Editable notification = txtNotification.getText();
-        int finalPrice = Integer.parseInt(price.toString());
+                int finalPrice = Integer.parseInt(price.toString());
 
-        String finalLocation = location.toString();
-        Geocoder gc = new Geocoder(getMainActivity());
-        List<LatLng> ll = null;
-        try {
-            List<Address> addresses = gc.getFromLocationName(finalLocation, 5);
+                String finalLocation = location.toString();
+                Geocoder gc = new Geocoder(getMainActivity());
+                List<LatLng> ll = null;
+                try {
+                    List<Address> addresses = gc.getFromLocationName(finalLocation, 5);
 
-            ll = new ArrayList<LatLng>(addresses.size());
-            for (Address a : addresses) {
-                if (a.hasLatitude() && a.hasLongitude()) {
-                    ll.add(new LatLng(a.getLatitude(), a.getLongitude()));
+                    ll = new ArrayList<LatLng>(addresses.size());
+                    for (Address a : addresses) {
+                        if (a.hasLatitude() && a.hasLongitude()) {
+                            ll.add(new LatLng(a.getLatitude(), a.getLongitude()));
+                        }
+                    }
+                    Log.d("The latitude is", String.valueOf(ll));
+                } catch (IOException e) {}
+
+                Location newLocation = new Location();
+                newLocation.setName(location.toString());
+                newLocation.setLatitude(String.valueOf(ll));
+                newLocation.setLongitute(String.valueOf(ll));
+
+                Duration newDuration = new Duration();
+
+                if (optionForAllDay == 1) {
+                    newDuration.setAllday(true);
+                } else if (optionForAllDay == 0) {
+                    newDuration.setAllday(false);
+                    startDate = Calendar.getInstance();
+                    endDate = Calendar.getInstance();
+                    newDuration.setStart(startDate.getTimeInMillis());
+                    newDuration.setFinish(endDate.getTimeInMillis());
+//                    newDuration.setStart(startDate.getTimeInMillis());
+//                    newDuration.setFinish(endDate.getTimeInMillis());
+                }
+
+                Event newEvent = oldEvent != null ? oldEvent : new Event();
+                newEvent.setName(eventTitle.toString());
+                newEvent.setColor(currentColor);
+                newEvent.setNotification(false);
+                newEvent.setPrice(finalPrice);
+                newEvent.setDuration(newDuration);
+                newEvent.setLocation(newLocation);
+
+                if (!TextUtils.isEmpty(eventTitle) && !TextUtils.isEmpty(price)) {
+                    DBManager.getInstance(getActivity()).addEvent(newEvent, oldEvent != null);
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            pd.dismiss();
+                            getMainActivity().onBackPressed();
+                        }
+                    });
+                } else {
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            pd.dismiss();
+                            Toast.makeText(getMainActivity(), "You haven`t complete the needed fields", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
-            Log.d("The latitude is", String.valueOf(ll));
-        } catch (IOException e) {}
-
-        Location newLocation = new Location();
-        newLocation.setName(location.toString());
-        newLocation.setLatitude(String.valueOf(ll));
-        newLocation.setLongitute(String.valueOf(ll));
-
-        Duration newDuration = new Duration();
-
-        if (optionForAllDay == 1) {
-            newDuration.setAllday(true);
-        } else if (optionForAllDay == 0) {
-            newDuration.setAllday(false);
-            newDuration.setStart(newStartTime);
-            newDuration.setFinish(newFinishTime);
-        }
-
-        Event newEvent = new Event();
-        newEvent.setName(eventTitle.toString());
-        newEvent.setColor(currentColor);
-        newEvent.setNotification(false);
-        newEvent.setPrice(finalPrice);
-        newEvent.setDuration(newDuration);
-        newEvent.setLocation(newLocation);
-
-        if (!TextUtils.isEmpty(eventTitle) && !TextUtils.isEmpty(price)) {
-            DBManager.getInstance(getActivity()).addEvent(newEvent, false);
-            getMainActivity().showFragmentAndAddToBackstack(new HomeFragment());
-        } else {
-            Toast.makeText(getMainActivity(), "You haven`t complete the needed fields", Toast.LENGTH_SHORT).show();
-        }
+        }).start();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }
 
-    public void datePickerStartDate() {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener(){
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(year, monthOfYear, dayOfMonth);
-                SimpleDateFormat format = new SimpleDateFormat("EEEE, MMMM dd yyyy");
-                String dateString = format.format(calendar.getTime());
-                tvForStartDate.setText(dateString);
-            }
-        }, mYear, mMonth, mDay);
+    public void datePickerFinishDate() {
+        if (endDate == null) {
+            endDate = Calendar.getInstance();
+        }
 
-        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
-        datePickerDialog.show();
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(year, monthOfYear, dayOfMonth);
+                    SimpleDateFormat format = new SimpleDateFormat("EEEE, MMMM dd yyyy");
+                    String dateString = format.format(calendar.getTime());
+                    tvForStartDate.setText(dateString);
+                    endDate.set(year, monthOfYear, dayOfMonth);
+                }
+            }, mYear, mMonth, mDay);
+
+            datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
+            datePickerDialog.show();
+
     }
 
-    public void datePickerFinishDate() {
+    public void datePickerStartDate() {
         if (startDate == null ) {
             startDate = Calendar.getInstance();
         }
@@ -334,6 +402,7 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
                 SimpleDateFormat format = new SimpleDateFormat("EEEE, MMMM dd yyyy");
                 String dateString = format.format(calendarfinish.getTime());
                 tvForFinishDate.setText(dateString);
+                startDate.set(year, monthOfYear, dayOfMonth);
             }
         }, startDate.get(Calendar.YEAR), mMonth, mDay);
 
@@ -345,9 +414,10 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
         TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener(){
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
                 tvForStartTime.setText(hourOfDay+":"+minute);
                 newStartTime = hourOfDay;
+                startDate.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                startDate.set(Calendar.MINUTE, minute);
 
             }
         }, mHour, mMinute, false);
@@ -361,6 +431,8 @@ public class AddFragment extends BaseFragment implements ColorSelectedListener, 
 
                 tvForFinishTime.setText(hourOfDay+":"+minute);
                 newFinishTime = hourOfDay;
+                endDate.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                endDate.set(Calendar.MINUTE, minute);
 
             }
         }, mHourFinish, mMinute, false);

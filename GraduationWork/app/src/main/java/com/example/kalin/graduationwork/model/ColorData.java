@@ -1,6 +1,8 @@
 package com.example.kalin.graduationwork.model;
 
-public class ColorData {
+import java.io.Serializable;
+
+public class ColorData implements Serializable{
 
     private String mName;
     private int mColor;

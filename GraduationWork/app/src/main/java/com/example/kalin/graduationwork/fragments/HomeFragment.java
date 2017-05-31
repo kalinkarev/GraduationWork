@@ -34,7 +34,12 @@ public class HomeFragment extends BaseFragment {
     protected void onCreateView() {
 
         list = (RecyclerView) mainView.findViewById(R.id.kalinsRecyclerView);
-        adapter = new EventsAdapter();
+        adapter = new EventsAdapter(new EventsAdapter.EventsListener() {
+            @Override
+            public void onEditClicked(Event event) {
+                getMainActivity().showFragmentAndAddToBackstack(AddFragment.newInstance(event));
+            }
+        });
         list.setAdapter(adapter);
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
         layout = (LinearLayout) mainView.findViewById(R.id.layout_for_no_events);
@@ -99,8 +104,7 @@ public class HomeFragment extends BaseFragment {
         imageViewSeeStatistics.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
-                getMainActivity().showFragmentAndAddToBackstack(new StatisticFragment());
+                getMainActivity().showFragmentAndAddToBackstack(StatisticFragment.newInstance(adapter.getItems()));
 
             }
         });

@@ -18,11 +18,12 @@ public class Event implements Serializable {
     private int mPrice;
     private Duration mDuration;
     private Location mLocation;
+    private boolean isChecked;
 
     public Event() {}
 
     public Event(String name, ColorData color, String note, boolean notification, int price,
-                 Duration duration, Location location) {
+                 Duration duration, Location location, boolean isChecked) {
         this.mName = name;
         this.mColor = color;
         this.mNote = note;
@@ -30,6 +31,7 @@ public class Event implements Serializable {
         this.mPrice = price;
         this.mDuration = duration;
         this.mLocation = location;
+        this.isChecked = isChecked;
     }
 
     public Event(Cursor cursor) {
@@ -39,6 +41,7 @@ public class Event implements Serializable {
 //        setNote(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTE)));
         setNotification(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_NOTIFICATION)) == 1);
         setPrice(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_PRICE)));
+        setChecked(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_EVENT_CHECKED)) == 1);
     }
 
     public long getId() {
@@ -103,5 +106,13 @@ public class Event implements Serializable {
 
     public void setDuration(Duration mDuration) {
         this.mDuration = mDuration;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 }

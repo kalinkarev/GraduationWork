@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showFragmentAndAddToBackstack(new AddFragment());
+                showFragmentAndAddToBackstack(AddFragment.newInstance());
             }
         });
 

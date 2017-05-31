@@ -15,6 +15,7 @@ public class DBHelper extends SQLiteOpenHelper {
 //    public static final String COLUMN_EVENT_NOTE = "note";
     public static final String COLUMN_EVENT_NOTIFICATION = "notification";
     public static final String COLUMN_EVENT_PRICE = "price";
+    public static final String COLUMN_EVENT_CHECKED = "checked";
 
     // columns of the durations table
     public static final String TABLE_DURATIONS = "durations";
@@ -44,6 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + COLUMN_EVENT_COLOR + " integer, "
 //            + COLUMN_EVENT_NOTE + " text not null, "
             + COLUMN_EVENT_NOTIFICATION + " integer, "
+            + COLUMN_EVENT_CHECKED + " integer, "
             + COLUMN_EVENT_PRICE + " integer not null);";
 
     // Database creation sql statement
