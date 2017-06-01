@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/backgr">
+
+    <include
+        android:id="@+id/toolbar_statistics"
+        layout="@layout/toolbar_statisticfragment"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" >
+
+    </include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" >
+
+        <TextView
+            android:id="@+id/tvForActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Activity"
+            android:textColor="@color/White"
+            android:textSize="20dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/tvForActivity"
+            android:background="@color/White" />
+
+        <TextView
+            android:id="@+id/tvForNameActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvForActivity"
+            android:textColor="@color/White"
+            android:textSize="30dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/tvForNameActivity"
+            android:layout_marginTop="30dp"
+            android:background="@color/White" />
+
+        <TextView
+            android:id="@+id/tvForChoosingPeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvForNameActivity"
+            android:layout_marginTop="60dp"
+            android:textColor="@color/White"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/tvForChoosingFinishPeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvForChoosingPeriod"
+            android:layout_marginTop="60dp"
+            android:textColor="@color/White"
+            android:textSize="30dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/tvForChoosingFinishPeriod"
+            android:background="@color/White" />
+
+        <TextView
+            android:id="@+id/tvForNumberOfHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of Hours"
+            android:textColor="@color/White"
+            android:textSize="20dp"
+            android:layout_below="@+id/tvForChoosingFinishPeriod"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentLeft="true"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/tvForNumberOfHours"
+            android:background="@color/White" />
+
+        <TextView
+            android:id="@+id/tvForHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/White"
+            android:layout_below="@+id/tvForChoosingFinishPeriod"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:id="@+id/tvForHoursAttended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hours Attended"
+            android:textColor="@color/White"
+            android:textSize="20dp"
+            android:layout_below="@+id/tvForNumberOfHours"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/tvForHoursAttended"
+            android:background="@color/White" />
+
+        <TextView
+            android:id="@+id/tvForAttended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/White"
+            android:layout_below="@+id/tvForHours"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:id="@+id/tvForSuccessRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Successful rate"
+            android:textColor="@color/White"
+            android:textSize="20dp"
+            android:layout_below="@+id/tvForHoursAttended"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/tvForSuccessRate"
+            android:background="@color/White" />
+
+        <TextView
+            android:id="@+id/tvForRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="70%"
+            android:textSize="20dp"
+            android:textColor="@color/White"
+            android:layout_below="@+id/tvForAttended"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:id="@+id/tvForMoneySpent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Money spent:"
+            android:textColor="@color/White"
+            android:textSize="20dp"
+            android:layout_below="@+id/tvForSuccessRate"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/tvForMoneySpent"
+            android:background="@color/White" />
+
+        <TextView
+            android:id="@+id/tvForSpent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="135$"
+            android:textSize="20dp"
+            android:textColor="@color/White"
+            android:layout_below="@+id/tvForRate"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#26FFFFFF"
+                android:layout_toLeftOf="@+id/linearLayoutForColorEvent"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/ready_task"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/compleated_task"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/events_row_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:paddingLeft="30dp"
+                    android:textColor="@color/White" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutForColorEvent"
+                android:layout_width="20dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignBottom="@+id/linearLayoutEvent"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/LightBlue"
+            android:padding="10dp">
+
+            <ImageButton
+                android:id="@+id/buttonForEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit" />
+
+            <ImageButton
+                android:id="@+id/buttonForDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/delete" />
+
+            <ImageButton
+                android:id="@+id/buttonForReadyTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/compleate" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/Gray" />
+
+</RelativeLayout>

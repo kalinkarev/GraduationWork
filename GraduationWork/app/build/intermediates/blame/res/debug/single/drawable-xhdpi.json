@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\edit.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\edit.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\price.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\price.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\bell.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\bell.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\new_task.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\new_task.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\arrow_left.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\arrow_left.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\backgr.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\backgr.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\compleated_task.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\compleated_task.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\close.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\close.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\location.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\location.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\compleate.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\compleate.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\clock.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\clock.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\menu.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\menu.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\stat.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\stat.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\arrow_right.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\arrow_right.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\delete.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\delete.png"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\no_event_arrow.png",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\src\\main\\res\\drawable-xhdpi\\no_event_arrow.png"
+    }
+]
