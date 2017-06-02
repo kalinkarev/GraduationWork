@@ -36,12 +36,12 @@
         "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\drawable\\abc_ic_menu_overflow_material.xml"
     },
     {
-        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
-        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\drawable\\common_google_signin_btn_text_dark.xml"
-    },
-    {
         "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
         "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\drawable\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
+        "source": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "E:\\AndroidSutdioProjects\\GraduationWorkFinish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light.xml",
